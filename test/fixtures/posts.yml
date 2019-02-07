@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  stance_id: 1
+  item_id: 1
+  target_id: 1
+  s_scene_id: 1
+
+two:
+  user_id: 1
+  stance_id: 1
+  item_id: 1
+  target_id: 1
+  s_scene_id: 1

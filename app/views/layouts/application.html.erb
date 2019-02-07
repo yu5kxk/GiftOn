@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gifton</title>
+    <link rel="stylesheet" href="">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div>
+      <p>キーワード検索</p>
+    </div>
+
+    <% if manager_signed_in? %>
+      <div>
+        <div>
+          <%= link_to 'ロゴ', posts_top_path %>
+        </div>
+        
+        <div>
+          <%= link_to '口コミ',posts_path %>
+        </div>
+        
+        <div>
+          <%= link_to %>
+        </div>
+        
+        <div>
+          <%= link_to %>
+        </div>
+
+        <div>
+          <%= link_to 'ログアウト', destroy_manager_session_path %>
+        </div>
+      </div>
+
+    <% elsif user_signed_in? %>
+      <div>
+        <div>
+          <%= link_to 'ロゴ', posts_top_path %>
+        </div>
+        
+        <div>
+          <%= link_to '口コミ',posts_path %>
+        </div>
+        
+        <div>
+          <%= link_to %>
+        </div>
+        
+        <div>
+          <%= link_to %>
+        </div>
+
+        <div>
+          <%= link_to 'ログアウト', destroy_user_session_path %>
+        </div>
+      </div>
+
+    <% else %>
+      <div>
+        <div>
+          <%= link_to 'ロゴ', posts_top_path %>
+        </div>
+        
+        <div>
+          <%= link_to '口コミ',posts_path %>
+        </div>
+        
+        <div>
+          <%= link_to '新規登録', new_user_session_path %>
+        </div>
+        
+        <div>
+          <%= link_to 'ログイン', new_user_registration_path %>
+        </div>
+
+        <div>
+          <%= link_to 'お問い合わせ', users_lnquiry_path %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

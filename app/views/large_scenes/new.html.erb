@@ -1,0 +1,40 @@
+
+<h3>ギフトシーン一覧</h3>
+
+<div>
+	<div>
+		<%= form_for(@large_scene) do |f| %>
+			<span><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></span>
+			<span><%= f.text_field :name, placeholder: '大ギフトシーン' %><%= f.submit '追加' %></span>
+		<% end %>
+
+		<table>
+			<% @large_scenes.each do |l| %>
+				<tr>
+					<th><%= l.number %></th>
+					<th><%= l.name %></th>
+					<td><%= '編集' %><%= link_to '削除', large_scene_path(l.id), method: :delete %></td>
+					<!-- 編集画面は、モーダルかアラート -->
+					<td></td>
+				</tr>
+				<tr>
+					<%= form_for(@small_scene) do |f| %>
+					<td><%= f.hidden_field :large_scene_id, :value => l.id %></td>
+					<td><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></td>
+					<td><%= f.text_field :name, placeholder: '小ギフトシーン' %></td>
+					<td><%= f.submit '追加' %></td>
+					<!-- 編集画面は、モーダルかアラート -->
+					<% end %>
+				</tr>
+				<% l.small_scenes.each do |s| %>
+					<tr>
+						<td></td>
+						<td><%= s.number %></td>
+						<td><%= s.name %></td>
+						<td><%= '編集' %><%= link_to '削除', small_scene_path(s.id), method: :delete %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		</table>
+	</div>
+</div>
