@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_064924) do
+ActiveRecord::Schema.define(version: 2019_02_07_121846) do
 
   create_table "clips", force: :cascade do |t|
     t.integer "user_id"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 2019_02_07_064924) do
     t.integer "maker_id"
     t.integer "price"
     t.integer "keeping_quality"
-    t.integer "l_category_id"
-    t.integer "s_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "large_category_id"
+    t.integer "small_category_id"
   end
 
   create_table "l_categories", force: :cascade do |t|
@@ -96,9 +96,10 @@ ActiveRecord::Schema.define(version: 2019_02_07_064924) do
     t.integer "stance_id"
     t.integer "item_id"
     t.integer "target_id"
-    t.integer "s_scene_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "small_scene_id"
+    t.text "review"
   end
 
   create_table "ratings", force: :cascade do |t|

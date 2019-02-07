@@ -1,2 +1,29 @@
-<h1>Makers#index</h1>
-<p>Find me in app/views/makers/index.html.erb</p>
+<h3>メーカー・ブランド一覧</h3>
+
+<div>
+	<div>
+		検索
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td>メーカー・ブランド名</td>
+				<td>住所</td>
+				<td>URL</td>
+				<td>購入できる地域</td>
+				<td>投稿件数</td>
+				<td></td>
+			</tr>
+			<% @makers.each do |m| %>
+				<tr>
+					<td><%= m.name %></td>
+					<td><%= m.address %></td>
+					<td><%= m.url_address %></td>
+					<td><%= m.prefecture_id %></td>
+					<td><%= '投稿件数' %></td>
+					<td><%= '編集' %><%= link_to '削除', maker_path(m.id), method: :delete %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

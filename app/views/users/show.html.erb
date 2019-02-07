@@ -1,2 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Users#show</h3>
+<div>
+	<div>
+		<%= attachment_image_tag @user, :image, :fill, 400, 400 %>
+		<%= '設定' %>
+	</div>
+	<div>
+		<%= @user.name %>
+		<%= '投稿件数' %><%= 'ありがとう（数）' %>
+	</div>
+	<div>
+		<p>投稿した口コミ</p>
+		<div>
+			<% @posts.each do |posts| %>
+				<div>
+					<p><%= posts.user.name %></p>
+					<p><%= posts.created_at %></p>
+				</div>
+				<%= attachment_image_tag @posts, :image, :fill, 400, 400 %>
+				<div>
+					<!-- 商品情報 -->
+					<%= posts.maker.name %>
+					<%= posts.item.name %>
+					<%= posts.item.small_category.name %>
+					<%= posts.item.price %>
+					<%= posts.maker.prefecture_id %>
+				</div>
+				<div>
+					<!-- ターゲット情報 -->
+					<%= posts.target.age_id %>
+					<%= posts.target.gender_id %>
+					<%= posts.small_scene.name %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

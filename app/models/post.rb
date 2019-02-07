@@ -4,4 +4,6 @@ class Post < ApplicationRecord
 
 	belongs_to :user
 	belongs_to :target
+
+	enum stance_id:{presented: 0,got: 1}
 end
