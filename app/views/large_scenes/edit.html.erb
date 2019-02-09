@@ -1,2 +1,13 @@
-<h1>LargeScenes#edit</h1>
-<p>Find me in app/views/large_scenes/edit.html.erb</p>
+
+<h3>ギフトシーン編集</h3>
+
+<div>
+	<div>
+		<%= form_for(@large_scene) do |flarge| %>
+			<%= flarge.text_field :number, size:'2×10' %>
+				<%= flarge.text_field :name %>
+				<%= link_to '削除', large_scene_path(@large_scene.id), method: :delete %>
+				<%= flarge.submit '変更内容を保存' %>
+		<% end %>
+	</div>
+</div>

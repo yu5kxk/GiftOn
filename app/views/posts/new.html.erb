@@ -1,42 +1,43 @@
 <h3>投稿</h3>
 <div>
 	<div>
-		<%= form_for(@post) do |f| %>
+		<%= form_for(@post) do |fpost| %>
     <div>
-      <%= f.radio_button :stance_id, :presented %>贈り物をあげた
-      <%= f.radio_button :stance_id, :got %>贈り物をもらった
+      <%= fpost.radio_button :stance_id, :presented %>贈り物をあげた
+      <%= fpost.radio_button :stance_id, :got %>贈り物をもらった
     </div>
     <div>
     	<p>贈り物の相手</p>
-    	<%= f.radio_button :gender_id, :male %>男性
-      	<%= f.radio_button :gender_id, :female %>女性
-      	<%= f.collection_select :small_scene_id, SmallScene.all, :id, :name %>
+      <%= form_for(@target) do |ftarget| %>
+    	  <%= ftarget.radio_button :gender_id, :male %>男性
+      	<%= ftarget.radio_button :gender_id, :female %>女性
+      	<p>ギフトシーン：<%= fpost.collection_select :small_scene_id, SmallScene.all, :id, :name %></p>
+      <% end %>
     </div>
     <div>
-    	<%= f.attachment_field :image %>
+    	<!-- 画像投稿」 -->
     </div>
     <div>
     	<%= form_for(@item) do |fitem| %>
-      		<%= fitem.collection_select :large_category_id, LargeCategory.all, :id, :name %>
-      		<%= fitem.collection_select :small_category_id, SmallCategory.all, :id, :name %>
-      		<%= fitem.text_field :name %>
-      		<%= fitem.text_field :prise %>
-      		<%= fitem.select :keeping_quality %>
+      		<p>商品カテゴリー：<%= fitem.collection_select :small_category_id, SmallCategory.all, :id, :name %></p>
+      		<p>商品名<%= fitem.text_field :name %></p>
+      		<p>価格帯：<%= fitem.text_field :price %>
+      		<p>日持ち期間：<%= fitem.select :keeping_quality, Item.keeping_qualities_i18n.keys.map { |k| [Item.keeping_qualities_i18n[k], k]} %></p>
       	<% end %>
     </div>
     <div>
     	<%= form_for(@maker) do |fmaker| %>
-    		<%= fmaker.text_field :name %>
-    		<%= f.select :prefecture_id, Maker.prefecture_id.keys, {prompt: '選択してください'}, class: 'form-control btn btn-info' %>
-    		<%= fmaker.text_field :address %>
-    		<%= fmaker.text_field :url_address %>
+    		<p>メーカー・ブランド・お店の名前：<%= fmaker.text_field :name %></p>
+    		<p>購入できる地域：<%= fmaker.select :prefecture_id, Maker.prefecture_ids.keys %></p>
+    		<p>住所：<%= fmaker.text_field :address %></p>
+    		<p>URL：<%= fmaker.text_field :url_address %></p>
     	<% end %>
     </div>
     <div>
     	評価
     </div>
-    <%= f.text_area :review %>
-    <%= f.submit '投稿する' %>
+    <p>口コミ：<%= fpost.text_area :review %></p>
+    <%= fpost.submit '投稿する' %>
   <% end %>
 	</div>
 </div>

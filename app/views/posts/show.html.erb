@@ -1,2 +1,48 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<!-- 口コミ詳細 -->
+<div>
+	<div>
+		<span><%= attachment_image_tag @post.user, :image, :fill, 400, 400 %></span>
+		<span>
+			<%= @post.user.name %><br>
+			<%= '投稿件数' %>
+		</span>
+		<span><%= @post.created_at %></span>
+	</div>
+	<div>
+		<!-- 相手の情報 -->
+		<%= @post.small_scene.name %>
+		<%= @post.stance_id %>相手
+		<%= @post.target.gender_id %>
+		<%= @post.target.age_id %>
+	</div>
+	<div>
+		<!-- 写真 -->
+		<%= attachment_image_tag @post.item, :image, :fill, 400, 400 %>
+	</div>
+	<div>
+		<!-- 商品情報・口コミ -->
+		<%= @post.item.large_category.name %> < <%= @post.item.small_category.name %>
+		<%= @post.item.name %>
+		<%= @post.item.price %>
+		<%= @post.item.keeping_quality %>
+		<%= @post.item.price %>
+		<p>メーカー・ブランド・お店の情報</p>
+		<%= @post.maker.name %>
+		<%= @post.maker.prefecture_id %>
+		<%= @post.maker.address %>
+		<%= @post.maker.url_address %>
+		<!-- 口コミ -->
+		<%= @post.review %>
+	</div>
+	<div>
+		<!-- 評価 グラフに変更-->
+		<%= @post.rating.feeling %>
+		<%= @post.rating.looks %>
+		<%= @post.rating.price %>
+		<%= @post.rating.scene_matching %>
+	</div>
+	<div>
+		<!-- クリップ・ありがとう・ -->
+		<%= link_to '編集', edit_posts_path %>
+	</div>
+</div>

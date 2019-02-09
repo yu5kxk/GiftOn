@@ -25,14 +25,14 @@ Rails.application.routes.draw do
 
   resources :clips, only:[:index, :create, :destroy]
 
-  resources :large_categories, only:[:new, :index, :create, :update, :destroy]
-    resources :small_categories, only:[:create, :update, :destroy]
+  resources :large_categories, only:[:new, :index, :create, :edit,:update, :destroy]
+    resources :small_categories, only:[:create, :edit, :update, :destroy]
 
   resources :makers, only:[:index, :create, :update, :destroy]
 
-  resources :large_scenes, only:[:new, :index, :create, :update, :destroy]
-    resources :small_scenes, only:[:create, :update, :destroy]
+  resources :large_scenes, only:[:new, :index, :create, :edit, :update, :destroy]
 
+  resources :small_scenes, only:[:create, :edit, :update, :destroy]
 
   resources :users, only:[:show, :index, :edit, :update]
 

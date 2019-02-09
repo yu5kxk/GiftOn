@@ -5,8 +5,8 @@ class LargeScenesController < ApplicationController
   def new
   	@large_scene = LargeScene.new
   	@small_scene = SmallScene.new
-  	@large_scenes = LargeScene.all
-  	@small_scenes = SmallScene.all
+  	@large_scenes = LargeScene.all.order(:number)
+  	@small_scenes = SmallScene.all.order(:number)
   end
 
   def create
@@ -22,7 +22,7 @@ class LargeScenesController < ApplicationController
   def update
   	large_scene = LargeScene.find(params[:id])
   	large_scene.update(large_scene_params)
-  	redirect_to
+  	redirect_to new_large_scene_path
   end
 
   def destroy
@@ -32,7 +32,7 @@ class LargeScenesController < ApplicationController
   end
 
   private
-  	def large_scene_params
+  def large_scene_params
     params.require(:large_scene).permit(:name, :number)
   end
 end

@@ -5,6 +5,10 @@ class SmallCategoriesController < ApplicationController
 		redirect_to new_large_category_path
 	end
 
+	def edit
+		@small_category = SmallCategory.find(params[:id])
+	end
+
 	def update
 		small_category = SmallCategory.find(params[:id])
 		small_category.update(small_category_params)

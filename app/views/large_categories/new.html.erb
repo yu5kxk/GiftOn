@@ -7,29 +7,29 @@
 			<span><%= f.text_field :name, placeholder: '大カテゴリー' %><%= f.submit '追加' %></span>
 		<% end %>
 		<table>
-			<% @large_categories.each do |l| %>
+			<% @large_categories.each do |large| %>
 				<tr>
-					<th><%= l.number %></th>
-					<th><%= l.name %></th>
-					<td><%= '編集' %><%= link_to '削除', large_category_path(l.id), method: :delete %></td>
+					<th><%= large.number %></th>
+					<th><%= large.name %></th>
+					<td><%= link_to '編集', edit_large_category_path(large.id) %><%= link_to '削除', large_category_path(large.id), method: :delete %></td>
 					<!-- 編集画面は、モーダルかアラート -->
 					<td></td>
 				</tr>
 				<tr>
 					<%= form_for(@small_category) do |f| %>
-					<td><%= f.hidden_field :large_category_id, :value => l.id %></td>
+					<td><%= f.hidden_field :large_category_id, :value => large.id %></td>
 					<td><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></td>
 					<td><%= f.text_field :name, placeholder: '小カテゴリー' %></td>
 					<td><%= f.submit '追加' %></td>
 					<!-- 編集画面は、モーダルかアラート -->
 					<% end %>
 				</tr>
-				<% @small_categories.each do |s| %>
+				<% large.small_categories.each do |small| %>
 					<tr>
 						<td></td>
-						<td><%= s.number %></td>
-						<td><%= s.name %></td>
-						<td><%= '編集' %><%= link_to '削除', small_category_path(s.id), method: :delete %></td>
+						<td><%= small.number %></td>
+						<td><%= small.name %></td>
+						<td><%= link_to '編集', edit_small_category_path(small.id) %><%= link_to '削除', small_category_path(small.id), method: :delete %></td>
 					</tr>
 				<% end %>
 			<% end %>

@@ -1,0 +1,9 @@
+<h3>小カテゴリー編集</h3>
+
+<div>
+	<%= form_for(@small_category) do |f| %>
+		<%= f.text_field :number, size:'2×10' %>
+		<%= f.text_field :name %>
+		<%= f.submit '保存' %>
+	<% end %>
+</div>

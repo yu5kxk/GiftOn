@@ -1,2 +1,31 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h3>口コミ</h3>
+<div>
+	<div>
+		<span>キーワード検索</span>
+		<span>総口コミ件数</span>
+	</div>
+
+	<div>
+		<% @post.each do |post| %>
+			<div>
+				<div>
+					<%= post.user_id %>
+					<%= post.created_at %>
+					<%= post.stance_id %>
+					<%= post.small_scene.name %>
+				</div>
+				<%= attachment_image_tag @post :image, :fill, 400, 400 %>
+				<div>
+					<!-- ありがとう -->
+					<!-- クリップ -->
+				</div>
+				<div>
+					<%= post.maker.name %>
+					<%= post.item.name %>
+					<%= post.item.price %>
+					<%= post.maker.prefecture_id %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

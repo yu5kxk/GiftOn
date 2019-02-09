@@ -5,14 +5,18 @@ class LargeCategoriesController < ApplicationController
   def new
   	@large_category = LargeCategory.new
   	@small_category = SmallCategory.new
-  	@large_categories = LargeCategory.all
-  	@small_categories = SmallCategory.all
+  	@large_categories = LargeCategory.all.order(:number)
+  	@small_categories = SmallCategory.all.order(:number)
   end
 
   def create
   	large_category = LargeCategory.new(large_category_params)
   	large_category.save
   	redirect_to new_large_category_path
+  end
+
+  def edit
+    @large_category = LargeCategory.find(params[:id])
   end
 
   def update

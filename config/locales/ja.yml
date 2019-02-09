@@ -1,0 +1,9 @@
+ja:
+  enums:
+    item:
+      keeping_quality:
+        oneday: 1日以内
+        threedays: 3日以内
+        oneweek: 1週間以内
+        twoweeks: 2週間以内
+        more: それ以上

@@ -1,2 +1,28 @@
-<h1>Posts#top</h1>
-<p>Find me in app/views/posts/top.html.erb</p>
+<div>
+	<div>
+		<div>
+			<p>ギフトシーンで検索</p>
+			<% @large_scene.each do |large| %>
+				<% large.name %>
+				<% @large_scene.small_scene.each do |small| %>
+					<% small.name %>
+				<% end %>
+			<% end %>
+		</div>
+		<div>
+			<p>商品カテゴリーで検索</p>
+			<% @large_category.each do |large| %>
+				<% large.name %>
+				<% @large_category.small_scene.each do |small| %>
+					<% small.name %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div>
+		キーワード検索
+	</div>
+	<div>
+		シーン別ランキング
+	</div>
+</div>

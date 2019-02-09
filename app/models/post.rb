@@ -5,5 +5,6 @@ class Post < ApplicationRecord
 	belongs_to :user
 	belongs_to :target
 
-	enum stance_id:{presented: 0,got: 1}
+	enum stance_id: {presented: 0,got: 1}
+	enum gender_id: {male: 0,female: 1}
 end

@@ -1,0 +1,14 @@
+
+<h3>ギフトシーン編集</h3>
+
+<div>
+	<div>
+		<%= form_for(@small_scene) do |f| %>
+			<%= f.hidden_field :large_scene_id %>
+			<%= f.text_field :number, size:'2×10' %>
+			<%= f.text_field :name %>
+			<%= link_to '削除', small_scene_path(@small_scene.id), method: :delete %>
+			<%= f.submit '変更内容を保存' %>
+		<% end %>
+	</div>
+</div>

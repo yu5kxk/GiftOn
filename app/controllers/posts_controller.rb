@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @target = Target.new
     @item = Item.new
+    @maker = Maker.new
     @post.post_images.build
   end
 
