@@ -10,36 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_122652) do
+ActiveRecord::Schema.define(version: 2019_02_11_104039) do
 
   create_table "clips", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.integer "maker_id"
-    t.integer "price"
-    t.integer "keeping_quality"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "large_category_id"
-    t.integer "small_category_id"
-  end
-
-  create_table "l_categories", force: :cascade do |t|
-    t.string "name"
-    t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "l_scenes", force: :cascade do |t|
-    t.integer "number"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,15 +29,6 @@ ActiveRecord::Schema.define(version: 2019_02_09_122652) do
   create_table "large_scenes", force: :cascade do |t|
     t.integer "number"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "makers", force: :cascade do |t|
-    t.string "name"
-    t.text "address"
-    t.text "url_address"
-    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,31 +66,20 @@ ActiveRecord::Schema.define(version: 2019_02_09_122652) do
     t.datetime "updated_at", null: false
     t.integer "small_scene_id"
     t.text "review"
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer "feeling"
-    t.integer "looks"
-    t.integer "price"
-    t.integer "scene_matching"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "s_categories", force: :cascade do |t|
-    t.string "name"
-    t.integer "number"
-    t.integer "l_category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "s_scenes", force: :cascade do |t|
-    t.integer "l_scene_id"
-    t.integer "number"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "age_id"
+    t.integer "gender_id"
+    t.string "maker_name"
+    t.text "maker_address"
+    t.text "url_address"
+    t.integer "prefecture_id"
+    t.integer "small_category_id"
+    t.string "item_name"
+    t.integer "item_price"
+    t.integer "keeping_quality"
+    t.integer "rating_feeling"
+    t.integer "rating_looks"
+    t.integer "rating_price"
+    t.integer "rating_matching"
   end
 
   create_table "small_categories", force: :cascade do |t|
@@ -139,13 +94,6 @@ ActiveRecord::Schema.define(version: 2019_02_09_122652) do
     t.integer "number"
     t.string "name"
     t.integer "large_scene_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "targets", force: :cascade do |t|
-    t.integer "age_id"
-    t.integer "gender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @target = Target.new
-    @item = Item.new
-    @maker = Maker.new
     @post.post_images.build
   end
 
@@ -16,14 +13,16 @@ class PostsController < ApplicationController
   end
 
   def top
+    @large_scenes = LargeScene.all
+    @small_scenes = SmallScene.all
+    @large_categories = LargeCategory.all
+    @small_categories = SmallCategory.all
   end
 
   def create
-    post = Post.new(product_params)
-    item = Item.new(item_params)
-    post.save
-    item.save
-    redirect_to
+    @post = Post.new(post_params)
+    @post.save
+    redirect_to post_path(:id)
   end
 
   def edit
@@ -46,9 +45,5 @@ class PostsController < ApplicationController
 private
   def post_params
     params.require(:post).permit(:user_id, :stance_id, :item_id, :target_id, :small_scene_id, post_images_images: [])
-  end
-
-  def item_params
-    params.require(:item).permit(:large_category_id, :small_category_id, :name, :maker_id, :price, :keeping_quality)
   end
 end

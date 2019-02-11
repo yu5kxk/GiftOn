@@ -1,43 +1,45 @@
 <h3>投稿</h3>
 <div>
 	<div>
-		<%= form_for(@post) do |fpost| %>
+		<%= form_for(@post) do |f| %>
     <div>
-      <%= fpost.radio_button :stance_id, :presented %>贈り物をあげた
-      <%= fpost.radio_button :stance_id, :got %>贈り物をもらった
+      <%= f.radio_button :stance_id, :presented %>贈り物をあげた
+      <%= f.radio_button :stance_id, :got %>贈り物をもらった
     </div>
     <div>
     	<p>贈り物の相手</p>
-      <%= form_for(@target) do |ftarget| %>
-    	  <%= ftarget.radio_button :gender_id, :male %>男性
-      	<%= ftarget.radio_button :gender_id, :female %>女性
-      	<p>ギフトシーン：<%= fpost.collection_select :small_scene_id, SmallScene.all, :id, :name %></p>
-      <% end %>
+    	  <%= f.radio_button :gender_id, :male %>男性
+      	<%= f.radio_button :gender_id, :female %>女性
+      	<p>ギフトシーン：<%= f.collection_select :small_scene_id, SmallScene.all, :id, :name %></p>
     </div>
     <div>
     	<!-- 画像投稿」 -->
     </div>
     <div>
-    	<%= form_for(@item) do |fitem| %>
-      		<p>商品カテゴリー：<%= fitem.collection_select :small_category_id, SmallCategory.all, :id, :name %></p>
-      		<p>商品名<%= fitem.text_field :name %></p>
-      		<p>価格帯：<%= fitem.text_field :price %>
-      		<p>日持ち期間：<%= fitem.select :keeping_quality, Item.keeping_qualities_i18n.keys.map { |k| [Item.keeping_qualities_i18n[k], k]} %></p>
-      	<% end %>
+      		<p>商品カテゴリー：<%= f.collection_select :small_category_id, SmallCategory.all, :id, :name %></p>
+      		<p>商品名<%= f.text_field :item_name %></p>
+      		<p>価格帯：<%= f.text_field :item_price %>
+      		<p>日持ち期間：<%= f.radio_button :keeping_quality, :oneday %>1日以内
+          <%= f.radio_button :keeping_quality, :threedays %>3日以内
+          <%= f.radio_button :keeping_quality, :oneweek %>1週間以内
+          <%= f.radio_button :keeping_quality, :twoweeks %>2週間以内
+          <%= f.radio_button :keeping_quality, :more %>それ以上</p>
     </div>
     <div>
-    	<%= form_for(@maker) do |fmaker| %>
-    		<p>メーカー・ブランド・お店の名前：<%= fmaker.text_field :name %></p>
-    		<p>購入できる地域：<%= fmaker.select :prefecture_id, Maker.prefecture_ids.keys %></p>
-    		<p>住所：<%= fmaker.text_field :address %></p>
-    		<p>URL：<%= fmaker.text_field :url_address %></p>
-    	<% end %>
+    		<p>メーカー・ブランド・お店の名前：<%= f.text_field :maker_name %></p>
+    		<p>購入できる地域：<%= f.select :prefecture_id, Post.prefecture_ids.keys %></p>
+    		<p>住所：<%= f.text_field :maker_address %></p>
+    		<p>URL：<%= f.text_field :url_address %></p>
     </div>
     <div>
-    	評価
+    	<p>評価</p>
+      <p>味または使い心地：<%= f.radio_button :rating_feeling, 1 %>1 <%= f.radio_button :rating_feeling, 2 %>2 <%= f.radio_button :rating_feeling, 3 %>3 <%= f.radio_button :rating_feeling, 4 %>4 <%= f.radio_button :rating_feeling, 5 %>5 </p>
+      <p>見た目：<%= f.radio_button :rating_looks, 1 %>1 <%= f.radio_button :rating_looks, 2 %>2 <%= f.radio_button :rating_looks, 3 %>3 <%= f.radio_button :rating_looks, 4 %>4 <%= f.radio_button :rating_looks, 5 %>5 </p>
+      <p>価格：<%= f.radio_button :rating_price, 1 %>1 <%= f.radio_button :rating_price, 2 %>2 <%= f.radio_button :rating_price, 3 %>3 <%= f.radio_button :rating_price, 4 %>4 <%= f.radio_button :rating_price, 5 %>5 </p>
+      <p>ギフトシーンとの相性：<%= f.radio_button :rating_matching, 1 %>1 <%= f.radio_button :rating_matching, 2 %>2 <%= f.radio_button :rating_matching, 3 %>3 <%= f.radio_button :rating_matching, 4 %>4 <%= f.radio_button :rating_matching, 5 %>5 </p>
     </div>
-    <p>口コミ：<%= fpost.text_area :review %></p>
-    <%= fpost.submit '投稿する' %>
+    <p>口コミ：<%= f.text_area :review %></p>
+    <%= f.submit '投稿する' %>
   <% end %>
 	</div>
 </div>

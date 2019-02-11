@@ -6,7 +6,7 @@ class MakersController < ApplicationController
   def create
     maker = Maker.new(maker_params)
     maker.save
-    redirect_to
+    redirect_to new_post_path
   end
 
   def update

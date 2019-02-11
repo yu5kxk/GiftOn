@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		item.save
-		redirect_to
+		redirect_to new_post_path
 	end
 
 	def update

@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
 	def create
 		rating = Rating.new(rating_params)
 		rating.save
-		redirect_to
+		redirect_to new_post_path
 	end
 
 	def update

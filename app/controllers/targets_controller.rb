@@ -2,7 +2,7 @@ class TargetsController < ApplicationController
 	def create
 		@target = Target.new(target_params)
 		target.save
-		redirect_to
+		redirect_to new_post_path
 	end
 
 	def update
