@@ -49,11 +49,13 @@
         </div>
         
         <div>
-          <%= link_to %>
+          <%= link_to '投稿', new_post_path %>
         </div>
         
         <div>
-          <%= link_to %>
+          <%= link_to user_path(current_user.id) do %>
+            <%= current_user.name %>さんのマイページ
+          <% end %>
         </div>
 
         <div>

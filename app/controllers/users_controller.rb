@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     user.save
-    redirect_to
+    redirect_to posts_top_path
   end
 
   def edit
@@ -28,8 +28,22 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to
+    redirect_to user_path(user)
   end
+
+  def unsubscribe
+    user = User.find(params[:id])
+    user.deleted_user = 1
+    user.save
+    if user_signed_in?
+      reset_session
+      redirect_to posts_top_path, alert: '退会しました。'
+    elsif manager_signed_in?
+      redirect_to users_path, notice: '会員の退会処理が完了しました'
+    end
+  end
+
+
 
   private
     def user_params
