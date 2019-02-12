@@ -1,9 +1,15 @@
 <h3>ユーザー情報編集</h3>
 <div>
-	<%= form_for(@user) do |f| %>
-		<p><%= f.text_field :name %></p>
-		<p><%= @user.birth %></p>
-		<p><%= f.text_field :introduction %></p>
-		<p><%= f.submit '変更内容を保存する' %></p>
-	<% end %>
+	<div>
+		<%= form_for(@user) do |f| %>
+			<p><%= f.text_field :name %></p>
+			<p><%= @user.birth %></p>
+			<p><%= f.text_field :introduction %></p>
+			<p><%= f.submit '変更内容を保存する' %></p>
+		<% end %>
+		<%= link_to 'マイページへ戻る', user_path(@user) %>
+	</div>
+	<div>
+		<%= link_to 'ユーザーの削除', unsubscribe_user_path(@user), method: :patch %>
+	</div>
 </div>
