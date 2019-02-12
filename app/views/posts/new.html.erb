@@ -10,6 +10,7 @@
     	<p>贈り物の相手</p>
     	  <%= f.radio_button :gender_id, :male %>男性
       	<%= f.radio_button :gender_id, :female %>女性
+        <%= f.select :age_id, Post.age_ids_i18n.keys.map {|k| [Post.age_ids_i18n[k], k]} %>
       	<p>ギフトシーン：<%= f.collection_select :small_scene_id, SmallScene.all, :id, :name %></p>
     </div>
     <div>
@@ -19,11 +20,7 @@
       		<p>商品カテゴリー：<%= f.collection_select :small_category_id, SmallCategory.all, :id, :name %></p>
       		<p>商品名<%= f.text_field :item_name %></p>
       		<p>価格帯：<%= f.text_field :item_price %>
-      		<p>日持ち期間：<%= f.radio_button :keeping_quality, :oneday %>1日以内
-          <%= f.radio_button :keeping_quality, :threedays %>3日以内
-          <%= f.radio_button :keeping_quality, :oneweek %>1週間以内
-          <%= f.radio_button :keeping_quality, :twoweeks %>2週間以内
-          <%= f.radio_button :keeping_quality, :more %>それ以上</p>
+      		<p>日持ち期間：<%= f.select :keeping_quality, Post.keeping_qualities_i18n.keys.map {|k| [Post.keeping_qualities_i18n[k], k]} %>
     </div>
     <div>
     		<p>メーカー・ブランド・お店の名前：<%= f.text_field :maker_name %></p>

@@ -1,9 +1,31 @@
 ja:
   enums:
-    item:
+    post:
       keeping_quality:
         oneday: 1日以内
         threedays: 3日以内
         oneweek: 1週間以内
         twoweeks: 2週間以内
         more: それ以上
+      age_id:
+        infant_lower: 1～3歳
+        infant_upper: 4～6歳
+        elementary_school_lower: 小学校(1～3年生)
+        elementary_school_upper: 小学校(4～6年生)
+        junior_high_school: 中学生
+        high_school: 高校生
+        university: 大学生
+        twenty: 20代
+        thirty: 30代
+        forty: 40代
+        fifty: 50代
+        sixty: 60代
+        seventy: 70代
+        eighty: 80代
+        mote_age: それ以上
+      stance_id:
+        presented: 贈り物をあげた
+        got: 贈り物をもらった
+      gender_id:
+        male: 男性
+        female: 女性

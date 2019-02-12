@@ -3,10 +3,14 @@ class Post < ApplicationRecord
 	accepts_attachments_for :post_images, attachment: :image
 
 	belongs_to :user
-	belongs_to :target
+	belongs_to :small_category
+    belongs_to :small_scene
 
 	enum stance_id: {presented: 1,got: 2}
 	enum gender_id: {male: 1,female: 2}
+    enum age_id: {infant_lower: 1,infant_upper: 2,elementary_school_lower: 3,elementary_school_upper: 4,
+        junior_high_school: 5,high_school: 6,university: 7,twenty: 8,thirty: 9,forty: 10,fifty: 11,
+        sixty: 12,seventy: 13,eighty: 14,mote_age: 15}
 	enum prefecture_id: {
     全国:0,北海道:1,東北地方青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     関東地方:8, 茨城県:9,栃木県:10,群馬県:11,埼玉県:12,千葉県:13,東京都:14,神奈川県:15,
