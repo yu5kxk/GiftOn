@@ -1,2 +1,9 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h3>ユーザー情報編集</h3>
+<div>
+	<%= form_for(@user) do |f| %>
+		<p><%= f.text_field :name %></p>
+		<p><%= @user.birth %></p>
+		<p><%= f.text_field :introduction %></p>
+		<p><%= f.submit '変更内容を保存する' %></p>
+	<% end %>
+</div>

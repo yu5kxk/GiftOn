@@ -6,25 +6,27 @@
 	</div>
 
 	<div>
-		<% @post.each do |post| %>
+		<% @posts.each do |posts| %>
 			<div>
-				<div>
-					<%= post.user_id %>
-					<%= post.created_at %>
-					<%= post.stance_id %>
-					<%= post.small_scene.name %>
-				</div>
-				<%= attachment_image_tag @post :image, :fill, 400, 400 %>
-				<div>
-					<!-- ありがとう -->
-					<!-- クリップ -->
-				</div>
-				<div>
-					<%= post.maker.name %>
-					<%= post.item.name %>
-					<%= post.item.price %>
-					<%= post.maker.prefecture_id %>
-				</div>
+				<span><%= link_to posts.user.name, user_path(posts.user_id) %></span>
+				<%= link_to post_path(posts.id) do %>
+					<div>
+						<%= simple_time(posts.created_at) %>
+						<%= posts.stance_id_i18n %>
+						<%= posts.small_scene.name %>
+					</div>
+					<!-- 画像 -->
+					<div>
+						<!-- ありがとう -->
+						<!-- クリップ -->
+					</div>
+					<div>
+						<%= posts.maker_name %>
+						<%= posts.item_name %>
+						<%= posts.item_price %>
+						<%= posts.prefecture_id %>
+					</div>
+				<% end %>
 			</div>
 		<% end %>
 	</div>

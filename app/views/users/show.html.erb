@@ -1,12 +1,12 @@
-<h3>Users#show</h3>
+<h3>マイページ</h3>
 <div>
 	<div>
-		
-		<%= '設定' %>
+		<%= link_to '設定', edit_user_path(@user) %>
 	</div>
 	<div>
 		<%= @user.name %>
 		<%= '投稿件数' %><%= 'ありがとう（数）' %>
+		<%= @user.introduction %>
 	</div>
 	<div>
 		<p>投稿した口コミ</p>
@@ -14,21 +14,21 @@
 			<% @posts.each do |posts| %>
 				<div>
 					<p><%= posts.user.name %></p>
-					<p><%= posts.created_at %></p>
+					<p><%= simple_time(posts.created_at) %></p>
 				</div>
-				<%= attachment_image_tag @posts, :image, :fill, 400, 400 %>
+				<!-- 画像 -->
 				<div>
 					<!-- 商品情報 -->
-					<%= posts.maker.name %>
-					<%= posts.item.name %>
-					<%= posts.item.small_category.name %>
-					<%= posts.item.price %>
-					<%= posts.maker.prefecture_id %>
+					<%= posts.maker_name %>
+					<%= posts.item_name %>
+					<%= posts.small_category.name %>
+					<%= posts.item_price %>
+					<%= posts.prefecture_id %>
 				</div>
 				<div>
 					<!-- ターゲット情報 -->
-					<%= posts.target.age_id %>
-					<%= posts.target.gender_id %>
+					<%= posts.age_id %>
+					<%= posts.gender_id %>
 					<%= posts.small_scene.name %>
 				</div>
 			<% end %>
