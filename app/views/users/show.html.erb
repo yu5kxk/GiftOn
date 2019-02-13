@@ -1,6 +1,7 @@
 <h3>マイページ</h3>
 <div>
 	<div>
+		<%= attachment_image_tag @user, :image, :fill, 300, 300 %>
 		<%= link_to '設定', edit_user_path(@user) %>
 	</div>
 	<div>

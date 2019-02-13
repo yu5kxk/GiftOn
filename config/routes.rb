@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   get 'users/lnquiry'
   get 'posts/top'
   
-  resources :posts, only:[:new, :index, :show, :edit, :create, :update, :deatroy]
-
-  resources :clips, only:[:index, :create, :destroy]
+  resources :posts, only:[:new, :index, :show, :edit, :create, :update, :deatroy] do
+    resources :clips, only:[:index, :create, :destroy]
+  end
+  resources :users, only:[:show, :index, :edit, :update] do
+    resources :clips, only:[:index, :create, :destroy]
+  end
 
   resources :large_categories, only:[:new, :index, :create, :edit,:update, :destroy]
   resources :small_categories, only:[:create, :edit, :update, :destroy]
@@ -27,7 +30,7 @@ Rails.application.routes.draw do
   resources :large_scenes, only:[:new, :index, :create, :edit, :update, :destroy]
   resources :small_scenes, only:[:create, :edit, :update, :destroy]
 
-  resources :users, only:[:show, :index, :edit, :update]
+ 
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
