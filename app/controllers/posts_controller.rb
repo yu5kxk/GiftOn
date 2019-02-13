@@ -45,9 +45,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(
-      :user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, 
-      :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, 
-      :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review)
+    params.require(:post).permit(:user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review, 
+      post_image_attributes: [:id, :post_id, :image_id])
   end
 end

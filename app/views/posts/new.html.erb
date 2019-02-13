@@ -15,6 +15,15 @@
     </div>
     <div>
     	<!-- 画像投稿」 -->
+      <p>画像投稿</p>
+      <div id="image">
+        <%= f.fields_for :post_images do |fimage| %>
+          <%= render 'post_image_fields', f: fimage %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association '行の追加', f, :post_images %>
+        </div>
+      </div>
     </div>
     <div>
       		<p>商品カテゴリー：<%= f.collection_select :small_category_id, SmallCategory.all, :id, :name %></p>

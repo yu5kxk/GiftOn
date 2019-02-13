@@ -17,6 +17,13 @@
 	</div>
 	<div>
 		<!-- 写真 -->
+		<% if @post.post_images.present? %>
+  			<% @post.post_images.each do |pimage| %>
+  				<%= image_tag pimage.image_id.to_s %>
+  			<% end %>
+  		<% else %>
+    		<%= image_tag 'no_image.jpg', size: '200x200' %>
+		<% end %>
 	</div>
 	<div>
 		<!-- 商品情報・口コミ -->
