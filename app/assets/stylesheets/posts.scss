@@ -1,3 +1,119 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*top*/
+.top-right {
+	width: 300px;
+	border: solid 1px #cccccc;
+	float: left;
+}
+.top-search-block {
+	width: 290px;
+	margin: 0 auto;
+}
+.top-search-scene {
+	width: 290px;
+	height: 20px;
+	margin: 5px 0;
+	background-color: red;
+}
+.top-search-category {
+	width: 290px;
+	height: 20px;
+	margin: 5px 0;
+	background-color: blue;
+}
+.block {
+	height: 100%;
+	background: rgba(255,255,255,0.7);
+}
+.top-center {
+	width: 680px;
+	margin: 0 10px;
+	float: left;
+	background-color: green;
+}
+/*post index*/
+.post-index-block {
+	width: 300px;
+	height: 450px;
+	margin: 15px 15px;
+	float: left;
+}
+.post-index {
+	padding-left: 8px;
+}
+.post-index-box1 {
+	height: 70px;
+	background-color: pink;
+}
+.post-index-stance {
+	width: 100px;
+	text-align: center;
+	border: solid 1px #cccccc;
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 10px;
+	display: inline-block;
+}
+.post-index-time {
+	width: 185px;
+	text-align: right;
+	display: inline-block;
+}
+.post-index-box2 {
+	background-color: gray;
+}
+.post-index-scene {
+	height: 25px;
+}
+
+.post-index-box3 {
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	position: relative;
+	background-color: green;
+}
+.post-index-tnc {
+	border: solid 1px #cccccc;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	margin-top: 5px;
+	padding: 5px 5px;
+	font-size: 10px;
+}
+.post-index-box3 p {
+	position: absolute;
+	top: 230px;
+	left: 120px;
+}
+.post-index-box4 {
+	background-color: orange;
+}
+.post-index-box5 {
+	background-color: blue;
+}
+.post-index-maker {
+	width: 200px;
+	font-size: 13px;
+	display: inline-block;
+}
+.post-index-prefecture {
+	width: 70px;
+	text-align: center;
+	border: solid 1px #cccccc;
+	border-radius: 5px;
+	display: inline-block;
+}
+.post-index-item {
+	width: 180px;
+	display: inline-block;
+}
+.post-index-price {
+	width: 100px;
+	text-align: right;
+	display: inline-block;
+}
+.post-index-box6 {
+	height: 50px;
+	font-size: 13px;
+	background-color: red;
+}

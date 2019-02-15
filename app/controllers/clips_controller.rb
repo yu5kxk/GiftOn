@@ -1,6 +1,7 @@
 class ClipsController < ApplicationController
   def index
-  	@clips = Clip.all
+    @user = current_user
+  	@clips = current_user.clips.all
   end
 
   def create

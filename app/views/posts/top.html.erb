@@ -1,28 +1,46 @@
-<div>
-	<div>
-		<div>
-			<p>ギフトシーンで検索</p>
+<div class="center-block">
+	<div class="top-right">
+		<div class="top-search-block">
+			<div class="top-search-scene">
+				<div>
+					<p>ギフトシーンで検索</p>
+				</div>
+			</div>
 			<% @large_scenes.each do |large| %>
-				<%= large.name %>
+				<div class="top-search-scene">
+					<div class="block">
+						<p><%= large.name %></p>
+					</div>
+				</div>
 				<% large.small_scenes.each do |small| %>
-					<%= small.name %>
+					<p>・<%= small.name %></p>
 				<% end %>
 			<% end %>
+		</div>
+		<div class="top-search-block">
+			<div class="top-search-category">
+				<div>
+					<p>商品カテゴリーで検索</p>
+				</div>
+			</div>
+			<% @large_categories.each do |large| %>
+			<div class="top-search-category">
+				<div class="block">
+					<p><%= large.name %></p>
+				</div>
+			</div>
+				<% large.small_categories.each do |small| %>
+					<p>・<%= small.name %></p>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="top-center">
+		<div class="top-keyword">
+			キーワード検索
 		</div>
 		<div>
-			<p>商品カテゴリーで検索</p>
-			<% @large_categories.each do |large| %>
-				<%= large.name %>
-				<% large.small_categories.each do |small| %>
-					<%= small.name %>
-				<% end %>
-			<% end %>
+			シーン別ランキング
 		</div>
-	</div>
-	<div>
-		キーワード検索
-	</div>
-	<div>
-		シーン別ランキング
 	</div>
 </div>

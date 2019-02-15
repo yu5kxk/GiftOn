@@ -1,38 +1,65 @@
-<h3>マイページ</h3>
-<div>
-	<div>
-		<%= attachment_image_tag @user, :image, :fill, 300, 300 %>
-		<%= link_to '設定', edit_user_path(@user) %>
-	</div>
-	<div>
-		<%= @user.name %>
-		<%= '投稿件数' %><%= 'ありがとう（数）' %>
-		<%= @user.introduction %>
-	</div>
-	<div>
-		<p>投稿した口コミ</p>
-		<div>
-			<% @posts.each do |posts| %>
-				<div>
-					<p><%= posts.user.name %></p>
-					<p><%= simple_time(posts.created_at) %></p>
-				</div>
-				<!-- 画像 -->
-				<div>
-					<!-- 商品情報 -->
-					<%= posts.maker_name %>
-					<%= posts.item_name %>
-					<%= posts.small_category.name %>
-					<%= posts.item_price %>
-					<%= posts.prefecture_id %>
-				</div>
-				<div>
-					<!-- ターゲット情報 -->
-					<%= posts.age_id %>
-					<%= posts.gender_id %>
-					<%= posts.small_scene.name %>
-				</div>
-			<% end %>
+<div class="page-title">マイページ</div>
+<div class="center-block">
+	<div class="mypage-block">
+		<div class="mypage-box1">
+			<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
+			<p class="setting-btn"><%= link_to '設定', edit_user_path(@user) %></p>
 		</div>
+		<div class="mypage-box2">
+			<p class="mypage-user-name"><%= @user.name %></p>
+			<table class="mypage-count">
+				<tr>
+					<td>投稿件数</td>
+					<td>もらったありがとう</td>
+					<td>クリップされた件数</td>
+				</tr>
+				<tr>
+					<td><%= @user.posts.count %></td>
+					<td><%= "もらったありがとう" %></td>
+					<td><%= "クリップされた件数" %></td>
+				</tr>
+			</table>
+			<p><%= @user.introduction %></p>
+		</div>
+	</div>
+	<div class="mypage-posts">投稿した口コミ</div>
+	<div class="mypage-box3">
+		<% @posts.each do |posts| %>
+			<div class="post-index-block">
+				<div class="post-index post-index-box1">
+					<%= attachment_image_tag posts.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<%= link_to posts.user.name, user_path(posts.user_id) %>
+					<div>
+						<p class="post-index-stance"><%= posts.stance_id_i18n %></p>
+						<p class="post-index-time"><%= simple_time(posts.created_at) %></p>
+					</div>
+				</div>
+				<%= link_to post_path(posts.id) do %>
+					<div class="post-index post-index-box2">
+						<div class="post-index-scene">
+							<%= posts.small_scene.name %>
+						</div>
+					</div>
+					<div class="post-index-box3">
+						<!-- 画像 -->
+						<%= image_tag 'no_image.jpg', size: '250x250' %>
+						<!-- ありがとう --><!-- クリップ -->
+						<p><span class="post-index-tnc"><%= posts.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= posts.clips.count %>クリップ</span></p>
+					</div>
+					<div class="post-index post-index-box5">
+						<p class="post-index-maker"><%= posts.maker_name %></p>
+						<p class="post-index-prefecture"><%= posts.prefecture_id %></p>
+						<p class="post-index-item"><%= posts.item_name %></p>
+						<p class="post-index-price">
+							<%= posts.item_price %>円
+							<span class="price-tax">(税込)</span>
+						</p>
+					</div>
+					<div class="post-index post-index-box6">
+						<%= posts.review %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </div>

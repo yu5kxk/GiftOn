@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   
   resources :posts, only:[:new, :index, :show, :edit, :create, :update, :deatroy] do
     resources :clips, only:[:index, :create, :destroy]
+    resources :thanks, only:[:create, :destroy]
   end
-  resources :users, only:[:show, :index, :edit, :update] do
-    resources :clips, only:[:index, :create, :destroy]
-  end
+  resources :users, only:[:show, :index, :edit, :update]
+
 
   resources :large_categories, only:[:new, :index, :create, :edit,:update, :destroy]
   resources :small_categories, only:[:create, :edit, :update, :destroy]

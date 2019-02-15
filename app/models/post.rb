@@ -1,6 +1,12 @@
 class Post < ApplicationRecord
 	has_many :post_images, dependent: :destroy
+    has_many :thanks, dependent: :destroy
+    has_many :thankde_posts, through: :thanks, source: :user
+    def thanked_by?(user)
+        thanks.where(user_id: user.id).exists?
+    end
     has_many :clips, dependent: :destroy
+    has_many :cliped_posts, through: :clips, source: :user
     def cliped_by?(user)
         clips.where(user_id: user.id).exists?
     end

@@ -9,20 +9,25 @@
 		<span><%= @post.created_at %></span>
 	</div>
 	<div>
-		<% if @post.cliped_by?(current_user) %>
-  			<li>
-    			<%= link_to post_clips_path(@post), method: :delete do %>
-      				<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      				<%= @post.clips.count %> いいね
+		<% if @post.thanked_by?(current_user) %>
+    			<%= link_to post_thank_path(@post), method: :delete do %>
+      				<%= @post.thanks.count %> ありがとうを外す
     			<% end %>
-  			</li>
 		<% else %>
-  			<li>
-    			<%= link_to post_clips_path(@post), method: :post do %>
-      				<i class="fa fa-heart-o" aria-hidden="true"></i>
-      				<%= @post.clips.count %> いいねする
+    			<%= link_to post_thanks_path(@post), method: :post do %>
+      				<%= @post.clips.count %> ありがとう
     			<% end %>
-  			</li>
+		<% end %>
+	</div>
+	<div>
+		<% if @post.cliped_by?(current_user) %>
+    			<%= link_to post_clip_path(@post), method: :delete do %>
+      				<%= @post.clips.count %> クリップを外す
+    			<% end %>
+		<% else %>
+    			<%= link_to post_clips_path(@post), method: :post do %>
+      				<%= @post.clips.count %> クリップ
+    			<% end %>
 		<% end %>
 	</div>
 	<div>

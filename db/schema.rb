@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_082008) do
+ActiveRecord::Schema.define(version: 2019_02_15_075037) do
 
   create_table "clips", force: :cascade do |t|
     t.integer "user_id"
@@ -96,6 +96,20 @@ ActiveRecord::Schema.define(version: 2019_02_13_082008) do
     t.integer "number"
     t.string "name"
     t.integer "large_scene_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "thanks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "thankyous", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

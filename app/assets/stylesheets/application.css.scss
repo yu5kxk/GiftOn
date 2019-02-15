@@ -16,4 +16,63 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- 
+ * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	}
+
+/*header*/
+.header-top {
+	height: 70px;
+	background-color: pink;
+}
+.header-search {
+	width: 400px;
+	margin: 25px 70px;
+	float: left;
+	background-color: red;
+}
+.header-side {
+	width: 200px;
+	float: right;
+	background-color: gray;
+}
+.header-logo {
+	width: 200px;
+	float: right;
+	background-color: gray;
+}
+.header-item {
+	width: 170px;
+	height: 50px;
+	margin: 10px auto;
+	padding-top: 15px;
+	text-align: center;
+	background-color: blue;
+}
+/*その他*/
+.center-block {
+	margin: 10px 70px;
+}
+.page-title {
+	width: 250px;
+	margin: 0 70px;
+	padding: 10px 15px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: red;
+}
+.user-image-large {
+	width: 80px;
+	height: 80px;
+	border-radius: 100px;
+}
+.user-image-small {
+	width: 40px;
+	height: 40px;
+	border-radius: 100px;
+}
+.price-tax {
+	font-size: 10px;
+}

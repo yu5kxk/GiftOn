@@ -11,81 +11,81 @@
   </head>
 
   <body>
-    <div>
-      <p>キーワード検索</p>
+    <div class="header-top">
+      <div class="header-search">キーワード検索</div>
+      <div class="header-logo">
+        <div class="header-item">
+          <%= link_to 'ロゴ', posts_top_path %>
+        </div>
+      </div>
     </div>
 
-    <% if manager_signed_in? %>
-      <div>
+
+    <div class="header-side">
+      <% if manager_signed_in? %>
         <div>
-          <%= link_to 'ロゴ', posts_top_path %>
-        </div>
-        
-        <div>
-          <%= link_to '口コミ',posts_path %>
-        </div>
-        
-        <div>
-          <%= link_to %>
-        </div>
-        
-        <div>
-          <%= link_to %>
+          <div class="header-item">
+            <%= link_to '口コミ',posts_path %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to %>
+          </div>
+
+          <div class="header-item">
+            <%= link_to 'ログアウト', destroy_manager_session_path, method: :delete %>
+          </div>
         </div>
 
+      <% elsif user_signed_in? %>
         <div>
-          <%= link_to 'ログアウト', destroy_manager_session_path, method: :delete %>
-        </div>
-      </div>
+          <div class="header-item">
+            <%= link_to '口コミ',posts_path %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to '投稿', new_post_path %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to user_path(current_user.id) do %>
+              <%= current_user.name %>さんのマイページ
+            <% end %>
+          </div>
 
-    <% elsif user_signed_in? %>
-      <div>
-        <div>
-          <%= link_to 'ロゴ', posts_top_path %>
-        </div>
-        
-        <div>
-          <%= link_to '口コミ',posts_path %>
-        </div>
-        
-        <div>
-          <%= link_to '投稿', new_post_path %>
-        </div>
-        
-        <div>
-          <%= link_to user_path(current_user.id) do %>
-            <%= current_user.name %>さんのマイページ
-          <% end %>
-        </div>
+          <div class="header-item">
+            <%= link_to 'マイクリップ', post_clips_path(current_user.id) %>
+          </div>
 
-        <div>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        </div>
-      </div>
-
-    <% else %>
-      <div>
-        <div>
-          <%= link_to 'ロゴ', posts_top_path %>
-        </div>
-        
-        <div>
-          <%= link_to '口コミ',posts_path %>
-        </div>
-        
-        <div>
-          <%= link_to '新規登録', new_user_registration_path %>
-        </div>
-        
-        <div>
-          <%= link_to 'ログイン', new_user_session_path %>
+          <div class="header-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+          </div>
         </div>
 
+      <% else %>
         <div>
-          <%= link_to 'お問い合わせ', users_lnquiry_path %>
+          <div class="header-item">
+            <%= link_to '口コミ',posts_path %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to '新規登録', new_user_registration_path %>
+          </div>
+          
+          <div class="header-item">
+            <%= link_to 'ログイン', new_user_session_path %>
+          </div>
+
+          <div class="header-item">
+            <%= link_to 'お問い合わせ', users_lnquiry_path %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <%= yield %>
   </body>

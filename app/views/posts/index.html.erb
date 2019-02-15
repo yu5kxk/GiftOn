@@ -1,5 +1,5 @@
-<h3>口コミ</h3>
-<div>
+<div class="page-title">口コミ</div>
+<div class="center-block">
 	<div>
 		<span>キーワード検索</span>
 		<span>総口コミ件数</span>
@@ -7,24 +7,38 @@
 
 	<div>
 		<% @posts.each do |posts| %>
-			<div>
-				<span><%= link_to posts.user.name, user_path(posts.user_id) %></span>
+			<div class="post-index-block">
+				<div class="post-index post-index-box1">
+					<%= attachment_image_tag posts.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<%= link_to posts.user.name, user_path(posts.user_id) %>
+					<div>
+						<p class="post-index-stance"><%= posts.stance_id_i18n %></p>
+						<p class="post-index-time"><%= simple_time(posts.created_at) %></p>
+					</div>
+				</div>
 				<%= link_to post_path(posts.id) do %>
-					<div>
-						<%= simple_time(posts.created_at) %>
-						<%= posts.stance_id_i18n %>
-						<%= posts.small_scene.name %>
+					<div class="post-index post-index-box2">
+						<div class="post-index-scene">
+							<%= posts.small_scene.name %>
+						</div>
 					</div>
-					<!-- 画像 -->
-					<div>
-						<!-- ありがとう -->
-						<!-- クリップ -->
+					<div class="post-index-box3">
+						<!-- 画像 -->
+						<%= image_tag 'no_image.jpg', size: '250x250' %>
+						<!-- ありがとう --><!-- クリップ -->
+						<p><span class="post-index-tnc"><%= posts.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= posts.clips.count %>クリップ</span></p>
 					</div>
-					<div>
-						<%= posts.maker_name %>
-						<%= posts.item_name %>
-						<%= posts.item_price %>
-						<%= posts.prefecture_id %>
+					<div class="post-index post-index-box5">
+						<p class="post-index-maker"><%= posts.maker_name %></p>
+						<p class="post-index-prefecture"><%= posts.prefecture_id %></p>
+						<p class="post-index-item"><%= posts.item_name %></p>
+						<p class="post-index-price">
+							<%= posts.item_price %>円
+							<span class="price-tax">(税込)</span>
+						</p>
+					</div>
+					<div class="post-index post-index-box6">
+						<%= posts.review %>
 					</div>
 				<% end %>
 			</div>
