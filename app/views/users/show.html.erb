@@ -15,15 +15,23 @@
 				</tr>
 				<tr>
 					<td><%= @user.posts.count %></td>
-					<td><%= "もらったありがとう" %></td>
-					<td><%= "クリップされた件数" %></td>
+					<% total_thanks = 0 %>
+					<% total_clips = 0 %>
+					<% @posts.each do |posts| %>
+						<% total_thanks = total_thanks + posts.thanks.count %>
+						<% total_clips = total_clips + posts.clips.count %>
+					<% end %>
+					<td><%= total_thanks %></td>
+					<td><%= total_clips %></td>
 				</tr>
 			</table>
+		</div>
+		<div class="mypage-box3">
 			<p><%= @user.introduction %></p>
 		</div>
 	</div>
 	<div class="mypage-posts">投稿した口コミ</div>
-	<div class="mypage-box3">
+	<div class="mypage-box4">
 		<% @posts.each do |posts| %>
 			<div class="post-index-block">
 				<div class="post-index post-index-box1">

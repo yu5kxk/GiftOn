@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_075037) do
+ActiveRecord::Schema.define(version: 2019_02_16_061311) do
 
   create_table "clips", force: :cascade do |t|
     t.integer "user_id"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_02_15_075037) do
     t.integer "rating_looks"
     t.integer "rating_price"
     t.integer "rating_matching"
+    t.integer "thanks_count", default: 0, null: false
   end
 
   create_table "small_categories", force: :cascade do |t|

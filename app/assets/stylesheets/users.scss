@@ -14,10 +14,11 @@
 	background-color: pink;
 }
 .mypage-box2 {
-	width: 600px;
+	width: 450px;
 	height: 120px;
 	margin-left: 30px;
 	float: left;
+	padding: 5px 5px;
 	background-color: gray;
 }
 .mypage-user-name {
@@ -29,6 +30,16 @@
 	text-align: center;
 }
 .mypage-box3 {
+	width: 350px;
+	height: 120px;
+	margin-left: 10px;
+	border-radius: 5px;
+	float: left;
+	padding: 5px 5px;
+	font-size: 12px;
+	background-color: orange;
+}
+.mypage-box4 {
 	width: 1000px;
 	border-top: solid 1px #cccccc;
 }

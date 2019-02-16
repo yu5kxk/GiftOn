@@ -1,74 +1,82 @@
 <!-- 口コミ詳細 -->
-<div>
-	<div>
-		<!-- 画像 -->
-		<span>
-			<%= @post.user.name %><br>
-			<%= '投稿件数' %>
-		</span>
-		<span><%= @post.created_at %></span>
+<div class="center-block">
+	<div class="post-show-block1">
+		<div class="post-show-block2">
+			<div class="post-show-box1">
+				<!-- 画像 -->
+				<span>
+					<%= @post.user.name %><br>
+					<%= '投稿件数' %>
+				</span>
+				<span><%= @post.created_at %></span>
+			</div>
+			<div class="post-show-box2">
+				<!-- ありがとう -->
+				<% if @post.thanked_by?(current_user) %>
+		    			<%= link_to post_thank_path(@post), method: :delete do %>
+		      				<%= @post.thanks.count %> ありがとうを外す
+		    			<% end %>
+				<% else %>
+		    			<%= link_to post_thanks_path(@post), method: :post do %>
+		      				<%= @post.clips.count %> ありがとう
+		    			<% end %>
+				<% end %>
+				<!-- クリップ -->
+				<% if @post.cliped_by?(current_user) %>
+		    			<%= link_to post_clip_path(@post), method: :delete do %>
+		      				<%= @post.clips.count %> クリップを外す
+		    			<% end %>
+				<% else %>
+		    			<%= link_to post_clips_path(@post), method: :post do %>
+		      				<%= @post.clips.count %> クリップ
+		    			<% end %>
+				<% end %>
+			</div>
+			<div class="post-show-box3">
+				<!-- 相手の情報 -->
+				<p><%= @post.small_scene.name %></p>
+				<p><%= @post.stance_id_i18n %>相手</p>
+				<p><%= @post.gender_id_i18n %></p>
+				<p><%= @post.age_id_i18n %></p>
+			</div>
+		</div>
+		<div class="post-show-box4">
+			<!-- 写真 -->
+			<% if @post.post_images.present? %>
+	  			<% @post.post_images.each do |pimage| %>
+	  				<%= image_tag pimage.image_id.to_s %>
+	  			<% end %>
+	  		<% else %>
+	    		<%= image_tag 'no_image.jpg', size: '200x200' %>
+			<% end %>
+		</div>
 	</div>
-	<div>
-		<% if @post.thanked_by?(current_user) %>
-    			<%= link_to post_thank_path(@post), method: :delete do %>
-      				<%= @post.thanks.count %> ありがとうを外す
-    			<% end %>
-		<% else %>
-    			<%= link_to post_thanks_path(@post), method: :post do %>
-      				<%= @post.clips.count %> ありがとう
-    			<% end %>
-		<% end %>
+	<div class="post-show-block3">
+		<div class="post-show-box5">
+			<!-- 商品情報・口コミ -->
+			<p><%= @post.small_category.name %></p>
+			<p><%= @post.item_name %></p>
+			<p><%= @post.item_price %></p>
+			<p><%= @post.keeping_quality_i18n %></p>
+			<p>メーカー・ブランド・お店の情報</p>
+			<p><%= @post.maker_name %></p>
+			<p><%= @post.prefecture_id %></p>
+			<p><%= @post.maker_address %></p>
+			<p><%= @post.url_address %></p>
+		</div>
+		<div class="post-show-box6">
+			<!-- 評価 グラフに変更-->
+			<p><%= @post.rating_feeling %></p>
+			<p><%= @post.rating_looks %></p>
+			<p><%= @post.rating_price %></p>
+			<p><%= @post.rating_matching %></p>
+		</div>
+		<div class="post-show-box7">
+			<!-- 口コミ -->
+			<p><%= @post.review %></p>
+		</div>
 	</div>
-	<div>
-		<% if @post.cliped_by?(current_user) %>
-    			<%= link_to post_clip_path(@post), method: :delete do %>
-      				<%= @post.clips.count %> クリップを外す
-    			<% end %>
-		<% else %>
-    			<%= link_to post_clips_path(@post), method: :post do %>
-      				<%= @post.clips.count %> クリップ
-    			<% end %>
-		<% end %>
-	</div>
-	<div>
-		<!-- 相手の情報 -->
-		<p><%= @post.small_scene.name %></p>
-		<p><%= @post.stance_id_i18n %>相手</p>
-		<p><%= @post.gender_id_i18n %></p>
-		<p><%= @post.age_id_i18n %></p>
-	</div>
-	<div>
-		<!-- 写真 -->
-		<% if @post.post_images.present? %>
-  			<% @post.post_images.each do |pimage| %>
-  				<%= image_tag pimage.image_id.to_s %>
-  			<% end %>
-  		<% else %>
-    		<%= image_tag 'no_image.jpg', size: '200x200' %>
-		<% end %>
-	</div>
-	<div>
-		<!-- 商品情報・口コミ -->
-		<p><%= @post.small_category.name %></p>
-		<p><%= @post.item_name %></p>
-		<p><%= @post.item_price %></p>
-		<p><%= @post.keeping_quality_i18n %></p>
-		<p>メーカー・ブランド・お店の情報</p>
-		<p><%= @post.maker_name %></p>
-		<p><%= @post.prefecture_id %></p>
-		<p><%= @post.maker_address %></p>
-		<p><%= @post.url_address %></p>
-		<!-- 口コミ -->
-		<p><%= @post.review %></p>
-	</div>
-	<div>
-		<!-- 評価 グラフに変更-->
-		<p><%= @post.rating_feeling %></p>
-		<p><%= @post.rating_looks %></p>
-		<p><%= @post.rating_price %></p>
-		<p><%= @post.rating_matching %></p>
-	</div>
-	<div>
+	<div class="post-show-box8">
 		<!-- クリップ・ありがとう・ -->
 		<p><%= link_to '編集', edit_post_path(@post.id) %></p>
 	</div>
