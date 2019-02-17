@@ -9,21 +9,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    p 'index'
     @posts = Post.all
     @search = Post.ransack(params[:q])
-    p @search
-    @search_posts = @search.result(distinct: true) #includes(:small_scene_id, :small_category_id)
-  end
-
-  def search
-    p 'serch'
-    @search = Post.search(search_params)
-    @search_posts = @search.result #(distinct: true) #includes(:small_scene_id, :small_category_id)
+    @search_posts = @search.result(distinct: true)
   end
 
   def top
-    p 'top'
     @large_scenes = LargeScene.all
     @small_scenes = SmallScene.all
     @large_categories = LargeCategory.all
@@ -61,6 +52,6 @@ private
   end
 
   def search_params
-    params.require(:q).permit(:age_id_eq)
+    params.require(:q).permit(:age_id_eq,:prefecture_id)
   end
 end
