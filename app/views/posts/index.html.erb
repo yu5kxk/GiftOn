@@ -4,7 +4,7 @@
 		<!-- 絞り込み検索 -->
 		<%= search_form_for @search do |f| %>
 			<%= f.label :age_id_eq, '相手の世代' %>
-			<%= f.select :age_id_eq, Post.age_ids %>
+			<%= f.select :age_id_eq, Post.age_ids_i18n.keys.map {|k,v| [Post.age_ids_i18n[k], Post.age_ids[k]]}.to_h %>
         	<%= f.submit ('絞り込み'), class: 'search-btn' %>
         <% end %>
 	</div>
