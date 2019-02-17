@@ -1,24 +1,47 @@
-<h3>マイクリップ</h3>
-
-<div>
-	<div>
-		<%= attachment_image_tag @user, :image, :fill, 300, 300 %>
-		<%= link_to '設定', edit_user_path(@user) %>
+<div class="page-title">マイクリップ</div>
+<div class="center-block">
+	<div class="mypage-block">
+		<div class="mypage-box1">
+			<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
+			<p class="setting-btn"><%= link_to '設定', edit_user_path(@user) %></p>
+		</div>
+		<div class="mypage-box2">
+			<p class="mypage-user-name"><%= @user.name %></p>
+			<table class="mypage-count">
+				<tr>
+					<td>投稿件数</td>
+					<td>もらったありがとう</td>
+					<td>クリップされた件数</td>
+				</tr>
+				<tr>
+					<td><%= @user.posts.count %></td>
+					<% total_thanks = 0 %>
+					<% total_clips = 0 %>
+					<% @user.posts.each do |userposts| %>
+						<% total_thanks = total_thanks + userposts.thanks.count %>
+						<% total_clips = total_clips + userposts.clips.count %>
+					<% end %>
+					<td><%= total_thanks %></td>
+					<td><%= total_clips %></td>
+				</tr>
+			</table>
+		</div>
+		<div class="mypage-box3">
+			<p><%= @user.introduction %></p>
+		</div>
 	</div>
-	<div>
-		<%= @user.name %>
-		投稿件数：<%= @user.posts.count %><%= 'ありがとう（数）' %> マイクリップ<%= @user.clips.count %>件
-		<%= @user.introduction %>
-	</div>
-	<div>
+	<div class="mypage-box4">
 		<% @clips.each do |clips| %>
-			<span><%= link_to clips.post.user.name, user_path(clips.post.user_id) %></span>
-			<%= link_to post_path(clips.post.id) do %>
-			<div>
-				<%= simple_time(clips.post.created_at) %>
-				<%= clips.post.stance_id_i18n %>
-				<%= clips.post.small_scene.name %>
-			</div>
+			<div class="post-index-block">
+				<div class="post-index post-index-box1">
+					<%= attachment_image_tag clips.post.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<%= link_to clips.post.user.name, user_path(clips.post.user_id) %>
+					<%= link_to post_path(clips.post.id) do %>
+					<div>
+						<%= simple_time(clips.post.created_at) %>
+						<%= clips.post.stance_id_i18n %>
+						<%= clips.post.small_scene.name %>
+					</div>
 			<!-- 画像 -->
 			<div>
 				<!-- ありがとう -->
