@@ -73,6 +73,8 @@ gem 'rb-readline'
 gem 'enum_help'
 gem 'cocoon'
 gem 'jquery-rails'
+gem 'ransack'
+gem 'pry-rails'
 
 # heroku
 group :production do

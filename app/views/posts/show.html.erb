@@ -79,5 +79,6 @@
 	<div class="post-show-box8">
 		<!-- クリップ・ありがとう・ -->
 		<p><%= link_to '編集', edit_post_path(@post.id) %></p>
+		<p><%= link_to '削除', post_path(@post.id), method: :delete %></p>
 	</div>
 </div>

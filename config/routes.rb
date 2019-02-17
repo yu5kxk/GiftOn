@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
   get 'users/lnquiry'
   get 'posts/top'
+  get 'posts/stance_new'
+  get 'posts/search'
   
-  resources :posts, only:[:new, :index, :show, :edit, :create, :update, :deatroy] do
+  resources :posts, only:[:new, :index, :search, :show, :edit, :create, :update, :destroy] do
     resources :clips, only:[:index, :create, :destroy]
     resources :thanks, only:[:create, :destroy]
   end

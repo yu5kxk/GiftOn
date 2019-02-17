@@ -1,12 +1,23 @@
 <div class="page-title">口コミ</div>
 <div class="center-block">
 	<div>
-		<span>キーワード検索</span>
-		<span>総口コミ件数</span>
+		<!-- 絞り込み検索 -->
+		<%= search_form_for @search do |f| %>
+			<%= f.label :age_id_eq, '相手の世代' %>
+			<%= f.select :age_id_eq, Post.age_ids %>
+        	<%= f.submit ('絞り込み'), class: 'search-btn' %>
+        <% end %>
+	</div>
+	<div>
+		<% if @search != nil %>
+			<p>口コミ件数：<%= @search_posts.count %></p>
+		<% else %>
+			<p>総口コミ件数：<%= @search_posts.count %></p>
+		<% end %>
 	</div>
 
 	<div>
-		<% @posts.each do |posts| %>
+		<% @search_posts.each do |posts| %>
 			<div class="post-index-block">
 				<div class="post-index post-index-box1">
 					<%= attachment_image_tag posts.user, :image, :fill, 300, 300, class: "user-image-small" %>
@@ -20,6 +31,7 @@
 					<div class="post-index post-index-box2">
 						<div class="post-index-scene">
 							<%= posts.small_scene.name %>
+							<%= posts.age_id %>
 						</div>
 					</div>
 					<div class="post-index-box3">

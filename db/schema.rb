@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2019_02_16_061311) do
     t.datetime "updated_at", null: false
     t.integer "small_scene_id"
     t.text "review"
-    t.integer "age_id"
     t.integer "gender_id"
     t.string "maker_name"
     t.text "maker_address"
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_061311) do
     t.integer "rating_price"
     t.integer "rating_matching"
     t.integer "thanks_count", default: 0, null: false
+    t.integer "age_id"
   end
 
   create_table "small_categories", force: :cascade do |t|
