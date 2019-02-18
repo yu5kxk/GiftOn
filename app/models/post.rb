@@ -10,8 +10,6 @@ class Post < ApplicationRecord
     def cliped_by?(user)
         clips.where(user_id: user.id).exists?
     end
-    accepts_nested_attributes_for :post_images, allow_destroy: true
-	accepts_attachments_for :post_images, attachment: :image
 
 	belongs_to :user
 	belongs_to :small_category

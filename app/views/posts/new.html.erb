@@ -31,18 +31,6 @@
     </div>
   </div>
   <div class="post-new-block2">
-    <div class="post-new-postimage">
-      <!-- 画像投稿」 -->
-      <p>画像投稿</p>
-      <div id="image">
-        <%= f.fields_for :post_images do |fimage| %>
-          <%= render 'post_image_fields', f: fimage %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association '行の追加', f, :post_images %>
-        </div>
-      </div>
-    </div>
     <div class="post-new-rating">
     	<p>評価</p>
       <p>味または使い心地：<%= f.radio_button :rating_feeling, 1 %>1 <%= f.radio_button :rating_feeling, 2 %>2 <%= f.radio_button :rating_feeling, 3 %>3 <%= f.radio_button :rating_feeling, 4 %>4 <%= f.radio_button :rating_feeling, 5 %>5 </p>

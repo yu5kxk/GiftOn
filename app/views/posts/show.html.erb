@@ -43,9 +43,9 @@
 		<div class="post-show-box4">
 			<!-- 写真 -->
 			<% if @post.post_images.present? %>
-	  			<% @post.post_images.each do |pimage| %>
-	  				<%= image_tag pimage.image_id.to_s %>
-	  			<% end %>
+		  			<% @post.post_images.each do |pimage| %>
+		  				<%= attachment_image_tag pimage, :image, :fill, 300, 300 %>
+		  			<% end %>
 	  		<% else %>
 	    		<%= image_tag 'no_image.jpg', size: '200x200' %>
 			<% end %>
@@ -80,5 +80,8 @@
 		<!-- クリップ・ありがとう・ -->
 		<p><%= link_to '編集', edit_post_path(@post.id) %></p>
 		<p><%= link_to '削除', post_path(@post.id), method: :delete %></p>
+	</div>
+	<div class="post-show-box9">
+		<%= @post.
 	</div>
 </div>

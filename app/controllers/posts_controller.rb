@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    @post.post_images.build
   end
 
   def show
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user_id = current_user.id
     post.save
-    redirect_to post_path(post.id)
+    redirect_to new_post_post_image_path(post.id)
   end
 
   def edit
@@ -35,7 +34,7 @@ class PostsController < ApplicationController
   def update
     post = Post.find_by(id: params[:id])
     post.update(post_params)
-    redirect_to post_path(post.id)
+    redirect_to edit_post_post_image_path(post.id)
   end
 
   def destroy
@@ -47,11 +46,7 @@ class PostsController < ApplicationController
 
 private
   def post_params
-    params.require(:post).permit(:user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review, 
-      post_image_attributes: [:id, :post_id, :image_id])
+    params.require(:post).permit(:user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review)
   end
 
-  def search_params
-    params.require(:q).permit(:age_id_eq,:prefecture_id)
-  end
 end
