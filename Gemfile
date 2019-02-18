@@ -72,8 +72,8 @@ gem 'jquery-rails'
 gem 'rb-readline'
 gem 'enum_help'
 gem 'cocoon'
-gem 'jquery-rails'
 gem 'ransack'
+gem 'bxslider-rails'
 
 # heroku
 group :production do

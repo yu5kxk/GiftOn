@@ -41,14 +41,18 @@
 			</div>
 		</div>
 		<div class="post-show-box4">
-			<!-- 写真 -->
-			<% if @post.post_images.present? %>
-		  			<% @post.post_images.each do |pimage| %>
-		  				<%= attachment_image_tag pimage, :image, :fill, 300, 300 %>
-		  			<% end %>
-	  		<% else %>
-	    		<%= image_tag 'no_image.jpg', size: '200x200' %>
-			<% end %>
+			<ul class="bxslider">
+				<!-- 写真 -->
+				<% @post.post_images.each do |pimage| %>
+				<li>
+					<% if @post.post_images.present? %>
+						<%= attachment_image_tag pimage, :image, :fill, 300, 300 %>
+			 		<% else %>
+			    		<%= image_tag 'no_image.jpg', size: '200x200' %>
+					<% end %>
+				</li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 	<div class="post-show-block3">
