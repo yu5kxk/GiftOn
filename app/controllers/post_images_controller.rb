@@ -2,6 +2,7 @@ class PostImagesController < ApplicationController
 	def new
 		@post = Post.find(params[:post_id])
 		@post_image = PostImage.new
+		@post_images = PostImage.all
 	end
 
 	def create
@@ -9,7 +10,7 @@ class PostImagesController < ApplicationController
 		@post_images = @post.post_images.new(post_image_params)
 		@post_images.post_id = @post.id
 		@post_images.save
-		redirect_to post_path(@post.id)
+		redirect_to new_post_post_image_path(@post.id)
 	end
 
 	def update

@@ -3,11 +3,16 @@
   <div class="post-new-postimage">
     <!-- 画像投稿」 -->
     <p>画像投稿</p>
-    <div>　
-      <%=  form_for [@post, @post_image] do |f| %>
-        <%= f.attachment_field :image %>
-        <%= f.submit '保存' %>
-      <% end %>
-    </div>
+    <%=  form_for [@post, @post_image] do |f| %>
+      <%= f.attachment_field :image %>
+      <%= f.submit '保存' %>
+    <% end %>
   </div>
+  <div>
+    <% @post.post_images.each do |pimages| %>
+      <% @post.id = pimages.post_id %>
+      <%= attachment_image_tag pimages, :image, :fill, 300, 300 %>
+    <% end %>
+  </div>
+  <%= link_to '投稿する', post_path(@post.id) %>
 </div>

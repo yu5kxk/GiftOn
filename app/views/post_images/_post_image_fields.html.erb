@@ -1,12 +1,3 @@
 <div class="nested-fields">
-	<%= f.attachment_field :image %>
-	<%= link_to_remove_association "行削除", f %>
-</div>
-<div id="image">　
-	<%= form_for(@post_image) do |f| %>
-		<%= render 'post_image_fields', f: f %>
-	<% end %>
-</div>
-<div class="links">
-    <%= link_to_add_association '行の追加', f, :post_images %>
-</div>
+	<%= f.attachment_field :image %><%= link_to_remove_association "行削除", f %>
+</div> 
