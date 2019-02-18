@@ -1,0 +1,19 @@
+<div class="page-title">画像投稿　編集</div>
+<div class="center-block">
+  <div class="post-new-postimage">
+    <!-- 画像投稿」 -->
+    <p>画像投稿</p>
+    <%=  form_for [@post, @post_image] do |f| %>
+      <%= f.attachment_field :image %>
+      <%= f.submit '保存' %>
+    <% end %>
+  </div>
+  <div>
+    <% @post.post_images.each do |pimages| %>
+      <% @post.id = pimages.post_id %>
+      <%= attachment_image_tag pimages, :image, :fill, 300, 300 %>
+      <%= link_to "削除", post_post_image_path(pimages.id), method: :delete %>
+    <% end %>
+  </div>
+  <%= link_to '投稿する', post_path(@post.id) %>
+</div>

@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def update
     post = Post.find_by(id: params[:id])
     post.update(post_params)
-    redirect_to edit_post_post_image_path(post.id)
+    redirect_to new_post_post_image_path(post.id)
   end
 
   def destroy

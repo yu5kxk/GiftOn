@@ -12,6 +12,7 @@
     <% @post.post_images.each do |pimages| %>
       <% @post.id = pimages.post_id %>
       <%= attachment_image_tag pimages, :image, :fill, 300, 300 %>
+      <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
     <% end %>
   </div>
   <%= link_to '投稿する', post_path(@post.id) %>
