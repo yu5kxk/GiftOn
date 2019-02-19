@@ -132,20 +132,30 @@
 
 /*post show*/
 .post-show-block1 {
-	width: 900px;
-	height: 200px;
-	background-color: #dddddd;
-}
-.post-show-block2 {
 	width: 400px;
-	height: 200px;
+	height: 550px;
 	float: left;
-	background-color: #cccccc;
 }
 .post-show-box1{
 	width: 400px;
 	float: left;
 	background-color: red;
+}
+.image-float {
+	float: left;
+}
+.post-show-user-name {
+	width: 300px;
+	margin-top: 30px;
+	margin-left: 10px;
+	float: left;
+	background-color: green;
+}
+.post-show-created-time {
+	width: 180px;
+	margin-top: 5px;
+	float: right;
+	background-color: orange;
 }
 .post-show-box2{
 	width: 400px;
@@ -157,15 +167,20 @@
 	float: left;
 	background-color: gray;
 }
+.post-show-target {
+	width: 50px;
+	float: left;
+}
 .post-show-box4{
 	width: 400px;
 	margin: 0 50px;
 	float: left;
 	background-color: green;
 }
-.post-show-block3 {
-	width: 900px;
-	height: 300px;
+.post-show-block2 {
+	width: 500px;
+	height: 550px;
+	float: left;
 	background-color: #bbbbbb;
 }
 .post-show-box5{
@@ -175,21 +190,53 @@
 }
 .post-show-box6{
 	width: 400px;
-	height: 200px;
+	height: 180px;
 	float: left;
-	margin: 0 50px;
+	padding: 10px 10px;
+	margin: 20px 50px;
+	border: solid 1px #cccccc;
+	border-radius: 8px;
+}
+.post-show-rating1 {
+	width: 300px;
+	height: 150px;
+	padding: 20px 10px;
+	float: left;
+	background-color: pink;
+}
+.post-show-rating1 th {
+	font-size: 18px;
+	text-align: center;
+}
+.rating-count {
+	width: 30px;
+}
+.post-show-rating2 {
+	width: 75px;
+	height: 75px;
+	margin: 40px 0;
+	float: left;
+	padding-top: 10px;
+	text-align: center;
+	border-radius: 100px;
 	background-color: yellow;
+}
+.post-show-rating-title {
+	font-size: 13px;
+}
+.post-show-rating-total {
+	font-size: 20px;
+	font-weight: bolder;
 }
 .post-show-box7{
 	width: 400px;
-	height: 100px;
 	float: left;
-	margin: 0 50px;
 	background-color: blue;
 }
 .post-show-box8{
-	width: 200px;
-	background-color: pink;
+	width: 900px;
+	float: left;
+	background-color: red;
 }
 
 /*post new*/
@@ -209,10 +256,6 @@
 	width: 400px;
 	float: left;
 	background-color: #dddddd;
-}
-.post-new-postimage {
-	height: 230px;
-	background-color: gray;
 }
 .post-new-rating {
 	margin-top: 10px;

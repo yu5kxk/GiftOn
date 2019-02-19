@@ -24,8 +24,8 @@ ja:
         eighty: 80代
         mote_age: それ以上
       stance_id:
-        presented: 贈り物をあげた
-        got: 贈り物をもらった
+        presented: 贈り物をあげました
+        got: 贈り物をもらいました
       gender_id:
         male: 男性
         female: 女性

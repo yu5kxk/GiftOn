@@ -25,10 +25,10 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :index, :edit, :update]
 
 
-  resources :large_categories, only:[:new, :index, :create, :edit,:update, :destroy]
+  resources :large_categories, only:[:new, :create, :edit,:update, :destroy]
   resources :small_categories, only:[:create, :edit, :update, :destroy]
 
-  resources :large_scenes, only:[:new, :index, :create, :edit, :update, :destroy]
+  resources :large_scenes, only:[:new, :create, :edit, :update, :destroy]
   resources :small_scenes, only:[:create, :edit, :update, :destroy]
 
  

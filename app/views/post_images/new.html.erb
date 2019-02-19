@@ -1,19 +1,32 @@
 <div class="page-title">画像投稿</div>
 <div class="center-block">
-  <div class="post-new-postimage">
+  <div class="pimage-new-box1">
     <!-- 画像投稿」 -->
-    <p>画像投稿</p>
+    <p>画像の追加</p>
     <%=  form_for [@post, @post_image] do |f| %>
       <%= f.attachment_field :image %>
-      <%= f.submit '保存' %>
+      <%= f.submit '追加' %>
     <% end %>
   </div>
-  <div>
-    <% @post.post_images.each do |pimages| %>
-      <% @post.id = pimages.post_id %>
-      <%= attachment_image_tag pimages, :image, :fill, 300, 300 %>
-      <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
-    <% end %>
+  <div class="pimage-new-box2">
+    <p>投稿画像</p>
+    <div class="pimage-new-create-image">
+      <table>
+        <% @post.post_images.each do |pimages| %>
+          <% @post.id = pimages.post_id %>
+            <tr>
+              <td>
+                <%= attachment_image_tag pimages, :image, :fill, 300, 300, class: "post-image-view" %>
+              </td>
+              <td>
+                <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-  <%= link_to '投稿する', post_path(@post.id) %>
+  <div class="pimage-new-box3">
+    <%= link_to '投稿する', post_path(@post.id) %>
+  </div>
 </div>
