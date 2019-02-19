@@ -1,24 +1,35 @@
-<h3>ユーザー一覧</h3>
-<div>
-	<table>
+<div class="page-title">ユーザー一覧</div>
+<div class="center-block">
+	<table class="user-index-table">
 		<tr>
+			<td class="user-table-title"></td>
+			<td class="user-table-title">ユーザーアイコン</td>
+			<td class="user-table-title-name">ユーザー名</td>
+			<td class="user-table-title">年齢</td>
+			<td class="user-table-title">口コミ投稿件数</td>
+			<td class="user-table-title">マイクリップ</td>
+			<td class="user-table-title">もらったありがとう</td>
+			<td class="user-table-title">クリップされた件数</td>
+			<!-- マイページリンク -->
 			<td></td>
-			<td>ユーザーアイコン</td>
-			<td>ユーザー名</td>
-			<td>口コミ投稿件数</td>
-			<td>ありがとう件数</td>
-			<td>クリップされた件数</td>
-			<td>マイクリップ件数</td>
 		</tr>
-		<% @user.each do |user| %>
+		<% @users.each do |user| %>
 			<tr>
-				<td><%= user.deleted_user %></td>
-				<td><%= attachment_image_tag user, :image, :fill, 400, 400 %></td>
+				<td class="user-table-item"><%= user.deleted_user %></td>
+				<td class="user-table-item"><%= attachment_image_tag user, :image, :fill, 400, 400, class: "user-image-small" %></td>
 				<td><%= user.name %></td>
-				<td><%= user.post.count %></td>
-				<td><%= 'ありがとう' %></td>
-				<td><%= user.post.clip.count %></td>
-				<td><%= user.clip %></td>
+				<td class="user-table-item"><%= (Date.today.strftime('%Y%m%d').to_i - user.birth.strftime('%Y%m%d').to_i) / 10000 %>歳</td>
+				<td class="user-table-item"><%= user.posts.count %></td>
+				<td class="user-table-item"><%= user.clips.count %></td>
+				<% total_thanks = 0 %>
+				<% total_clips = 0 %>
+				<% user.posts.each do |posts| %>
+					<% total_thanks = total_thanks + posts.thanks.count %>
+					<% total_clips = total_clips + posts.clips.count %>
+				<% end %>
+				<td class="user-table-item"><%= total_thanks %></td>
+				<td class="user-table-item"><%= total_clips %></td>
+				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id) %></td>
 			</tr>
 		<% end %>
 	</table>

@@ -52,3 +52,21 @@
 	border-top-right-radius: 5px;
 	background-color: green;
 }
+
+/*ユーザーリスト*/
+.user-index-table td {
+	border-bottom: solid 1px #cccccc;
+}
+.user-table-title {
+	width: 100px;
+	text-align: center;
+	background-color: pink;
+}
+.user-table-title-name {
+	width: 200px;
+	background-color: pink;
+}
+.user-table-item {
+	width: 100px;
+	text-align: center;
+}
