@@ -9,8 +9,14 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @search = Post.ransack(params[:q])
-    @search_posts = @search.result(distinct: true)
+    @q = Post.ransack(params[:q])
+    @search_posts = @q.result(distinct: true)
+    @scenes = SmallScene.all
+    @q_scene = SmallScene.ransack(params[:q])
+    @search_scenes = @q_scene.result(distinct: true)
+    @categories = SmallCategory.all
+    @q_category = SmallCategory.ransack(params[:q])
+    @search_categories = @q_category.result(distinct: true)
   end
 
   def top

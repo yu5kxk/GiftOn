@@ -69,11 +69,35 @@
 			<p><%= @post.url_address %></p>
 		</div>
 		<div class="post-show-box6">
-			<!-- 評価 グラフに変更-->
-			<p><%= @post.rating_feeling %></p>
-			<p><%= @post.rating_looks %></p>
-			<p><%= @post.rating_price %></p>
-			<p><%= @post.rating_matching %></p>
+			<!-- 評価 -->
+			<% total_rating = 0 %>
+			<p>
+				<%= @post.rating_feeling %>
+				<% @post.rating_feeling.times do |i| %>
+					<span>★</span>
+				<% end %>
+			</p>
+			<p>
+				<%= @post.rating_looks %>
+					<% @post.rating_looks.times do |i| %>
+					<span>★</span>
+				<% end %>
+			</p>
+			<p>
+				<%= @post.rating_price %>
+					<% @post.rating_price.times do |i| %>
+					<span>★</span>
+				<% end %>
+			</p>
+			<p>
+				<%= @post.rating_matching %>
+					<% @post.rating_matching.times do |i| %>
+					<span>★</span>
+				<% end %>
+			</p>
+
+			<% total_rating = total_rating + @post.rating_feeling + @post.rating_looks + @post.rating_price + @post.rating_matching %>
+			<p>評価合計：<%= total_rating %>点</p>
 		</div>
 		<div class="post-show-box7">
 			<!-- 口コミ -->

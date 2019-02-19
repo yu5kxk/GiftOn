@@ -12,11 +12,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script>
-      $(document).ready(function(){
-        $('.bxslider').bxSlider();
-      });
-    </script>
+
   </head>
 
   <body>
@@ -24,7 +20,7 @@
       <div class="header-search">
       <!-- キーワード検索 -->
         <%= search_form_for @search, url: posts_path do |f| %>
-          <%= f.search_field :item_name_or_maker_name_cont, placeholder: 'キーワードで検索' %>
+          <%= f.search_field :item_name_or_maker_name_cont, placeholder: 'キーワードで検索(商品名,お店の名前)' %>
           <%= f.submit ('検索'), class: 'search-btn' %>
         <% end %>
       </div>

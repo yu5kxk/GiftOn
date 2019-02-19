@@ -2,7 +2,17 @@
 <div class="center-block">
 	<div>
 		<!-- 絞り込み検索 -->
-		<%= search_form_for @search do |f| %>
+		<%= search_form_for @q_scene do |f| %>
+			<%= f.label :name_eq, 'ギフトシーン' %>
+			<%= f.collection_select :name_eq, @scenes, :id, :name, :include_blank => '指定なし' %>
+			<%= f.submit ('絞り込み'), class: 'search-btn' %>
+		<% end %>
+		<%= search_form_for @q_category do |f| %>
+			<%= f.label :name_eq, 'カテゴリー' %>
+			<%= f.collection_select :name_eq, @categories, :id, :name, :include_blank => '指定なし' %>
+			<%= f.submit ('絞り込み'), class: 'search-btn' %>
+		<% end %>
+		<%= search_form_for @q do |f| %>
 			<div>
 				<%= f.label :gender_id_eq, '性別' %>
 				<%= f.select :gender_id_eq, Post.gender_ids_i18n.keys.map {|k| [Post.gender_ids_i18n[k], Post.gender_ids[k]]}.to_h,  :include_blank => '指定なし' %>
@@ -58,7 +68,13 @@
 						</p>
 					</div>
 					<div class="post-index post-index-box6">
-						<%= posts.review %>
+						<div class="post-index-rating">
+							<% total_rating = 0 %>
+							<% total_rating = total_rating + posts.rating_feeling + posts.rating_looks + posts.rating_price + posts.rating_matching %>
+							<p>評価合計<br>
+							<%= total_rating %>点</p>
+						</div>
+						<div class="post-index-review"><%= posts.review %></div>
 					</div>
 				<% end %>
 			</div>
