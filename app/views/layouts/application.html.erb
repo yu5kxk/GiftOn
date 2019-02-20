@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Gifton</title>
-    <link rel="stylesheet" href="">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!--  Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -33,16 +36,18 @@
 
 
     <div class="header-side">
+      <div class="header-item">
+        <%= link_to posts_path do %>
+          <i class="far fa-comments"></i>
+          <span>口コミ</span>
+        <% end %>
+      </div>
       <% if manager_signed_in? %>
         <div>
           <div class="header-item">
-            <%= link_to '口コミ',posts_path %>
-          </div>
-          
-          <div class="header-item">
             <%= link_to 'ギフトシーン　リスト', new_large_scene_path %>
           </div>
-          
+
           <div class="header-item">
             <%= link_to 'カテゴリー　リスト', new_large_category_path %>
           </div>
@@ -59,44 +64,55 @@
       <% elsif user_signed_in? %>
         <div>
           <div class="header-item">
-            <%= link_to '口コミ',posts_path %>
-          </div>
-          
-          <div class="header-item">
-            <%= link_to '投稿', new_post_path %>
+            <%= link_to new_post_path do %>
+              <i class="fas fa-comment-medical"></i>
+              <span>投稿</span>
+            <% end %>
           </div>
           
           <div class="header-item">
             <%= link_to user_path(current_user.id) do %>
+              <i class="far fa-user"></i>
               <%= current_user.name %>さんのマイページ
             <% end %>
           </div>
 
           <div class="header-item">
-            <%= link_to 'マイクリップ', post_clips_path(current_user.id) %>
+            <%= link_to post_clips_path(current_user.id) do %>
+              <span><i class="fas fa-paperclip"></i>マイクリップ</span>
+              <div class="myclip-count"><%= current_user.clips.count %></div>
+            <% end %>
           </div>
 
           <div class="header-item">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i>
+              <span>ログアウト</span>
+              <% end %>
           </div>
         </div>
 
       <% else %>
         <div>
           <div class="header-item">
-            <%= link_to '口コミ',posts_path %>
-          </div>
-          
-          <div class="header-item">
-            <%= link_to '新規登録', new_user_registration_path %>
-          </div>
-          
-          <div class="header-item">
-            <%= link_to 'ログイン', new_user_session_path %>
+            <%= link_to new_user_registration_path do %>
+              <i class="fas fa-user-plus"></i>
+              <span>新規登録</span>
+            <% end %>
           </div>
 
           <div class="header-item">
-            <%= link_to 'お問い合わせ', users_lnquiry_path %>
+            <%= link_to new_user_session_path do %>
+              <i class="fas fa-sign-in-alt"></i>
+              <span>ログイン</span>
+            <% end %>
+          </div>
+
+          <div class="header-item">
+            <%= link_to users_lnquiry_path do %>
+              <i class="far fa-question-circle"></i>
+              <span>お問い合わせ</span>
+            <% end %>
           </div>
         </div>
       <% end %>

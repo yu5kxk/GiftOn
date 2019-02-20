@@ -30,6 +30,18 @@
 			<p><%= @user.introduction %></p>
 		</div>
 	</div>
+	<div>
+		<div class="mypage-posts">
+			<%= link_to user_path(@user.id) do %>
+				<i class="far fa-comments"></i>
+				<span>投稿した口コミ</span>
+			<% end %>
+		</div>
+		<div class="mypage-posts">
+			<div class="myclip-count"><%= @clips.count %></div>
+			<i class="fas fa-paperclip"></i>マイクリップ
+	</div>
+	</div>
 	<div class="mypage-box4">
 		<% @clips.each do |clips| %>
 			<div class="post-index-block">
@@ -50,17 +62,9 @@
 					</div>
 					<div class="post-index-box3">
 						<!-- 画像 -->
-						<ul class="bxslider">
-						<% clips.post.post_images.each do |pimage| %>
-								<li>
-									<% if clips.post.post_images.present? %>
-										<%= attachment_image_tag pimage, :image, :fill, 300, 300 %>
-									<% else %>
-				   						<%= image_tag 'no_image.jpg', size: '300x300' %>
-									<% end %>
-								</li>
-							<% end %>
-						</ul>
+						<% clips.post.post_images.first(1).each do |pimage| %>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
+						<% end %>
 						<!-- ありがとう --><!-- クリップ -->
 						<p><span class="post-index-tnc"><%= clips.post.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= clips.post.clips.count %>クリップ</span></p>
 					</div>

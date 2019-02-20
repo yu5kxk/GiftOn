@@ -74,6 +74,7 @@ gem 'enum_help'
 gem 'cocoon'
 gem 'ransack'
 gem 'bxslider-rails'
+gem 'rails-i18n'
 
 # heroku
 group :production do

@@ -2,6 +2,7 @@
 
 <div class="center-block">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'posts/error_messages', model: f.object %>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -17,12 +18,14 @@
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
-    <% end -%>
+    <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: "sign-btn" %>
     </div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+  <div class="sign-btn-block">
+    <%= render "users/shared/links" %>
+  </div>
 </div>

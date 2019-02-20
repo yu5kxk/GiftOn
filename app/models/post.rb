@@ -31,4 +31,14 @@ class Post < ApplicationRecord
     沖縄県:53
   }
   enum keeping_quality: {oneday: 1,threedays: 2,oneweek: 3,twoweeks: 4,more: 5}
+
+  validates :stance_id, presence: true
+  validates :gender_id, presence: true
+  validates :item_name, presence: true, length: { minimum: 1 }
+  validates :maker_name, presence: true, length: { minimum: 1 }
+  validates :rating_feeling, presence: true
+  validates :rating_looks, presence: true
+  validates :rating_price, presence: true
+  validates :rating_matching, presence: true
+  validates :review, presence: true, length: { minimum: 1 }
 end

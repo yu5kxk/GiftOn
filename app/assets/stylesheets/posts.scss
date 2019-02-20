@@ -33,7 +33,7 @@
 /*post index*/
 .post-index-block {
 	width: 300px;
-	height: 450px;
+	height: 500px;
 	margin: 15px 15px;
 	float: left;
 }
@@ -66,8 +66,8 @@
 }
 
 .post-index-box3 {
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 300px;
 	margin: 0 auto;
 	position: relative;
 	background-color: green;
@@ -146,8 +146,9 @@
 }
 .post-show-user-name {
 	width: 300px;
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-left: 10px;
+	font-size: 20px;
 	float: left;
 	background-color: green;
 }
@@ -193,7 +194,7 @@
 	height: 180px;
 	float: left;
 	padding: 10px 10px;
-	margin: 20px 50px;
+	margin: 5px 50px;
 	border: solid 1px #cccccc;
 	border-radius: 8px;
 }
@@ -252,22 +253,57 @@
 .post-new-box2 {
 	width: 500px;
 }
+.table-height {
+	height: 35px;
+}
+.table-height-low {
+	height: 12px;
+}
+.post-new-maker-name {
+	font-size: 12px;
+}
 .post-new-block2 {
-	width: 400px;
+	width: 450px;
 	float: left;
 	background-color: #dddddd;
 }
 .post-new-rating {
-	margin-top: 10px;
 	background-color: yellow;
 }
-.post-new-block3 textarea {
-	width: 600px;
-	height: 130px;
+.post-new-rating tr {
+	height: 30px;
+}
+.post-new-rating td {
+	width: 180px;
+	text-align: center;
+}
+.post-new-rating th {
+	width: 35px;
 }
 .post-new-block3 {
-	width: 900px;
-	height: 220px;
+	width: 450px;
+	height: 250px;
 	float: left;
 	background-color: #aaaaaa;
+}
+.post-new-block3 textarea {
+	width: 400px;
+	height: 200px;
+	margin-left: 20px;
+}
+.need-new-item {
+	color: red;
+}
+.care-item {
+	padding-top: 10px;
+}
+.care-comment {
+	font-size: 10px;
+	color: #FE2E64;
+}
+.post-new-block4 {
+	width: 800px;
+}
+.next-btn {
+	margin-top: 30px;
 }

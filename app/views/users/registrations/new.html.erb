@@ -2,40 +2,75 @@
 
 <div class="center-block">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= render 'posts/error_messages', model: f.object %>
+    <table>
+      <tr>
+        <th>
+          <%= f.label :name %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.text_field :name, autofocus: true %>
+        </td>
+      </tr>
 
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
-    </div>
+      <tr>
+        <th>
+          <%= f.label :birth %><br>
+          <p class="care-comment">※登録後は、変更出来ません。</p>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.date_field :birth, autofocus: true %>
+        </td>
+      </tr>
 
-    <div class="field">
-      <%= f.label :birth %><br />
-      <%= f.date_field :birth, autofocus: true %>
-    </div>
+      <tr>
+        <th>
+          <%= f.label :email %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </td>
+      </tr>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <tr>
+        <th>
+          <%= f.label :password %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </td>
+      </tr>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
+      <tr>
+        <th>
+          <%= f.label :password_confirmation %>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </td>
+      </tr>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
-
-  <%= render "users/shared/links" %>
+      <tr>
+        <td>
+          <%= f.submit "Sign up", class: "sign-btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="sign-btn-block">
+    <%= render "users/shared/links" %>
+  </div>
 </div>

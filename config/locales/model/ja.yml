@@ -1,0 +1,28 @@
+ja:
+    activerecord:
+        models:
+            user: ユーザー
+            post: 投稿
+        attributes:
+            user:
+                name: 名前
+                birth: 生年月日
+                image: アイコン画像
+                introduction: 自己紹介
+            post:
+                stance_id: あなたは？
+                gender_id: 性別
+                age_id: 年齢
+                small_scene_id: ギフトシーン
+                small_category_id: 商品カテゴリー
+                item_name: 商品名
+                keeping_quality: 日持ち
+                item_price: 商品名
+                maker_name: メーカー・ブランド・お店の名前
+                maker_address: 住所
+                url_address: サイトURL
+                rating_feeling: 味または使い心地
+                rating_looks: 見た目
+                rating_price: コストパフォーマンス
+                rating_matching: ギフトシーンとの相性
+                review: レビューコメント

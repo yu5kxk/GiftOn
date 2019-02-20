@@ -1,2 +1,9 @@
 <h1>Users#lnquiry</h1>
-<p>Find me in app/views/users/lnquiry.html.erb</p>
+<div>
+	<div>
+		<%= link_to 'お問い合わせ', https://goo.gl/forms/W6otH3WG4kaMA7sG3, class: "lnquiry-form-btn" %>
+	</div>
+	<div class="user-delete-btn">
+		<p><%= link_to 'ユーザーの削除', unsubscribe_user_path(@user), method: :patch, class: "delete-btn" %></p>
+	</div>
+</div>

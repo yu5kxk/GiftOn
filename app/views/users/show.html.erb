@@ -3,7 +3,7 @@
 	<div class="mypage-block">
 		<div class="mypage-box1">
 			<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
-			<p class="setting-btn"><%= link_to '設定', edit_user_path(@user) %></p>
+			<p class="setting-btn"><%= link_to '設定', edit_user_path(@user), class: "edit-btn" %></p>
 		</div>
 		<div class="mypage-box2">
 			<p class="mypage-user-name"><%= @user.name %></p>
@@ -30,7 +30,15 @@
 			<p><%= @user.introduction %></p>
 		</div>
 	</div>
-	<div class="mypage-posts">投稿した口コミ</div>
+	<div>
+		<div class="mypage-posts">投稿した口コミ</div>
+		<div class="mypage-posts">
+			<%= link_to post_clips_path(@user.id) do %>
+				<%= current_user.clips.count %>
+				<span>マイクリップ</span>
+			<% end %>
+		</div>
+	</div>
 	<div class="mypage-box4">
 		<% @posts.each do |posts| %>
 			<div class="post-index-block">
@@ -50,17 +58,9 @@
 					</div>
 					<div class="post-index-box3">
 						<!-- 画像 -->
-						<ul class="bxslider">
-							<% posts.post_images.each do |pimage| %>
-								<li>
-									<% if posts.post_images.present? %>
-										<%= attachment_image_tag pimage, :image, :fill, 300, 300 %>
-			 						<% else %>
-			  					  		<%= image_tag 'no_image.jpg', size: '300x300' %>
-									<% end %>
-								</li>
-							<% end %>
-						</ul>
+						<% posts.post_images.first(1).each do |pimage| %>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
+						<% end %>
 						<!-- ありがとう --><!-- クリップ -->
 						<p><span class="post-index-tnc"><%= posts.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= posts.clips.count %>クリップ</span></p>
 					</div>

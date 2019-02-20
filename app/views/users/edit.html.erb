@@ -1,16 +1,36 @@
-<h3>ユーザー情報編集</h3>
-<div>
-	<div>
-		<%= form_for(@user) do |f| %>
-			<p><%= f.text_field :name %></p>
-			<p><%= @user.birth %></p>
-			<p><%= f.attachment_field :image %></p>
-			<p><%= f.text_field :introduction %></p>
-			<p><%= f.submit '変更内容を保存する' %></p>
-		<% end %>
-		<%= link_to 'マイページへ戻る', user_path(@user) %>
-	</div>
-	<div>
-		<%= link_to 'ユーザーの削除', unsubscribe_user_path(@user), method: :patch %>
-	</div>
+<div class="page-title">ユーザー情報編集</div>
+<div class="center-block">
+	<%= form_for(@user) do |f| %>
+		<%= render 'posts/error_messages', model: f.object %>
+		<div class="user-edit-info">
+			<table>
+				<tr>
+					<th><%= f.label :name %></th>
+				</tr>
+				<tr>
+					<td><%= f.text_field :name %></th>
+				</tr>
+				<tr>
+					<th><%= f.label :birth %></th>
+				</tr>
+				<tr>
+					<td><%= @user.birth %></th>
+				</tr>
+				<tr>
+					<th><%= f.label :image %></th>
+				</tr>
+				<tr>
+					<td><%= f.attachment_field :image, class: "image-field-btn" %></th>
+				</tr>
+			</table>
+		</div>
+		<div  class="user-edit-introduction">
+			<p><%= f.label :introduction %></p>
+			<p><%= f.text_area :introduction, class: "introduction-area" %></p>
+		</div>
+		<div class="user-edit-btn">
+			<p><%= f.submit '変更内容を保存する', class: "edit-submit-btn" %></p>
+			<p><%= link_to 'マイページへ戻る', user_path(@user), class: "back-btn" %></p>
+		</div>
+	<% end %>
 </div>

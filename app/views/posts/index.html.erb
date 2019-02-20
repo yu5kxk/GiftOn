@@ -54,7 +54,9 @@
 					</div>
 					<div class="post-index-box3">
 						<!-- 画像 -->
-						<%= image_tag 'no_image.jpg', size: '250x250' %>
+						<% posts.post_images.first(1).each do |pimage| %>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
+						<% end %>
 						<!-- ありがとう --><!-- クリップ -->
 						<p><span class="post-index-tnc"><%= posts.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= posts.clips.count %>クリップ</span></p>
 					</div>

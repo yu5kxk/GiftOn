@@ -16,4 +16,8 @@ class User < ApplicationRecord
   	clips.where(post_id: post.id).exists?
   end
   attachment :image
+
+  validates :name, presence: true
+  validates :birth, presence: true
+  validates :email, presence: true
 end

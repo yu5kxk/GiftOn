@@ -27,10 +27,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.user_id = current_user.id
-    post.save
-    redirect_to new_post_post_image_path(post.id)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
+      redirect_to new_post_post_image_path(@post.id)
+    else
+      render :new
+    end
   end
 
   def edit
