@@ -43,22 +43,35 @@
         <% end %>
       </div>
       <% if manager_signed_in? %>
-        <div>
+        <div class="header-list">
+          <p>一覧</p>
           <div class="header-item">
-            <%= link_to 'ギフトシーン　リスト', new_large_scene_path %>
+            <%= link_to new_large_scene_path do %>
+              <i class="fas fa-gifts"></i>
+              <span>ギフトシーン</span>
+            <% end %>
           </div>
 
           <div class="header-item">
-            <%= link_to 'カテゴリー　リスト', new_large_category_path %>
+            <%= link_to new_large_category_path do %>
+              <i class="fas fa-clipboard-list"></i>
+              <span>カテゴリー</span>
+            <% end %>
           </div>
 
           <div class="header-item">
-            <%= link_to 'ユーザー　リスト', users_path %>
+            <%= link_to users_path do %>
+              <i class="fas fa-users"></i>
+              <span>ユーザー</span>
+            <% end %>
           </div>
+        </div>
 
-          <div class="header-item">
-            <%= link_to 'ログアウト', destroy_manager_session_path, method: :delete %>
-          </div>
+        <div class="header-item">
+          <%= link_to destroy_manager_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <span>ログアウト</span>
+          <% end %>
         </div>
 
       <% elsif user_signed_in? %>
@@ -88,7 +101,7 @@
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fas fa-sign-out-alt"></i>
               <span>ログアウト</span>
-              <% end %>
+            <% end %>
           </div>
         </div>
 

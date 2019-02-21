@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   def lnquiry
+    if user_signed_in?
+      @user = User.find(params[:id])
+    else
+    end
   end
 
   def create

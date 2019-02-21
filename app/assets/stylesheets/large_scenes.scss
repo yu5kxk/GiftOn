@@ -1,3 +1,23 @@
-// Place all the styles related to the large_scenes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.scene-table {
+	width: 500px;
+	margin: 10px 0;
+	background-color: gray;
+}
+.large-scene-title {
+	height: 35px;
+	padding-top: 10px;
+	border-bottom: solid 2px #cccccc;
+}
+.large-scene-number {
+	width: 25px;
+	text-align: center;
+}
+.large-scene-btn {
+	text-align: center;
+}
+.small-scene-new {
+	height: 35px;
+}
+.small-scene-number {
+	text-align: center;
+}
