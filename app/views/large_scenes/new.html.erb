@@ -8,19 +8,19 @@
 			<%= f.text_field :name, placeholder: '大ギフトシーン' %><%= f.submit '追加' %>
 		<% end %>
 
-		<table class="scene-table">
+		<table class="list-table">
 			<% @large_scenes.each do |large| %>
-				<tr class="large-scene-title">
-					<th class="large-scene-number"><%= large.number %></th>
+				<tr class="large-title">
+					<th class="large-number"><%= large.number %></th>
 					<th><%= large.name %></th>
-					<td class="large-scene-btn"><%= link_to '編集', edit_large_scene_path(large.id), class: "edit-btn" %><%= link_to '削除', large_scene_path(large.id), method: :delete, class: "delete-btn" %></td>
+					<td class="large-btn"><%= link_to '編集', edit_large_scene_path(large.id), class: "edit-btn" %><%= link_to '削除', large_scene_path(large.id), method: :delete, class: "delete-btn" %></td>
 					<!-- 編集画面は、モーダルかアラート -->
 					<td></td>
 				</tr>
-				<tr class="small-scene-new">
+				<tr class="small-new">
 					<%= form_for(@small_scene) do |f| %>
 					<td><%= f.hidden_field :large_scene_id, :value => large.id %></td>
-					<td><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></td>
+					<td class="small-number"><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></td>
 					<td><%= f.text_field :name, placeholder: '小ギフトシーン' %><%= f.submit '追加', class: "new-btn" %></td>
 					<td></td>
 					<!-- 編集画面は、モーダルかアラート -->
@@ -29,7 +29,7 @@
 				<% large.small_scenes.each do |small| %>
 					<tr>
 						<td></td>
-						<td class="small-scene-number"><%= small.number %></td>
+						<td class="small-number"><%= small.number %></td>
 						<td><%= small.name %></td>
 						<td><%= link_to '編集', edit_small_scene_path(small.id), class: "edit-btn" %><%= link_to '削除', small_scene_path(small.id), method: :delete, class: "delete-btn" %></td>
 					</tr>

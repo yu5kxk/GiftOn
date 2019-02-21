@@ -1,6 +1,4 @@
 class LargeScenesController < ApplicationController
-  def index
-  end
 
   def new
   	@large_scene = LargeScene.new

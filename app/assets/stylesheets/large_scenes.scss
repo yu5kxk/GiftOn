@@ -1,23 +1,25 @@
-.scene-table {
+/*large_scene large_ctegory new*/
+.list-table {
 	width: 500px;
 	margin: 10px 0;
 	background-color: gray;
 }
-.large-scene-title {
+.large-title {
 	height: 35px;
 	padding-top: 10px;
 	border-bottom: solid 2px #cccccc;
 }
-.large-scene-number {
-	width: 25px;
+.large-number {
+	width: 20px;
 	text-align: center;
 }
-.large-scene-btn {
+.large-btn {
 	text-align: center;
 }
-.small-scene-new {
+.small-new {
 	height: 35px;
 }
-.small-scene-number {
-	text-align: center;
+.small-number {
+	padding-right: 10px;
+	text-align: right;
 }
