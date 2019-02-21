@@ -1,4 +1,7 @@
 class PostImagesController < ApplicationController
+	before_action :authenticate_user!, only:[:new, :create]
+	before_action :user_or_manager_signed_in?, only:[:edit, :update, :destroy]
+
 	def new
 		@post = Post.find(params[:post_id])
 		@post_image = PostImage.new

@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
 	belongs_to :user
 	belongs_to :small_category
-    belongs_to :small_scene
+  belongs_to :small_scene
 
 	enum stance_id: {presented: 1,got: 2}
 	enum gender_id: {male: 1,female: 2}

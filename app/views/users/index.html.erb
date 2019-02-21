@@ -1,17 +1,17 @@
-<div class="page-title">ユーザー一覧</div>
+<div class="page-title">ユーザーリスト</div>
 <div class="center-block">
 	<table class="user-index-table">
 		<tr>
 			<td class="user-table-title"></td>
-			<td class="user-table-title">ユーザーアイコン</td>
+			<td class="user-table-title">ユーザー<br>アイコン</td>
 			<td class="user-table-title-name">ユーザー名</td>
 			<td class="user-table-title">年齢</td>
 			<td class="user-table-title">口コミ投稿件数</td>
 			<td class="user-table-title">マイクリップ</td>
-			<td class="user-table-title">もらったありがとう</td>
-			<td class="user-table-title">クリップされた件数</td>
+			<td class="user-table-title">もらった<br>ありがとう</td>
+			<td class="user-table-title">クリップ<br>された件数</td>
 			<!-- マイページリンク -->
-			<td></td>
+			<td class="user-table-title"></td>
 		</tr>
 		<% @users.each do |user| %>
 			<tr>
@@ -29,7 +29,7 @@
 				<% end %>
 				<td class="user-table-item"><%= total_thanks %></td>
 				<td class="user-table-item"><%= total_clips %></td>
-				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id) %></td>
+				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id), class: "userpage-btn" %></td>
 			</tr>
 		<% end %>
 	</table>

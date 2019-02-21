@@ -13,55 +13,108 @@
 		</div>
 		<div class="post-show-box2">
 			<% if user_signed_in? %>
-				<!-- ありがとう -->
-				<% if @post.thanked_by?(current_user) %>
-			   			<%= link_to post_thank_path(@post), method: :delete do %>
-			   				<%= @post.thanks.count %> ありがとう済
-			   			<% end %>
-				<% else %>
-			   			<%= link_to post_thanks_path(@post), method: :post do %>
-			   				<%= @post.clips.count %> ありがとう
-			   			<% end %>
-				<% end %>
 				<!-- クリップ -->
 				<% if @post.cliped_by?(current_user) %>
-			    		<%= link_to post_clip_path(@post), method: :delete do %>
-			    			<%= @post.clips.count %> クリップを外す
-			    		<% end %>
+		    		<%= link_to post_clip_path(@post), method: :delete do %>
+			    		<i class="fas fa-paperclip icon-btn clip-clip"></i>
+			    		<div class="icon-btn cliped-icon">
+			    			<%= @post.clips.count %>
+			    		</div>
+			    	<% end %>
 				<% else %>
-			    		<%= link_to post_clips_path(@post), method: :post do %>
-			    			<%= @post.clips.count %> クリップ
+		    		<%= link_to post_clips_path(@post), method: :post do %>
+		    			<div class="icon-btn clip-icon">
+			    			<i class="fas fa-paperclip icon-btn clip-clip"></i>
+			    			<%= @post.clips.count %>
+			    		</div>
 			    		<% end %>
+				<% end %>
+				<!-- ありがとう -->
+				<% if @post.thanked_by?(current_user) %>
+					<div class="icon-btn thanked-icon">
+			   			<%= link_to post_thank_path(@post), method: :delete do %>
+			   				<i class="far fa-smile-beam"></i>
+			   			<% end %>
+			   		</div>
+				<% else %>
+					<div class="icon-btn thank-icon">
+			   			<%= link_to post_thanks_path(@post), method: :post do %>
+			   				<i class="far fa-smile-beam"></i>
+			   			<% end %>
+			   		</div>
 				<% end %>
 			<% else %>
 			<% end %>
+			<div class="balloon3-left">
+			   	<p><span class="thanks-count-balloon"><%= @post.thanks.count %></span>
+			   	<span class="thanks-title"><br>ありがとう</span></p>
+			</div>
 		</div>
 		<div class="post-show-box3">
 			<!-- 相手の情報 -->
-			<p>ギフトシーン</p>
-			<p><%= @post.small_scene.name %></p>
-			<p>私は、<%= @post.stance_id_i18n %>。</p>
-			<div>
-				<p>贈り物を受け取った人</p>
-				<p class="post-show-target"><%= @post.age_id_i18n %></p>
-				<p class="post-show-target"><%= @post.gender_id_i18n %></p>
+			<p class="post-show-stance">
+				<% if @post.stance_id = 1 %>
+					<i class="fas fa-gift"></i>
+				<% elsif @post.stance_id = 2 %>
+					<i class="fas fa-hand-holding-heart"></i>
+				<% end %>
+				私は、<%= @post.stance_id_i18n %>。
+			</p>
+			<div class="scene-box">
+				<span class="scene-box-title">ギフトシーン</span>
+				<p><%= @post.small_scene.name %></p>
+			</div>
+			<div class="target-box">
+				<span class="target-box-title">贈り物を受け取った人</span>
+				<p>
+					<%= @post.age_id_i18n %>
+					<span>　　</span>
+					<%= @post.gender_id_i18n %>
+				</p>
 			</div>
 		</div>
 		<div class="post-show-box5">
 			<!-- 商品情報・口コミ -->
-			<p><%= @post.small_category.name %></p>
-			<p><%= @post.item_name %></p>
-			<p><%= @post.item_price %></p>
-			<p><%= @post.keeping_quality_i18n %></p>
-			<p>メーカー・ブランド・お店の情報</p>
-			<p><%= @post.maker_name %></p>
-			<p><%= @post.prefecture_id %></p>
-			<p><%= @post.maker_address %></p>
-			<p><%= @post.url_address %></p>
-		</div>
-		<div class="post-show-box7">
-			<!-- 口コミ -->
-			<p><%= @post.review %></p>
+			<div class="post-show-label">
+				<p>商品情報</p>
+			</div>
+			<table>
+				<tr>
+					<td class="post-show-small-font"><%= @post.small_category.name %></td>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<th colspan="3" class="post-show-item-name"><%= @post.item_name %></th>
+				</tr>
+				<tr class="post-show-keeping_quality">
+					<td><%= @post.item_price %>円<span class="price-tax">（税込）</span></td>
+					<td></td>
+					<td class="post-show-small-font">日持ち：<%= @post.keeping_quality_i18n %></td>
+				</tr>
+			</table>
+			<div class="post-show-label">
+				<p>メーカー・ブランド・お店の情報</p>
+			</div>
+			<table>
+				<tr>
+					<th  colspan="2" class="post-show-maker-name"><%= @post.maker_name %></th>
+					<td><p class="post-show-prefecture"><%= @post.prefecture_id %></p></td>
+				</tr>
+				<tr>
+					<td class="post-show-small-font">住所</td>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td  colspan="3"><%= @post.maker_address %></td>
+				</tr>
+				<tr>
+					<td class="post-show-small-font">サイトURL</td>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td  colspan="3"><%= @post.url_address %></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div class="post-show-block2">
@@ -84,28 +137,28 @@
 						<td>味または使い心地</td>
 						<th class="rating-count"><%= @post.rating_feeling %></th>
 						<% @post.rating_feeling.times do |i| %>
-							<th>★</th>
+							<th><i class="fas fa-star"></i></th>
 						<% end %>
 					</tr>
 					<tr>
 						<td>見た目</td>
 						<th><%= @post.rating_looks %></th>
 						<% @post.rating_looks.times do |i| %>
-							<th>★</th>
+							<th><i class="fas fa-star"></i></th>
 						<% end %>
 					</tr>
 					<tr>
 						<td>価格</td>
 						<th><%= @post.rating_price %></th>
 						<% @post.rating_price.times do |i| %>
-							<th>★</th>
+							<th><i class="fas fa-star"></i></th>
 						<% end %>
 					</tr>
 					<tr>
 						<td>ギフトシーンとの相性</td>
 						<th><%= @post.rating_matching %></th>
 						<% @post.rating_matching.times do |i| %>
-							<th>★</th>
+							<th><i class="fas fa-star"></i></th>
 						<% end %>
 					</tr>
 				</table>
@@ -117,9 +170,17 @@
 			</div>
 		</div>
 	</div>
+	<div class="post-show-box7">
+		<!-- 口コミ -->
+		<p><%= @post.review %></p>
+	</div>
 	<div class="post-show-box8">
-		<!-- クリップ・ありがとう・ -->
-		<p><%= link_to '編集', edit_post_path(@post.id) %></p>
-		<p><%= link_to '削除', post_path(@post.id), method: :delete %></p>
+
+		<% if @post.user.id = current_user %>
+			<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn" %></p>
+		<% elsif manager_signed_in?%>
+			<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn" %></p>
+		<% else %>
+		<% end %>
 	</div>
 </div>

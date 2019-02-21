@@ -3,6 +3,8 @@ ja:
         models:
             user: ユーザー
             post: 投稿
+            small_scene: ギフトシーン
+            small_category: 商品カテゴリー
         attributes:
             user:
                 name: 名前

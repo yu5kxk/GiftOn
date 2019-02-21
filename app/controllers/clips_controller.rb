@@ -1,4 +1,6 @@
 class ClipsController < ApplicationController
+  before_action :authenticate_user!, only:[:index, :create, :destroy]
+
   def index
     @user = current_user
   	@clips = current_user.clips.all

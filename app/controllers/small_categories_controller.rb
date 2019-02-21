@@ -1,4 +1,6 @@
 class SmallCategoriesController < ApplicationController
+	before_action :authenticate_manager!, only:[:new, :create, :edit, :update, :destroy]
+
 	def create
 		small_category = SmallCategory.new(small_category_params)
 		small_category.save

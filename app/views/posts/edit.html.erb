@@ -44,4 +44,7 @@
       <p><%= f.submit '投稿する' %></p>
   	</div>
   <% end %>
+  <div>
+    <p><%= link_to '削除', post_path(@post.id), method: :delete, class: "delete-btn" %></p>
+  </div>
 </div>

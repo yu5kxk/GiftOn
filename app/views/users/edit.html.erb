@@ -33,4 +33,9 @@
 			<p><%= link_to 'マイページへ戻る', user_path(@user), class: "back-btn" %></p>
 		</div>
 	<% end %>
+	<% if manager_signed_in? %>
+		<div class="user-delete-btn">
+			<p><%= link_to 'ユーザーの削除', unsubscribe_user_path(@user.id), method: :patch, class: "delete-btn" %></p>
+		</div>
+	<% end %>
 </div>

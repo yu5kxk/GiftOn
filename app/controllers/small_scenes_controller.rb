@@ -1,4 +1,6 @@
 class SmallScenesController < ApplicationController
+	before_action :authenticate_manager!, only:[:new, :create, :edit, :update, :destroy]
+
 	def create
 		small_scene = SmallScene.new(small_scene_params)
 		small_scene.save

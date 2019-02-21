@@ -1,4 +1,5 @@
 class LargeScenesController < ApplicationController
+  before_action :authenticate_manager!, only:[:new, :create, :edit, :update, :destroy]
 
   def new
   	@large_scene = LargeScene.new

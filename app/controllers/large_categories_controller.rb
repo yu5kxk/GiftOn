@@ -1,6 +1,5 @@
 class LargeCategoriesController < ApplicationController
-  def index
-  end
+  before_action :authenticate_manager!, only:[:new, :create, :edit, :update, :destroy]
 
   def new
   	@large_category = LargeCategory.new

@@ -3,7 +3,9 @@
 	<div class="mypage-block">
 		<div class="mypage-box1">
 			<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
-			<p class="setting-btn"><%= link_to '設定', edit_user_path(@user), class: "setting-btn" %></p>
+			<% if user_signed_in? %>
+				<%= link_to '設定', edit_user_path(@user), class: "setting-btn" %>
+			<% end %>
 		</div>
 		<div class="mypage-box2">
 			<p class="mypage-user-name"><%= @user.name %></p>
