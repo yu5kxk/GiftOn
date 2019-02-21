@@ -1,13 +1,18 @@
+<div class="page-title">大ギフトシーン編集</div>
 
-<h3>ギフトシーン編集</h3>
-
-<div>
-	<div>
-		<%= form_for(@large_scene) do |flarge| %>
-			<%= flarge.text_field :number, size:'2×10' %>
-				<%= flarge.text_field :name %>
-				<%= link_to '削除', large_scene_path(@large_scene.id), method: :delete %>
-				<%= flarge.submit '変更内容を保存' %>
-		<% end %>
+<div class="center-block">
+	<div class="list-edit-form">
+		<table>
+			<%= form_for(@large_scene) do |flarge| %>
+				<tr>
+					<td class="list-edit-form-number"><%= flarge.text_field :number, size:'2×10' %></td>
+					<td><%= flarge.text_field :name, size:'40' %></td>
+				</td>
+				<tr>
+					<td></td>
+					<td class="list-edit-form-btn"><%= flarge.submit '変更内容を保存', class: "save-btn" %></td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
 </div>

@@ -1,14 +1,19 @@
+<div class="page-title">小ギフトシーン編集</div>
 
-<h3>ギフトシーン編集</h3>
-
-<div>
-	<div>
-		<%= form_for(@small_scene) do |f| %>
-			<%= f.hidden_field :large_scene_id %>
-			<%= f.text_field :number, size:'2×10' %>
-			<%= f.text_field :name %>
-			<%= link_to '削除', small_scene_path(@small_scene.id), method: :delete %>
-			<%= f.submit '変更内容を保存' %>
-		<% end %>
+<div class="center-block">
+	<div class="list-edit-form">
+		<table>
+			<%= form_for(@small_scene) do |f| %>
+				<tr>
+					<% f.hidden_field :large_scene_id %>
+					<td class="list-edit-form-number"><%= f.text_field :number, size:'2×10' %></td>
+					<td><%= f.text_field :name, size:'40' %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td class="list-edit-form-btn"><%= f.submit '変更内容を保存', class: "save-btn" %></td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
 </div>
