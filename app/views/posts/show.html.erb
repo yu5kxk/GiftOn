@@ -1,6 +1,6 @@
 <!-- 口コミ詳細 -->
 <div class="center-block">
-	<div class="post-show-block1">
+	<div class="post-show-block">
 		<div class="post-show-box1">
 			<!-- 画像 -->
 			<%= attachment_image_tag @post.user, :image, :fill, 300, 300, class: "user-image-large image-float" %>
@@ -14,64 +14,76 @@
 		<div class="post-show-box2">
 			<% if user_signed_in? %>
 				<!-- クリップ -->
-				<% if @post.cliped_by?(current_user) %>
-		    		<%= link_to post_clip_path(@post), method: :delete do %>
-			    		<i class="fas fa-paperclip icon-btn clip-clip"></i>
-			    		<div class="icon-btn cliped-icon">
-			    			<%= @post.clips.count %>
-			    		</div>
-			    	<% end %>
-				<% else %>
-		    		<%= link_to post_clips_path(@post), method: :post do %>
-		    			<div class="icon-btn clip-icon">
-			    			<i class="fas fa-paperclip icon-btn clip-clip"></i>
-			    			<%= @post.clips.count %>
-			    		</div>
-			    		<% end %>
-				<% end %>
+				<div class="post-show-clip">
+					<% if @post.cliped_by?(current_user) %>
+						<div class="icon-btn cliped-icon">
+			    			<%= link_to post_clip_path(@post), method: :delete do %>
+				    			<i class="fas fa-paperclip"></i>
+				    		<% end %>
+				    	</div>
+					<% else %>
+						<div class="icon-btn clip-icon">
+			    			<%= link_to post_clips_path(@post), method: :post do %>
+				    			<i class="fas fa-paperclip"></i>
+				    		<% end %>
+				    	</div>
+					<% end %>
+					<div class="balloon-left-clip">
+				   		<p>
+				   			<span class="thanks-count-balloon"><%= @post.clips.count %></span>
+				   			<span class="thanks-title"><br>クリップ中</span>
+				   		</p>
+					</div>
+				</div>
+
+				<div class="post-show-thank">
 				<!-- ありがとう -->
-				<% if @post.thanked_by?(current_user) %>
-					<div class="icon-btn thanked-icon">
-			   			<%= link_to post_thank_path(@post), method: :delete do %>
-			   				<i class="far fa-smile-beam"></i>
-			   			<% end %>
-			   		</div>
-				<% else %>
-					<div class="icon-btn thank-icon">
-			   			<%= link_to post_thanks_path(@post), method: :post do %>
-			   				<i class="far fa-smile-beam"></i>
-			   			<% end %>
-			   		</div>
-				<% end %>
+					<% if @post.thanked_by?(current_user) %>
+						<div class="icon-btn thanked-icon">
+				   			<%= link_to post_thank_path(@post), method: :delete do %>
+				   				<i class="far fa-grin-squint"></i>
+				   			<% end %>
+				   		</div>
+					<% else %>
+						<div class="icon-btn thank-icon">
+				   			<%= link_to post_thanks_path(@post), method: :post do %>
+				   				<i class="far fa-grin-squint"></i>
+				   			<% end %>
+				   		</div>
+					<% end %>
+					<div class="balloon-left-thank">
+				   		<p>
+				   			<span class="thanks-count-balloon"><%= @post.thanks.count %></span>
+				   			<span class="thanks-title"><br>ありがとう</span>
+				   		</p>
+					</div>
+				</div>
+				<p  class="post-show-thanks-comment">参考になったら、ありがとうでお礼をしよう！</p>
 			<% else %>
 			<% end %>
-			<div class="balloon3-left">
-			   	<p><span class="thanks-count-balloon"><%= @post.thanks.count %></span>
-			   	<span class="thanks-title"><br>ありがとう</span></p>
-			</div>
+
+
 		</div>
 		<div class="post-show-box3">
 			<!-- 相手の情報 -->
+			<% @post.stance_id %>
 			<p class="post-show-stance">
-				<% if @post.stance_id = 1 %>
-					<i class="fas fa-gift"></i>
-				<% elsif @post.stance_id = 2 %>
-					<i class="fas fa-hand-holding-heart"></i>
-				<% end %>
+				<i class="fas fa-gift"></i>
 				私は、<%= @post.stance_id_i18n %>。
 			</p>
-			<div class="scene-box">
-				<span class="scene-box-title">ギフトシーン</span>
-				<p><%= @post.small_scene.name %></p>
-			</div>
-			<div class="target-box">
-				<span class="target-box-title">贈り物を受け取った人</span>
-				<p>
-					<%= @post.age_id_i18n %>
-					<span>　　</span>
-					<%= @post.gender_id_i18n %>
-				</p>
-			</div>
+				<div class="scene-box stance-border">
+					<span class="scene-box-title stance-color">ギフトシーン</span>
+					<p><%= @post.small_scene.name %></p>
+				</div>
+				<div class="target-box stance-border">
+					<span class="target-box-title stance-color">贈り物を受け取った人</span>
+					<p>
+						<%= @post.age_id_i18n %>
+						<span>　　</span>
+						<%= @post.gender_id_i18n %>
+					</p>
+				</div>
+
 		</div>
 		<div class="post-show-box5">
 			<!-- 商品情報・口コミ -->
@@ -117,7 +129,7 @@
 			</table>
 		</div>
 	</div>
-	<div class="post-show-block2">
+	<div class="post-show-block">
 		<div class="post-show-box4">
 			<ul class="bxslider">
 				<!-- 写真 -->

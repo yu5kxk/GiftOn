@@ -4,27 +4,31 @@
     <!-- 画像投稿」 -->
     <p>画像の追加</p>
     <%=  form_for [@post, @post_image] do |f| %>
+      <%= render 'posts/error_messages', model: f.object %>
       <%= f.attachment_field :image %>
       <%= f.submit '追加' %>
     <% end %>
   </div>
   <div class="pimage-new-box2">
     <p>投稿画像</p>
-    <div class="pimage-new-create-image">
-      <table>
-        <% @post.post_images.each do |pimages| %>
-          <% @post.id = pimages.post_id %>
-            <tr>
-              <td>
-                <%= attachment_image_tag pimages, :image, :fill, 300, 300, class: "post-image-view" %>
-              </td>
-              <td>
-                <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
-              </td>
-            </tr>
-        <% end %>
-      </table>
-    </div>
+    <% if @post.post_images.present? %>
+      <div class="pimage-new-create-image">
+        <table>
+          <% @post.post_images.each do |pimages| %>
+            <% @post.id = pimages.post_id %>
+              <tr>
+                <td>
+                  <%= attachment_image_tag pimages, :image, :fill, 300, 300, class: "post-image-view" %>
+                </td>
+                <td>
+                  <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
+                </td>
+              </tr>
+          <% end %>
+        </table>
+      </div>
+    <% else %>
+    <% end %>
   </div>
   <div class="pimage-new-box3">
     <%= link_to '投稿する', post_path(@post.id) %>
