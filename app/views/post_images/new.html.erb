@@ -10,8 +10,8 @@
     <% end %>
   </div>
   <div class="pimage-new-box2">
-    <p>投稿画像</p>
     <% if @post.post_images.present? %>
+      <p>投稿画像</p>
       <div class="pimage-new-create-image">
         <table>
           <% @post.post_images.each do |pimages| %>

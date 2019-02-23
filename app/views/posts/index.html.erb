@@ -56,16 +56,16 @@
 						<div>
 							<!-- クリップ -->
 							<% if user_signed_in? %>
-								<% if @post.cliped_by?(current_user) %>
+								<% if posts.cliped_by?(current_user) %>
 									<p class="post-index-icon cilped-icon">
-							   			<%= link_to post_clip_path(@post), method: :delete do %>
+							   			<%= link_to post_clip_path(posts), method: :delete do %>
 							   				<%= posts.clips.count %>
 				    						<i class="fas fa-paperclip"></i>
 				    					<% end %>
 					   				</p>
 								<% else %>
 									<p class="post-index-icon clip-icon">
-							   			<%= link_to post_clips_path(@post), method: :post do %>
+							   			<%= link_to post_clips_path(posts), method: :post do %>
 											<%= posts.clips.count %>
 				    						<i class="fas fa-paperclip"></i>
 				    					<% end %>
