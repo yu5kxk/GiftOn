@@ -12,14 +12,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @scenes = SmallScene.all
+    @categories = SmallCategory.all
     @q = Post.ransack(params[:q])
     @search_posts = @q.result(distinct: true)
-    @scenes = SmallScene.all
-    @q_scene = SmallScene.ransack(params[:q])
-    @search_scenes = @q_scene.result(distinct: true)
-    @categories = SmallCategory.all
-    @q_category = SmallCategory.ransack(params[:q])
-    @search_categories = @q_category.result(distinct: true)
   end
 
   def top
@@ -59,6 +55,10 @@ class PostsController < ApplicationController
 private
   def post_params
     params.require(:post).permit(:user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review)
+  end
+
+  def small_scene_params
+    params.require(:qq).permit(:name, :number, :large_scene_id)
   end
 
 end

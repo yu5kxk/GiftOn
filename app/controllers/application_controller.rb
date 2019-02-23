@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = Post.ransack(params[:q])
-    @search_posts = @search.result
+    @search_posts = @search.result(distinct: true)
   end
 
   def user_or_manager_signed_in?

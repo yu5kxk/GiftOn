@@ -2,17 +2,13 @@
 <div class="center-block">
 	<div>
 		<!-- 絞り込み検索 -->
-		<%= search_form_for @q_scene do |f| %>
-			<%= f.label :name_eq, 'ギフトシーン' %>
-			<%= f.collection_select :name_eq, @scenes, :id, :name, :include_blank => '指定なし' %>
-			<%= f.submit ('絞り込み'), class: 'search-btn' %>
-		<% end %>
-		<%= search_form_for @q_category do |f| %>
-			<%= f.label :name_eq, 'カテゴリー' %>
-			<%= f.collection_select :name_eq, @categories, :id, :name, :include_blank => '指定なし' %>
-			<%= f.submit ('絞り込み'), class: 'search-btn' %>
-		<% end %>
 		<%= search_form_for @q do |f| %>
+			<div>
+				<%= f.label :small_scene_id_eq, 'ギフトシーン' %>
+				<%= f.collection_select :small_scene_id_eq, @scenes, :id, :name, :include_blank => '指定なし' %>
+	        	<%= f.label :small_category_id_eq, '商品カテゴリー' %>
+				<%= f.collection_select :small_category_id_eq, @categories, :id, :name, :include_blank => '指定なし' %>
+	        </div>
 			<div>
 				<%= f.label :gender_id_eq, '性別' %>
 				<%= f.select :gender_id_eq, Post.gender_ids_i18n.keys.map {|k| [Post.gender_ids_i18n[k], Post.gender_ids[k]]}.to_h,  :include_blank => '指定なし' %>
