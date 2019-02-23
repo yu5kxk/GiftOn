@@ -72,18 +72,23 @@
 	position: relative;
 	background-color: green;
 }
-.post-index-tnc {
+.post-index-image {
+	float: left;
+}
+.post-index-icon {
 	border: solid 1px #cccccc;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	margin-top: 5px;
 	padding: 5px 5px;
-	font-size: 10px;
+	font-size: 14px;
+	float: left;
+	background-color: pink;
 }
-.post-index-box3 p {
+.post-index-box3 div {
 	position: absolute;
-	top: 230px;
-	left: 120px;
+	top: 263px;
+	left: 225px;
 }
 .post-index-box4 {
 	background-color: orange;
@@ -160,16 +165,6 @@
 	float: left;
 }
 .post-show-clip,.post-show-thank {
-	float: left;
-}
-
-/*icon*/
-.icon-btn {
-	width: 50px;
-	height: 50px;
-	margin-left: 5px;
-	font-size: 30px;
-	border-radius: 100px;
 	float: left;
 }
 

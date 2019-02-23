@@ -51,10 +51,62 @@
 					<div class="post-index-box3">
 						<!-- 画像 -->
 						<% posts.post_images.first(1).each do |pimage| %>
-							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg', class: "post-index-image"  %>
 						<% end %>
-						<!-- ありがとう --><!-- クリップ -->
-						<p><span class="post-index-tnc"><%= posts.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= posts.clips.count %>クリップ</span></p>
+						<div>
+							<!-- クリップ -->
+							<% if user_signed_in? %>
+								<% if @post.cliped_by?(current_user) %>
+									<p class="post-index-icon cilped-icon">
+							   			<%= link_to post_clip_path(@post), method: :delete do %>
+							   				<%= posts.clips.count %>
+				    						<i class="fas fa-paperclip"></i>
+				    					<% end %>
+					   				</p>
+								<% else %>
+									<p class="post-index-icon clip-icon">
+							   			<%= link_to post_clips_path(@post), method: :post do %>
+											<%= posts.clips.count %>
+				    						<i class="fas fa-paperclip"></i>
+				    					<% end %>
+									</p>
+								<% end %>
+							<% else %>
+								<!-- ゲストユーザー -->
+								<p class="post-index-icon">
+							   		<%= link_to new_user_session_path do %>
+							   			<%= posts.clips.count %>
+							   			<i class="fas fa-paperclip"></i>
+							   		<% end %>
+							   	</p>
+							<% end %>
+							<!-- ありがとう -->
+							<% if user_signed_in? %>
+								<% if posts.thanked_by?(current_user) %>
+									<p class="post-index-icon thanked-icon">
+							   			<%= link_to post_thank_path(posts), method: :delete do %>
+							   				<%= posts.thanks.count %>
+				   							<i class="far fa-grin-squint"></i>
+				   						<% end %>
+				   					</p>
+								<% else %>
+									<p class="post-index-icon thank-icon">
+							   			<%= link_to post_thanks_path(posts), method: :post do %>
+							   				<%= posts.thanks.count %>
+							   				<i class="far fa-grin-squint"></i>
+							   			<% end %>
+							   		</p>
+								<% end %>
+							<% else %>
+								<!-- ゲストユーザー -->
+								<p class="post-index-icon">
+							   		<%= link_to new_user_session_path do %>
+							   			<%= posts.thanks.count %>
+							   			<i class="far fa-grin-squint"></i>
+							   		<% end %>
+							   	</p>
+							<% end %>
+						</div>
 					</div>
 					<div class="post-index post-index-box5">
 						<p class="post-index-maker"><%= posts.maker_name %></p>
