@@ -36,97 +36,97 @@
 
 
     <div class="header-side">
-      <div class="header-item">
-        <%= link_to posts_path do %>
+      <%= link_to posts_path do %>
+        <div class="header-item">
           <i class="far fa-comments"></i>
           <span>口コミ</span>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <% if manager_signed_in? %>
         <div class="header-list">
           <p>一覧</p>
-          <div class="header-item">
-            <%= link_to new_large_scene_path do %>
+          <%= link_to new_large_scene_path do %>
+            <div class="header-item">
               <i class="fas fa-gifts"></i>
               <span>ギフトシーン</span>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to new_large_category_path do %>
+          <%= link_to new_large_category_path do %>
+            <div class="header-item">
               <i class="fas fa-clipboard-list"></i>
               <span>カテゴリー</span>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to users_path do %>
+          <%= link_to users_path do %>
+            <div class="header-item">
               <i class="fas fa-users"></i>
               <span>ユーザー</span>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="header-item">
-          <%= link_to destroy_manager_session_path, method: :delete do %>
-            <i class="fas fa-sign-out-alt"></i>
-            <span>ログアウト</span>
+            </div>
           <% end %>
         </div>
 
+        <%= link_to destroy_manager_session_path, method: :delete do %>
+          <div class="header-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>ログアウト</span>
+          </div>
+        <% end %>
+
       <% elsif user_signed_in? %>
         <div>
-          <div class="header-item">
-            <%= link_to new_post_path do %>
+          <%= link_to new_post_path do %>
+            <div class="header-item">
               <i class="fas fa-comment-medical"></i>
               <span>投稿</span>
-            <% end %>
-          </div>
-          
-          <div class="header-item">
-            <%= link_to user_path(current_user.id) do %>
-              <i class="far fa-user"></i>
-              <%= current_user.name %>さんのマイページ
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to post_clips_path(current_user.id) do %>
+          <%= link_to user_path(current_user.id) do %>
+            <div class="header-item">
+              <i class="far fa-user"></i>
+              <%= current_user.name %>さんの<br>マイページ
+            </div>
+          <% end %>
+
+          <%= link_to post_clips_path(current_user.id) do %>
+            <div class="header-item">
               <span><i class="fas fa-paperclip"></i>マイクリップ</span>
               <div class="myclip-count"><%= current_user.clips.count %></div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <div class="header-item">
               <i class="fas fa-sign-out-alt"></i>
               <span>ログアウト</span>
+            </div>
             <% end %>
-          </div>
         </div>
 
       <% else %>
         <div>
-          <div class="header-item">
-            <%= link_to new_user_registration_path do %>
+          <%= link_to new_user_registration_path do %>
+            <div class="header-item">
               <i class="fas fa-user-plus"></i>
               <span>新規登録</span>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to new_user_session_path do %>
+          <%= link_to new_user_session_path do %>
+            <div class="header-item">
               <i class="fas fa-sign-in-alt"></i>
               <span>ログイン</span>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
 
-          <div class="header-item">
-            <%= link_to users_lnquiry_path do %>
+          <%= link_to users_lnquiry_path do %>
+            <div class="header-item">
               <i class="far fa-question-circle"></i>
               <span>お問い合わせ</span>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

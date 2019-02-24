@@ -31,13 +31,13 @@
 		</div>
 	</div>
 	<div>
-		<div class="mypage-posts">
+		<div class="mypage-item mypage-link">
 			<%= link_to user_path(@user.id) do %>
 				<i class="far fa-comments"></i>
 				<span>投稿した口コミ</span>
 			<% end %>
 		</div>
-		<div class="mypage-posts">
+		<div class="mypage-item mypage-chose">
 			<div class="myclip-count"><%= @clips.count %></div>
 			<i class="fas fa-paperclip"></i>マイクリップ
 	</div>
