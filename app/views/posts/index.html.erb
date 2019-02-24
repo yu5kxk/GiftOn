@@ -37,17 +37,42 @@
 					<%= attachment_image_tag posts.user, :image, :fill, 300, 300, class: "user-image-small" %>
 					<%= link_to posts.user.name, user_path(posts.user_id) %>
 					<div>
-						<p class="post-index-stance"><%= posts.stance_id_i18n %></p>
+						<p class="post-index-stance">
+							<i class="fas fa-gift index-gift"></i>
+							<%= posts.stance_id_i18n %>
+						</p>
 						<p class="post-index-time"><%= simple_time(posts.created_at) %></p>
 					</div>
 				</div>
-				<%= link_to post_path(posts.id) do %>
-					<div class="post-index post-index-box2">
-						<div class="post-index-scene">
-							<%= posts.small_scene.name %>
-							<%= posts.age_id_i18n %>
-						</div>
+				<div class="post-index post-index-box2">
+					<div class="post-index-scene">
+						<%= posts.age_id_i18n %>
+						<%= posts.gender_id_i18n %>へ<br>
+						<%= posts.small_scene.name %>
 					</div>
+					<div class="post-index-category">
+						<%= posts.small_category.name %>
+					</div>
+				</div>
+				<div class="post-index-rating">
+					<% total_rating = 0 %>
+					<% total_rating = (total_rating + posts.rating_feeling + posts.rating_looks + posts.rating_price + posts.rating_matching)/4 %>
+					<span>
+						<% total_rating.times do |i| %>
+							<i class="fas fa-star"></i>
+						<% end %>
+						<% remainder_star = 5 - total_rating %>
+						<% remainder_star.times do |i| %>
+							<i class="fas fa-star remainder-star"></i>
+						<% end %>
+					</span>
+					<%= link_to post_path(posts.id) do %>
+						<span class="post-index-total-rating">
+							<%= total_rating %>
+						</span>
+					<% end %>
+				</div>
+				<%= link_to post_path(posts.id) do %>
 					<div class="post-index-box3">
 						<!-- 画像 -->
 						<% posts.post_images.first(1).each do |pimage| %>
@@ -57,7 +82,7 @@
 							<!-- クリップ -->
 							<% if user_signed_in? %>
 								<% if posts.cliped_by?(current_user) %>
-									<p class="post-index-icon cilped-icon">
+									<p class="post-index-icon cliped-icon">
 							   			<%= link_to post_clip_path(posts,posts.clips), method: :delete do %>
 							   				<%= posts.clips.count %>
 				    						<i class="fas fa-paperclip"></i>
@@ -84,7 +109,7 @@
 							<% if user_signed_in? %>
 								<% if posts.thanked_by?(current_user) %>
 									<p class="post-index-icon thanked-icon">
-							   			<%= link_to post_thank_path(posts), method: :delete do %>
+							   			<%= link_to post_thank_path(posts,posts.thanks), method: :delete do %>
 							   				<%= posts.thanks.count %>
 				   							<i class="far fa-grin-squint"></i>
 				   						<% end %>
@@ -109,23 +134,34 @@
 						</div>
 					</div>
 					<div class="post-index post-index-box5">
-						<p class="post-index-maker"><%= posts.maker_name %></p>
-						<p class="post-index-prefecture"><%= posts.prefecture_id %></p>
-						<p class="post-index-item"><%= posts.item_name %></p>
+						<p class="post-index-maker">
+							<%= link_to post_path(posts.id) do %>
+								<%= posts.maker_name %>
+							<% end %>
+						</p>
+						<p class="post-index-prefecture">
+							<%= link_to post_path(posts.id) do %>
+								<%= posts.prefecture_id %>
+							<% end %>
+						</p>
+						<p class="post-index-item">
+							<%= link_to post_path(posts.id) do %>
+								<%= posts.item_name %>
+							<% end %>
+						</p>
 						<p class="post-index-price">
-							<%= posts.item_price %>円
-							<span class="price-tax">(税込)</span>
+							<%= link_to post_path(posts.id) do %>
+								<%= posts.item_price %>円
+								<span class="price-tax">(税込)</span>
+							<% end %>
 						</p>
 					</div>
 					<div class="post-index post-index-box6">
-						<div class="post-index-rating">
-							<% total_rating = 0 %>
-							<% total_rating = total_rating + posts.rating_feeling + posts.rating_looks + posts.rating_price + posts.rating_matching %>
-							<p>評価合計<br>
-							<%= total_rating %>点</p>
-						</div>
 						<div class="post-index-review">
-							<%= posts.review %>
+							<%= strip_tags(posts.review).truncate(60) %>
+							<% if posts.review.length > 60 %>
+								<%= link_to 'もっと見る', post_path(posts.id), class: "post-show-small-font" %>
+							<% end %>
 						</div>
 					</div>
 				<% end %>

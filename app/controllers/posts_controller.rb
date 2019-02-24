@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def top
+    @posts = Post.all
     @large_scenes = LargeScene.all
     @small_scenes = SmallScene.all
     @large_categories = LargeCategory.all
