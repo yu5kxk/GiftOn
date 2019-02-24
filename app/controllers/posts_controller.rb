@@ -57,8 +57,4 @@ private
     params.require(:post).permit(:user_id, :stance_id, :gender_id, :age_id, :maker_name, :maker_address, :url_address, :prefecture_id, :small_category_id, :item_name, :item_price, :keeping_quality, :rating_feeling, :rating_looks, :rating_price, :rating_matching, :small_scene_id, :review)
   end
 
-  def small_scene_params
-    params.require(:qq).permit(:name, :number, :large_scene_id)
-  end
-
 end

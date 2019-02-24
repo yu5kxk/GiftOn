@@ -1,21 +1,25 @@
 /*top*/
+.center-block-top {
+	margin: 10px auto;
+}
+
 .top-right {
-	width: 300px;
-	border: solid 1px #cccccc;
+	width: 460px;
 	float: left;
 }
 .top-search-block {
-	width: 290px;
-	margin: 0 auto;
+	width: 220px;
+	margin: 0 5px;
+	font-size: 13px;
+	float: left;
+	border: solid 1px #cccccc;
 }
 .top-search-scene {
-	width: 290px;
 	height: 20px;
 	margin: 5px 0;
 	background-color: red;
 }
 .top-search-category {
-	width: 290px;
 	height: 20px;
 	margin: 5px 0;
 	background-color: blue;

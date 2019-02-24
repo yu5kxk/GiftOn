@@ -1,4 +1,4 @@
-<div class="center-block">
+<div class="center-block-top">
 	<div class="top-right">
 		<div class="top-search-block">
 			<div class="top-search-scene">
@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<% large.small_scenes.each do |small| %>
-					<p>・<%= small.name  %></p>
+					<p>・<%= link_to small.name, "/posts?utf8=%E2%9C%93&q%5Bsmall_scene_id_eq%5D=#{small.id}q%5Bsmall_category_id_eq%5D=&q%5Bgender_id_eq%5D=&q%5Bage_id_eq%5D=&q%5Bprefecture_id_eq%5D=&q%5Bkeeping_quality_eq%5D=&commit=%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%81%BF" %></p>
 				<% end %>
 			<% end %>
 		</div>
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 				<% large.small_categories.each do |small| %>
-					<p>・<%= small.name %></p>
+					<p>・<%= link_to small.name, "/posts?utf8=%E2%9C%93&q%5Bsmall_scene_id_eq%5D=&q%5Bsmall_category_id_eq%5D=#{small.id}&q%5Bgender_id_eq%5D=&q%5Bage_id_eq%5D=&q%5Bprefecture_id_eq%5D=&q%5Bkeeping_quality_eq%5D=&commit=%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%81%BF" %></p>
 				<% end %>
 			<% end %>
 		</div>

@@ -75,7 +75,7 @@ gem 'cocoon'
 gem 'ransack'
 gem 'bxslider-rails'
 gem 'rails-i18n'
-
+gem 'pry-byebug'
 # heroku
 group :production do
   gem 'pg'

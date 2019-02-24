@@ -58,7 +58,7 @@
 							<% if user_signed_in? %>
 								<% if posts.cliped_by?(current_user) %>
 									<p class="post-index-icon cilped-icon">
-							   			<%= link_to post_clip_path(posts), method: :delete do %>
+							   			<%= link_to post_clip_path(posts,posts.clips), method: :delete do %>
 							   				<%= posts.clips.count %>
 				    						<i class="fas fa-paperclip"></i>
 				    					<% end %>
