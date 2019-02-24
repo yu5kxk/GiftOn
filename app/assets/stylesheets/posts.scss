@@ -24,7 +24,7 @@
 	border-bottom: solid 3px #fc6479;
 }
 .block-scene {
-	background-color: #ffc1ca;
+	background-color: #ffdde2;
 }
 .top-search-category {
 	height: 20px;
@@ -32,7 +32,7 @@
 	border-bottom: solid 3px #ffaf6e;
 }
 .block-category {
-	background-color: #ffdcbf;
+	background-color: #ffe9d8;
 }
 .top-center {
 	width: 660px;
@@ -48,7 +48,7 @@
 /*post index*/
 .post-index-block {
 	width: 310px;
-	height: 560px;
+	height: 575px;
 	margin: 15px 10px;
 	padding: 5px 5px;
 	float: left;
@@ -60,7 +60,7 @@
 }
 .post-index-box1 {
 	height: 70px;
-	background-color: pink;
+	border-bottom: solid 1px #f79e9e;
 }
 .post-index-stance {
 	width: 130px;
@@ -79,7 +79,7 @@
 	display: inline-block;
 }
 .post-index-box2 {
-	height: 40px;
+	height: 37px;
 }
 .post-index-scene {
 	font-size: 13px;
@@ -128,7 +128,6 @@
 	background-color: orange;
 }
 .post-index-box5 {
-
 }
 .post-index-maker {
 	width: 200px;
@@ -144,16 +143,14 @@
 	display: inline-block;
 }
 .post-index-item {
-	width: 180px;
-	display: inline-block;
+	height: 15px;
 }
 .post-index-price {
-	width: 100px;
+	height: 15px;
 	text-align: right;
-	display: inline-block;
 }
 .post-index-box6 {
-	font-size: 13px;
+	font-size: 12px;
 }
 .post-index-review {
 	width: 280px;
@@ -342,7 +339,7 @@
 	border: solid 2px #ffaf6e;
 }
 .post-show-stance {
-	width: 250px;
+	width: 300px;
 	position: relative;
 	padding: .3em;
 	font-size: 16px;
@@ -468,9 +465,14 @@
 /*post new*/
 .post-new-block1{
 	width: 500px;
-	height: 400px;
+	height: 450px;
+	padding-left: 5px;
 	float: left;
-	background-color: pink;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
+}
+.post-new-title {
+	font-weight: bold;
 }
 .post-new-box1 {
 	width: 500px;
@@ -488,28 +490,43 @@
 	font-size: 12px;
 }
 .post-new-block2 {
-	width: 450px;
+	width: 470px;
 	float: left;
-	background-color: #dddddd;
 }
 .post-new-rating {
-	background-color: yellow;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-top: 5px;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
-.post-new-rating tr {
-	height: 30px;
+.post-new-rating-low {
+	height: 10px;
+	font-size: 12px;
 }
-.post-new-rating td {
+.post-new-rating-high {
+	height: 35px;
+}
+.post-new-rating-item {
 	width: 180px;
 	text-align: center;
 }
 .post-new-rating th {
-	width: 35px;
+	width: 40px;
+}
+.post-new-text-field {
+	width: 300px;
 }
 .post-new-block3 {
-	width: 450px;
+	width: 470px;
 	height: 250px;
 	float: left;
-	background-color: #aaaaaa;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding-left: 5px;
+	padding-top: 5px;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
 .post-new-block3 textarea {
 	width: 400px;

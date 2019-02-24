@@ -41,33 +41,78 @@ body {
 	height: 70px;
 	background-color: pink;
 }
-.header-search {
-	width: 400px;
-	margin: 25px 70px;
-	float: left;
-}
 .header-side {
 	width: 200px;
+	margin-top: 48px;
 	float: right;
-	background-color: gray;
+}
+.header-top {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  margin-top: 15px;
+  padding: 10px 20px;
+  height: 70px;
+  background: #f79e9e;
+  box-sizing: border-box;
+  }
+
+.header-top-logo {
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  margin: 0;
+  padding: 10px 0 7px;
+  z-index: 2;
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 13px;
+  background: #fa8383;
+  border-radius: 2px 0 0 0;
+  }
+
+.header-top-logo:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: -5px;
+  border: none;
+  border-bottom: solid 6px #d07676;
+  border-right: solid 5px transparent;
+}
+
+.header-top-logo:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 50px solid #fa8383;
 }
 .header-list {
 	height: 230px;
 	text-align: center;
 	padding: 10px 10px;
 }
-.header-logo {
-	width: 200px;
-	float: right;
-	background-color: gray;
-}
 .header-item {
-	width: 170px;
+	width: 190px;
 	height: 50px;
-	margin: 10px auto;
-	padding-top: 15px;
-	text-align: center;
-	background-color: #F7F2E0;
+    padding: 14px 0.5em;
+    margin: 2em 0;
+    text-align: center;
+    background: #fff8e8;
+    box-shadow: 0px 0px 0px 10px #fff8e8;
+    border: dashed 2px #fa8383;
+}
+.header-item p {
+    margin: 0;
+    padding: 0;
 }
 
 /*large_scene large_ctegory new*/
@@ -170,13 +215,16 @@ body {
 }
 /*マイページ編集*/
 .setting-btn {
-	width: 80px;
-	text-align: center;
-	margin-top: 10px;
 }
 /*post new*/
 .next-btn {
 	margin-top: 30px;
+}
+/*post_image new*/
+.post-image-new-btn {
+	margin-top: 20px;
+}
+.post-btn {
 }
 /*scene ctegory new*/
 .new-btn {

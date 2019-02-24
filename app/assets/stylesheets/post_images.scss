@@ -4,7 +4,8 @@
 	height: 200px;
 	padding: 40px 20px;
 	float: left;
-	background-color: gray;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
 .post-image-view {
 	width: 100px;
@@ -12,11 +13,10 @@
 }
 .pimage-new-box2 {
 	width: 380px;
-	padding-top: 5px;
-	padding-left: 20px;
+	padding: 5px 20px;
 	margin-left: 100px;
 	float: left;
-	background-color: pink;
+	background-color: #fff8e8;
 }
 .pimage-new-create-image {
 	width: 350px;
@@ -32,7 +32,8 @@
 }
 
 .pimage-new-box3 {
-	width: 880px;
+	margin: 20px 280px;
+	width: 300px;
 	text-align: center;
 	float: left;
 	background-color: orange;

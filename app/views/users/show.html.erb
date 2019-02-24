@@ -4,7 +4,7 @@
 		<div class="mypage-box1">
 			<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
 			<% if user_signed_in? %>
-				<%= link_to '設定', edit_user_path(@user), class: "setting-btn" %>
+				<p class="mypage-setting"><%= link_to '設定', edit_user_path(@user), class: "setting-btn" %></p>
 			<% end %>
 		</div>
 		<div class="mypage-box2">
@@ -33,9 +33,9 @@
 		</div>
 	</div>
 	<div>
-		<div class="mypage-posts">投稿した口コミ</div>
+		<div class="mypage-item mypage-chose">投稿した口コミ</div>
 		<% if user_signed_in? %>
-			<div class="mypage-posts">
+			<div class="mypage-item mypage-link">
 				<%= link_to post_clips_path(@user.id) do %>
 					<%= current_user.clips.count %>
 					<span>マイクリップ</span>

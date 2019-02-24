@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_manager!, only:[:index, :update]
-  before_action :user_or_manager_signed_in?, only:[:edit, :unsubscribe]
-  before_action :authenticate_user!, only:[:update]
+  before_action :authenticate_manager!, only:[:index]
+  before_action :user_or_manager_signed_in?, only:[:edit, :update, :unsubscribe]
+
 
   def new
     @user = User.new

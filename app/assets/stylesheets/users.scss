@@ -12,14 +12,17 @@
 	width: 80px;
 	height: 120px;
 	float: left;
-	background-color: pink;
+}
+.mypage-setting {
+	width: 80px;
+	text-align: center;
+	margin-top: 10px;
 }
 .mypage-box2 {
 	width: 450px;
 	height: 120px;
 	float: left;
 	padding: 5px 5px;
-	background-color: gray;
 }
 .mypage-user-name {
 	font-size: 25px;
@@ -36,18 +39,38 @@
 .mypage-box3 {
 	width: 350px;
 	height: 120px;
-	margin-left: 10px;
-	border-radius: 5px;
-	float: left;
-	padding: 5px 5px;
-	font-size: 12px;
-	background-color: orange;
+ 	position: relative;
+ 	display: inline-block;
+  	margin: 1.5em 0 1.5em 15px;
+  	padding: 7px 10px;
+  	min-width: 120px;
+  	max-width: 100%;
+  	color: #555;
+  	font-size: 12px;
+  	border-radius: 5px;
+  	float: left;
+  	background: #ffdde2;
+}
+
+.mypage-box3:before {
+  	content: "";
+	position: absolute;
+	top: 50%;
+	left: -30px;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-right: 15px solid #ffdde2;
+}
+
+.mypage-box3 p {
+  	margin: 0;
+  	padding: 0;
 }
 .mypage-box4 {
 	width: 1000px;
 	border-top: solid 1px #cccccc;
 }
-.mypage-posts {
+.mypage-item {
 	width: 150px;
 	height: 40px;
 	padding-top: 10px;
@@ -55,28 +78,45 @@
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	display: inline-block;
-	background-color: green;
 }
+.mypage-chose {
+	background-color: #f79e9e;
+	color: #ffffff;
+}
+.mypage-link {
+	background-color: #dddddd;
+}
+
 /*マイページ編集*/
 .user-edit-info {
 	width: 300px;
 	height: 250px;
 	float: left;
-	background-color: pink;
+	padding-left: 20px;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
 .user-edit-introduction {
 	width: 450px;
 	height: 250px;
 	float: left;
 	padding-left: 20px;
-	background-color: gray;
+	margin-left: 10px;
+	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
+.user-edit-item {
+	height: 30px;
+}
+
 .introduction-area {
 	width: 400px;
 	height: 200px;
 }
 .user-edit-btn {
 	width: 800px;
+	margin-top: 20px;
+	float: left;
 }
 .user-delete-btn {
 	width: 800px;

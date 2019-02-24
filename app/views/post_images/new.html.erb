@@ -6,11 +6,12 @@
     <%=  form_for [@post, @post_image] do |f| %>
       <%= render 'posts/error_messages', model: f.object %>
       <%= f.attachment_field :image %>
-      <%= f.submit '追加' %>
+      <p class="care-comment">※１枚ずつ追加ボタンを押してください。</p>
+      <%= f.submit '追加', class: "post-image-new-btn" %>
     <% end %>
   </div>
-  <div class="pimage-new-box2">
-    <% if @post.post_images.present? %>
+  <% if @post.post_images.present? %>
+    <div class="pimage-new-box2">
       <p>投稿画像</p>
       <div class="pimage-new-create-image">
         <table>
@@ -27,10 +28,10 @@
           <% end %>
         </table>
       </div>
-    <% else %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+  <% end %>
   <div class="pimage-new-box3">
-    <%= link_to '投稿する', post_path(@post.id) %>
+    <%= link_to '投稿する', post_path(@post.id), class: "post-btn" %>
   </div>
 </div>

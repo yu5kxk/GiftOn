@@ -5,6 +5,7 @@
     <div class="need-new-item"><%= render 'posts/need_new_item' %>必須項目</div>
     <div class="post-new-block1">
       <div class="post-new-box1">
+        <p class="post-new-title">贈り物情報</p>
         <table>
           <tr class="table-height">
             <td>あなたは？<%= render 'posts/need_new_item' %></td>
@@ -43,7 +44,7 @@
             <td><%= f.collection_select :small_category_id, SmallCategory.all, :id, :name %></td>
           </tr class="table-height">
             <td>商品名<%= render 'posts/need_new_item' %></td>
-            <td><%= f.text_field :item_name %></td>
+            <td><%= f.text_field :item_name, class: "post-new-text-field" %></td>
           </tr>
           <tr class="table-height">
             <td class="care-item">日持ち期間</td>
@@ -61,7 +62,7 @@
           </tr>
           <tr class="table-height">
           		<td class="post-new-maker-name">メーカー・ブランド・お店の名前<%= render 'posts/need_new_item' %></td>
-              <td><%= f.text_field :maker_name %></td>
+              <td><%= f.text_field :maker_name, class: "post-new-text-field" %></td>
             </tr>
             <tr class="table-height">
           		<td>購入できる地域<%= render 'posts/need_new_item' %></td>
@@ -69,56 +70,70 @@
             </tr>
             <tr class="table-height">
           		<td>住所</td>
-              <td><%= f.text_field :maker_address %></td>
+              <td><%= f.text_field :maker_address, class: "post-new-text-field" %></td>
             </tr>
             <tr class="table-height">
           		<td>サイトURL</td>
-              <td><%= f.text_field :url_address %></td>
+              <td><%= f.text_field :url_address, class: "post-new-text-field" %></td>
           </tr>
         </table>
       </div>
     </div>
     <div class="post-new-block2">
       <div class="post-new-rating">
-      	<p>評価</p>
+      	<p class="post-new-title">評価</p>
         <table>
-          <tr>
-            <td>味または使い心地<%= render 'posts/need_new_item' %></td>
+          <tr class="post-new-rating-low">
+            <td></td>
+            <td>悪い</td>
+            <td colspan="5"></td>
+            <td>良い</td>
+          </tr>
+          <tr class="post-new-rating-high">
+            <td class="post-new-rating-item">味または使い心地<%= render 'posts/need_new_item' %></td>
+            <td></td>
             <th><%= f.radio_button :rating_feeling, 1 %>1</th>
             <th><%= f.radio_button :rating_feeling, 2 %>2</th>
             <th><%= f.radio_button :rating_feeling, 3 %>3</th>
             <th><%= f.radio_button :rating_feeling, 4 %>4</th>
             <th><%= f.radio_button :rating_feeling, 5 %>5</th>
+            <td></td>
           </tr>
-           <tr>
-            <td>見た目<%= render 'posts/need_new_item' %></td>
+           <tr class="post-new-rating-high">
+            <td class="post-new-rating-item">見た目<%= render 'posts/need_new_item' %></td>
+            <td></td>
             <th><%= f.radio_button :rating_looks, 1 %>1</th>
             <th><%= f.radio_button :rating_looks, 2 %>2</th>
             <th><%= f.radio_button :rating_looks, 3 %>3</th>
             <th><%= f.radio_button :rating_looks, 4 %>4</th>
             <th><%= f.radio_button :rating_looks, 5 %>5</th>
+            <td></td>
           </tr>
-          <tr>
-            <td>コストパフォーマンス<%= render 'posts/need_new_item' %></td>
+          <tr class="post-new-rating-high">
+            <td class="post-new-rating-item">コストパフォーマンス<%= render 'posts/need_new_item' %></td>
+            <td></td>
             <th><%= f.radio_button :rating_price, 1 %>1</th>
             <th><%= f.radio_button :rating_price, 2 %>2</th>
             <th><%= f.radio_button :rating_price, 3 %>3</th>
             <th><%= f.radio_button :rating_price, 4 %>4</th>
             <th><%= f.radio_button :rating_price, 5 %>5</th>
+            <td></td>
           </tr>
-          <tr>
-            <td>ギフトシーンとの相性<%= render 'posts/need_new_item' %></td>
+          <tr class="post-new-rating-high">
+            <td class="post-new-rating-item">ギフトシーンとの相性<%= render 'posts/need_new_item' %></td>
+            <td></td>
             <th><%= f.radio_button :rating_matching, 1 %>1</th>
             <th><%= f.radio_button :rating_matching, 2 %>2</th>
             <th><%= f.radio_button :rating_matching, 3 %>3</th>
             <th><%= f.radio_button :rating_matching, 4 %>4</th>
             <th><%= f.radio_button :rating_matching, 5 %>5 </th>
+            <td></td>
           </tr>
         </table>
       </div>
     </div>
     <div class="post-new-block3">
-      <p>レビューコメント<%= render 'posts/need_new_item' %></p>
+      <p class="post-new-title">レビューコメント<%= render 'posts/need_new_item' %></p>
       <p><%= f.text_area :review %></p>
   	</div>
     <div class="post-new-block4">
