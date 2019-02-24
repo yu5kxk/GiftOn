@@ -1,34 +1,26 @@
 <div class="center-block-top">
 	<div class="top-right">
-		<div class="top-search-block">
+		<div class="top-search-block search-block-scene">
 			<div class="top-search-scene">
-				<div>
-					<p>ギフトシーンで検索</p>
-				</div>
+				<p>ギフトシーンで検索</p>
 			</div>
 			<% @large_scenes.each do |large| %>
-				<div class="top-search-scene">
-					<div class="block">
-						<p><%= large.name %></p>
-					</div>
+				<div class="block-scene">
+					<p><%= large.name %></p>
 				</div>
 				<% large.small_scenes.each do |small| %>
 					<p>・<%= link_to small.name, "/posts?utf8=%E2%9C%93&q%5Bsmall_scene_id_eq%5D=#{small.id}q%5Bsmall_category_id_eq%5D=&q%5Bgender_id_eq%5D=&q%5Bage_id_eq%5D=&q%5Bprefecture_id_eq%5D=&q%5Bkeeping_quality_eq%5D=&commit=%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%81%BF" %></p>
 				<% end %>
 			<% end %>
 		</div>
-		<div class="top-search-block">
+		<div class="top-search-block search-block-category">
 			<div class="top-search-category">
-				<div>
-					<p>商品カテゴリーで検索</p>
-				</div>
+				<p>商品カテゴリーで検索</p>
 			</div>
 			<% @large_categories.each do |large| %>
-			<div class="top-search-category">
-				<div class="block">
+				<div class="block-category">
 					<p><%= large.name %></p>
 				</div>
-			</div>
 				<% large.small_categories.each do |small| %>
 					<p>・<%= link_to small.name, "/posts?utf8=%E2%9C%93&q%5Bsmall_scene_id_eq%5D=&q%5Bsmall_category_id_eq%5D=#{small.id}&q%5Bgender_id_eq%5D=&q%5Bage_id_eq%5D=&q%5Bprefecture_id_eq%5D=&q%5Bkeeping_quality_eq%5D=&commit=%E7%B5%9E%E3%82%8A%E8%BE%BC%E3%81%BF" %></p>
 				<% end %>
@@ -36,12 +28,9 @@
 		</div>
 	</div>
 	<div class="top-center">
-		<div class="top-keyword">
+		<div>
 			<!-- 新着口コミ -->
-			<div>
-				<p>総口コミ件数：<%= @posts.count %></p>
-			</div>
-
+			<p class="top-new-posts">新着口コミ</p>
 			<div>
 				<% @posts.each do |posts| %>
 					<div class="post-index-block">

@@ -4,36 +4,47 @@
 }
 
 .top-right {
-	width: 460px;
+	width: 400px;
 	float: left;
 }
 .top-search-block {
-	width: 220px;
 	margin: 0 5px;
 	font-size: 13px;
 	float: left;
-	border: solid 1px #cccccc;
+}
+.search-block-scene {
+	width: 200px;
+}
+.search-block-category {
+	width: 180px;
 }
 .top-search-scene {
 	height: 20px;
-	margin: 5px 0;
-	background-color: red;
+	margin-bottom: 5px;
+	border-bottom: solid 3px #fc6479;
+}
+.block-scene {
+	background-color: #ffc1ca;
 }
 .top-search-category {
 	height: 20px;
-	margin: 5px 0;
-	background-color: blue;
+	margin-bottom: 5px;
+	border-bottom: solid 3px #ffaf6e;
 }
-.block {
-	height: 100%;
-	background: rgba(255,255,255,0.7);
+.block-category {
+	background-color: #ffdcbf;
 }
 .top-center {
-	width: 680px;
-	margin: 0 10px;
+	width: 660px;
 	float: left;
-	background-color: green;
 }
+.top-new-posts {
+	font-weight: bold;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+
 /*post index*/
 .post-index-block {
 	width: 310px;
@@ -42,6 +53,7 @@
 	padding: 5px 5px;
 	float: left;
 	border: solid 1px #dddddd;
+	background-color: #fff8e8;
 }
 .post-index {
 	padding-left: 8px;
