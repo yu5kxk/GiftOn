@@ -1,10 +1,15 @@
+<div class="page-title">ヘルプ</div>
 <div class="center-block">
 	<div>
-		<%= link_to 'お問い合わせ', 'https://goo.gl/forms/W6otH3WG4kaMA7sG3', class: "lnquiry-form-btn" %>
+		<%= link_to 'https://goo.gl/forms/W6otH3WG4kaMA7sG3' do %>
+			<p class="lnquiry-form-btn btn-layout pink-btn">お問い合わせ</p>
+		<% end %>
 	</div>
 	<% if user_signed_in? %>
 		<div class="user-delete-btn">
-			<p><%= link_to 'ユーザーの削除', unsubscribe_user_path(@user.id), method: :patch, class: "delete-btn" %></p>
+			<%= link_to unsubscribe_user_path(@user.id), method: :patch do %>
+				<p class="delete-btn user-delete btn-layout">ユーザーの削除</p>
+			<% end %>
 		</div>
 	<% end %>
 </div>

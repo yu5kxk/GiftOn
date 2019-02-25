@@ -137,9 +137,9 @@
       <p><%= f.text_area :review %></p>
     </div>
     <div class="post-new-block4">
-      <%= f.submit '画像の選択へ', class: "next-btn" %>
+      <%= f.submit '画像の選択へ', class: "next-btn btn-layout orange-btn" %>
       <div class="post-edit-delete">
-        <p><%= link_to '投稿の削除', post_path(@post.id), method: :delete, class: "delete-btn" %></p>
+        <p><%= link_to '投稿の削除', post_path(@post.id), method: :delete, class: "delete-btn btn-layout" %></p>
       </div>
     </div>
   <% end %>

@@ -187,12 +187,12 @@
 		<p><%= @post.review %></p>
 	</div>
 	<div class="post-show-box8">
-		<p><%= link_to '戻る', :back, class: "back-btn" %></p>
+		<p><%= link_to '戻る', :back, class: "back-btn btn-layout" %></p>
 		<div class="post-show-edit">
 			<% if @post.user.id = current_user %>
-				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn" %></p>
+				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
 			<% elsif manager_signed_in?%>
-				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn" %></p>
+				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
 			<% else %>
 			<% end %>
 		</div>

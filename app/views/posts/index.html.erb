@@ -18,7 +18,7 @@
 				<%= f.select :prefecture_id_eq, Post.prefecture_ids,  :include_blank => '指定なし' %>
 				<%= f.label :keeping_quality_eq, '日持ち' %>
 				<%= f.select :keeping_quality_eq, Post.keeping_qualities_i18n.keys.map {|k| [Post.keeping_qualities_i18n[k], Post.keeping_qualities[k]]}.to_h,  :include_blank => '指定なし' %>
-				<%= f.submit ('絞り込み'), class: 'search-btn' %>
+				<%= f.submit ('絞り込み'), class: 'pink-btn btn-layout' %>
 			</div>
         <% end %>
 	</div>

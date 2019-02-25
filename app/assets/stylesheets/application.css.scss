@@ -136,7 +136,7 @@ body {
 
 /*large_scene large_ctegory new*/
 .list-table {
-	width: 500px;
+	width: 550px;
 	margin: 10px 0;
 	border: solid 2px #dddddd;
 	background-color: #fff8e8;
@@ -224,7 +224,6 @@ body {
 	margin: 10px auto;
 	text-align: center;
 	float: left;
-	background-color: red;
 }
 
 
@@ -242,12 +241,52 @@ body {
 
 
 /*ボタン*/
+.btn-layout {
+	display: inline-block;
+  	padding: 0.3em 1em;
+  	text-decoration: none;
+  	border-radius: 3px;
+  	transition: .4s;
+  	background-color: white;
+}
+/*.btn-layout:hover {
+	color: white;
+}*/
+
+
+/*色分け*/
+.pink-btn {
+  	color: #fa8383;
+  	border: solid 2px #fa8383;
+}
+.pink-btn:hover {
+	color: white;
+	background: #fa8383;
+}
+
+.orange-btn {
+  	color: #ffaf6e;
+  	border: solid 2px #ffaf6e;
+}
+.orange-btn:hover {
+	color: white;
+	background: #ffaf6e;
+}
+
+
 /*新規登録*/
 .sign-btn {
 	margin-top: 10px;
+	color: #fa8383;
+  	border: solid 2px #fa8383;
+}
+.sign-btn:hover {
+	color: white;
+	background: #fa8383;
 }
 /*マイページ編集*/
 .setting-btn {
+	margin: 5px 10px;
 }
 /*post new*/
 .next-btn {
@@ -258,6 +297,9 @@ body {
 	margin-top: 20px;
 }
 .post-btn {
+	height: 40px;
+	width: 400px;
+	padding-top: 8px;
 }
 /*scene ctegory new*/
 .new-btn {
@@ -266,14 +308,51 @@ body {
 /*post show/scene ctegory new*/
 .edit-btn {
 	margin: 0 5px;
+	color: #FE2E2E;
+	background-color: #fc9f9f;
+  	border: solid 2px #FE2E2E;
+}
+.edit-btn:hover {
+	color: white;
+	background: #FE2E2E;
 }
 /*post show/scene ctegory new/ user delete*/
 .delete-btn {
 	margin: 0 5px;
+	margin: 0 5px;
+	color: #D358F7;
+	background-color: #e2aef2;
+  	border: solid 2px #D358F7;
+}
+.delete-btn:hover {
+	color: white;
+	background: #D358F7;
 }
 /*scene ctegory edit*/
 .save-btn {}
 
 
 /*user index*/
-.userpage-btn {}
+.userpage-btn {
+	font-size: 13px;
+}
+
+/*user lnquiry*/
+.lnquiry-form-btn, .user-delete {
+	width: 200px;
+	height: 50px;
+	margin-top: 100px;
+	padding-top: 13px;
+	text-align: center;
+}
+
+
+.back-btn {
+	margin: 0 5px;
+	color: #fff8e8;
+  	border: solid 2px #fff8e8;
+}
+.back-btn:hover {
+	color: #61380B;
+	background: #fff8e8;
+}

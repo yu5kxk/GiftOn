@@ -7,7 +7,7 @@
       <%= render 'posts/error_messages', model: f.object %>
       <%= f.attachment_field :image %>
       <p class="care-comment">※１枚ずつ追加ボタンを押してください。</p>
-      <%= f.submit '追加', class: "post-image-new-btn" %>
+      <%= f.submit '追加', class: "post-image-new-btn btn-layout orange-btn" %>
     <% end %>
   </div>
     <div class="pimage-new-box2">
@@ -24,7 +24,7 @@
                   <%= attachment_image_tag pimage, :image, :fill, 300, 300, class: "post-image-view" %>
                 </td>
                 <td>
-                  <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete %>
+                  <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete, class: "delete-btn btn-layout" %>
                 </td>
               </tr>
             <% end %>
@@ -33,6 +33,6 @@
       </div>
     </div>
   <div class="pimage-new-box3">
-    <%= link_to '投稿する', post_path(@post.id), class: "post-btn" %>
+    <%= link_to '投稿する', post_path(@post.id), class: "post-btn btn-layout orange-btn" %>
   </div>
 </div>

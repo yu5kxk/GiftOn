@@ -15,7 +15,11 @@
 		</tr>
 		<% @users.each do |user| %>
 			<tr>
-				<td class="user-table-item"><%= user.deleted_user %></td>
+				<td class="user-table-item">
+					<% if user.deleted_user != nil %>
+						退会済み
+					<% end %>
+				</td>
 				<td class="user-table-item"><%= attachment_image_tag user, :image, :fill, 400, 400, class: "user-image-small" %></td>
 				<td><%= user.name %></td>
 				<td class="user-table-item"><%= (Date.today.strftime('%Y%m%d').to_i - user.birth.strftime('%Y%m%d').to_i) / 10000 %>歳</td>
@@ -29,7 +33,7 @@
 				<% end %>
 				<td class="user-table-item"><%= total_thanks %></td>
 				<td class="user-table-item"><%= total_clips %></td>
-				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id), class: "userpage-btn" %></td>
+				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id), class: "userpage-btn btn-layout orange-btn" %></td>
 			</tr>
 		<% end %>
 	</table>

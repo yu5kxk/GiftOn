@@ -29,8 +29,8 @@
         <p>
           <!-- キーワード検索 -->
           <%= search_form_for @search, url: posts_path do |f| %>
-            <%= f.search_field :item_name_or_maker_name_cont, placeholder: 'キーワードで検索(商品名,お店の名前)' %>
-            <%= f.submit ('検索'), class: 'search-btn' %>
+            <%= f.search_field :item_name_or_maker_name_or_maker_address_or_review_cont, placeholder: 'キーワードで検索' %>
+            <%= f.submit ('検索'), class: 'pink-btn btn-layout' %>
           <% end %>
         </p>
       </div>
@@ -153,7 +153,7 @@
             <div class="header-item">
               <p>
                 <i class="far fa-question-circle"></i>
-                <span class="header-item-small-font">お問い合わせ</span>
+                <span>ヘルプ</span>
               </p>
             </div>
           <% end %>
