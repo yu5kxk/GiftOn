@@ -30,17 +30,23 @@
 			<p><%= @user.introduction %></p>
 		</div>
 	</div>
-	<div>
-		<div class="mypage-item mypage-link">
-			<%= link_to user_path(@user.id) do %>
-				<i class="far fa-comments"></i>
-				<span>投稿した口コミ</span>
-			<% end %>
+	<div class="mypage-menuber">
+		<%= link_to user_path(@user.id) do %>
+			<div class="mypage-menu mypage-link">
+				<p class="mypage-item">
+					<i class="far fa-comments"></i>
+					<span>投稿した口コミ</span>
+				</p>
+			</div>
+		<% end %>
+		<div class="mypage-menu mypage-chose">
+			<p class="mypage-item">
+				<i class="fas fa-paperclip"></i>マイクリップ
+				<span class="myclip-count myclip-count-white">
+					<%= @clips.count %>
+				</span>
+			</p>
 		</div>
-		<div class="mypage-item mypage-chose">
-			<div class="myclip-count"><%= @clips.count %></div>
-			<i class="fas fa-paperclip"></i>マイクリップ
-	</div>
 	</div>
 	<div class="mypage-box4">
 		<% @clips.each do |clip| %>

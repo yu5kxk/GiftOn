@@ -32,16 +32,17 @@
 			<p><%= @user.introduction %></p>
 		</div>
 	</div>
-	<div>
-		<div class="mypage-item mypage-chose">投稿した口コミ</div>
+	<div class="mypage-menuber">
+		<div class="mypage-menu mypage-chose">投稿した口コミ</div>
 		<% if user_signed_in? %>
-			<div class="mypage-item mypage-link">
+			<div class="mypage-menu mypage-link">
 				<%= link_to post_clips_path(@user.id) do %>
-					<%= current_user.clips.count %>
+					<i class="fas fa-paperclip"></i>
 					<span>マイクリップ</span>
+					<span class="myclip-count myclip-count-white"><%= current_user.clips.count %></span>
 				<% end %>
 			</div>
-		<% elsif manager_signed_in? %>
+		<% else %>
 		<% end %>
 	</div>
 	<div class="mypage-box4">

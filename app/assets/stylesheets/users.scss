@@ -70,14 +70,29 @@
 	width: 1000px;
 	border-top: solid 1px #cccccc;
 }
-.mypage-item {
+.mypage-menuber {
+	width: 100%;
+	height: 75px;
+}
+.mypage-menu {
 	width: 150px;
 	height: 40px;
 	padding-top: 10px;
+	margin: 0 3px;
 	text-align: center;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	display: inline-block;
+	float: left;
+	position:relative
+}
+.mypage-menu p {
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.mypage-item {
+	width: 150px;
 }
 .mypage-chose {
 	background-color: #f79e9e;
