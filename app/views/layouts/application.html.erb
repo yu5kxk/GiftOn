@@ -20,9 +20,11 @@
 
   <body>
     <div class="header-top">
-      <span class="header-top-logo">
-        <%= link_to 'ロゴ', posts_top_path %>
-      </span>
+      <%= link_to posts_top_path do %>
+        <span class="header-top-logo">
+          <p class="gifton-logo">GiftOn<i class="fas fa-gifts"></i></p>
+        </span>
+      <% end %>
       <div>
         <p>
           <!-- キーワード検索 -->
