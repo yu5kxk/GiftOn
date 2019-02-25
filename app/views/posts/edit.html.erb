@@ -1,6 +1,6 @@
 <div class="page-title">投稿</div>
 <div class="center-block">
-  <%= form_for(@post, url: posts_path, method: :post) do |f| %>
+  <%= form_for @post do |f| %>
     <%= render 'posts/error_messages', model: f.object %>
     <div class="need-new-item"><%= render 'posts/need_new_item' %>必須項目</div>
     <div class="post-new-block1">

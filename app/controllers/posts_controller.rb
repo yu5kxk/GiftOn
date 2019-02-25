@@ -41,9 +41,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = Post.find_by(id: params[:id])
-    post.update(post_params)
-    redirect_to new_post_post_image_path(post.id)
+    @post = Post.find_by(id: params[:id])
+    if @post.update(post_params)
+      redirect_to new_post_post_image_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

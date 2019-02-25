@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'posts/top'
   
   resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy] do
-    resources :post_images, only:[:new, :create, :edit, :update, :destroy]
+    resources :post_images, only:[:new, :create, :destroy]
     resources :clips, only:[:index, :create, :destroy]
     resources :thanks, only:[:create, :destroy]
   end

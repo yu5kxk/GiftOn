@@ -2,7 +2,7 @@
 <div class="center-block">
   <div class="pimage-new-box1">
     <!-- 画像投稿」 -->
-    <p>画像の追加</p>
+    <p class="post-new-title">画像の追加</p>
     <%=  form_for [@post, @post_image] do |f| %>
       <%= render 'posts/error_messages', model: f.object %>
       <%= f.attachment_field :image %>
@@ -10,27 +10,28 @@
       <%= f.submit '追加', class: "post-image-new-btn" %>
     <% end %>
   </div>
-  <% if @post.post_images.present? %>
     <div class="pimage-new-box2">
-      <p>投稿画像</p>
       <div class="pimage-new-create-image">
+        <p class="post-new-title">投稿画像</p>
+        <p class="care-comment">※一覧表示時は、１枚目の画像のみ表示されます。<br>
+        　魅力が伝わる画像をお選びください<i class="far fa-grin-beam"></i></p>
         <table>
-          <% @post.post_images.each do |pimages| %>
-            <% @post.id = pimages.post_id %>
+          <% @post.post_images.each_with_index do |pimage, i| %>
+            <% @post.id = pimage.post_id %>
               <tr>
+                <th><%= "#{i+1}" %></td>
                 <td>
-                  <%= attachment_image_tag pimages, :image, :fill, 300, 300, class: "post-image-view" %>
+                  <%= attachment_image_tag pimage, :image, :fill, 300, 300, class: "post-image-view" %>
                 </td>
                 <td>
-                  <%= link_to "削除", post_post_image_path(@post,pimages.id), method: :delete %>
+                  <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete %>
                 </td>
               </tr>
-          <% end %>
-        </table>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
-  <% else %>
-  <% end %>
   <div class="pimage-new-box3">
     <%= link_to '投稿する', post_path(@post.id), class: "post-btn" %>
   </div>

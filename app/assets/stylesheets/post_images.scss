@@ -16,16 +16,25 @@
 	padding: 5px 20px;
 	margin-left: 100px;
 	float: left;
-	background-color: #fff8e8;
 }
 .pimage-new-create-image {
 	width: 350px;
 	padding: 10px 20px;
 	border: solid 1px #cccccc;
 	border-radius: 10px;
+	background-color: #fff8e8;
+}
+.pimage-new-create-image tr {
+	border-top: solid 1px #dddddd;
 }
 .pimage-new-create-image td {
 	width: 150px;
+	height: 110px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.pimage-new-create-image th {
+	width: 50px;
 	height: 110px;
 	padding-top: 5px;
 	padding-bottom: 5px;
