@@ -43,49 +43,49 @@
 	</div>
 	</div>
 	<div class="mypage-box4">
-		<% @clips.each do |clips| %>
+		<% @clips.each do |clip| %>
 			<div class="post-index-block">
 				<div class="post-index post-index-box1">
-					<%= attachment_image_tag clips.post.user, :image, :fill, 300, 300, class: "user-image-small" %>
-					<%= link_to clips.post.user.name, user_path(clips.post.user_id) %>
+					<%= attachment_image_tag clip.post.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<%= link_to clip.post.user.name, user_path(clip.post.user_id) %>
 					<div>
-						<p class="post-index-stance"><%= clips.post.stance_id_i18n %></p>
-						<p class="post-index-time"><%= simple_time(clips.post.created_at) %></p>
+						<p class="post-index-stance"><%= clip.post.stance_id_i18n %></p>
+						<p class="post-index-time"><%= simple_time(clip.post.created_at) %></p>
 					</div>
 				</div>
-				<%= link_to post_path(clips.post.id) do %>
+				<%= link_to post_path(clip.post.id) do %>
 					<div class="post-index post-index-box2">
 						<div class="post-index-scene">
-							<%= clips.post.small_scene.name %>
-							<%= clips.post.age_id_i18n %>
+							<%= clip.post.small_scene.name %>
+							<%= clip.post.age_id_i18n %>
 						</div>
 					</div>
 					<div class="post-index-box3">
 						<!-- 画像 -->
-						<% clips.post.post_images.first(1).each do |pimage| %>
+						<% clip.post.post_images.first(1).each do |pimage| %>
 							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
 						<% end %>
 						<!-- ありがとう --><!-- クリップ -->
-						<p><span class="post-index-tnc"><%= clips.post.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= clips.post.clips.count %>クリップ</span></p>
+						<p><span class="post-index-tnc"><%= clip.post.thanks.count %>ありがとう</span><span class="post-index-tnc"><%= clip.post.clips.count %>クリップ</span></p>
 					</div>
 					<div class="post-index post-index-box5">
-						<p class="post-index-maker"><%= clips.post.maker_name %></p>
-						<p class="post-index-prefecture"><%= clips.post.prefecture_id %></p>
-						<p class="post-index-item"><%= clips.post.item_name %></p>
+						<p class="post-index-maker"><%= clip.post.maker_name %></p>
+						<p class="post-index-prefecture"><%= clip.post.prefecture_id %></p>
+						<p class="post-index-item"><%= clip.post.item_name %></p>
 						<p class="post-index-price">
-							<%= clips.post.item_price %>円
+							<%= clip.post.item_price %>円
 							<span class="price-tax">(税込)</span>
 						</p>
 					</div>
 					<div class="post-index post-index-box6">
 						<div class="post-index-rating">
 							<% total_rating = 0 %>
-							<% total_rating = total_rating + clips.post.rating_feeling + clips.post.rating_looks + clips.post.rating_price + clips.post.rating_matching %>
+							<% total_rating = total_rating + clip.post.rating_feeling + clip.post.rating_looks + clip.post.rating_price + clip.post.rating_matching %>
 							<p>評価合計<br>
 							<%= total_rating %>点</p>
 						</div>
 						<div class="post-index-review">
-							<%= clips.post.review %>
+							<%= clip.post.review %>
 						</div>
 					</div>
 				<% end %>

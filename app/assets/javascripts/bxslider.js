@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.bxslider').bxSlider({
     mode: 'fade',
     captions: true,
