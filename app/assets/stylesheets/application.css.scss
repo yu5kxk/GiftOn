@@ -179,6 +179,7 @@ body {
 
 /*その他*/
 .center-block {
+	width: 980px;
 	margin: 10px 70px;
 }
 .page-title {
@@ -191,6 +192,7 @@ body {
 	border-left: solid 1px #fc6479;
 	border-bottom: solid 1px #fc6479;
 }
+
 .user-image-large {
 	width: 80px;
 	height: 80px;
@@ -212,6 +214,17 @@ body {
 .error-box {
 	width: 800px;
 }
+
+/*kaminari*/
+.paginate-block{
+	width: 100%;
+	margin: 10px auto;
+	text-align: center;
+	float: left;
+	background-color: red;
+}
+
+
 
 /*icon*/
 .icon-btn {

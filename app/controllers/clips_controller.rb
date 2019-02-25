@@ -3,7 +3,7 @@ class ClipsController < ApplicationController
 
   def index
     @user = current_user
-  	@clips = current_user.clips.all
+  	@clips = current_user.clips.page(params[:page]).reverse_order
   end
 
   def create

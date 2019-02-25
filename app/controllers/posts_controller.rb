@@ -15,11 +15,11 @@ class PostsController < ApplicationController
     @scenes = SmallScene.all
     @categories = SmallCategory.all
     @q = Post.ransack(params[:q])
-    @search_posts = @q.result(distinct: true)
+    @search_posts = @q.result.page(params[:page]).reverse_order
   end
 
   def top
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     @large_scenes = LargeScene.all
     @small_scenes = SmallScene.all
     @large_categories = LargeCategory.all
