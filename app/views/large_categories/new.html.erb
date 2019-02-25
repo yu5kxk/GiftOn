@@ -6,8 +6,8 @@
 			<span><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></span>
 			<span><%= f.text_field :name, placeholder: '大カテゴリー' %><%= f.submit '追加' %></span>
 		<% end %>
-		<table class="list-table">
-			<% @large_categories.each do |large| %>
+		<% @large_categories.each do |large| %>
+			<table class="list-table">
 				<tr class="large-title">
 					<th class="large-number"><%= large.number %></th>
 					<th><%= large.name %></th>
@@ -32,7 +32,7 @@
 						<td><%= link_to '編集', edit_small_category_path(small.id), class: "edit-btn" %><%= link_to '削除', small_category_path(small.id), method: :delete, class: "delete-btn" %></td>
 					</tr>
 				<% end %>
-			<% end %>
-		</table>
+			</table>
+		<% end %>
 	</div>
 </div>

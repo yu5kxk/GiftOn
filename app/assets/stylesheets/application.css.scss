@@ -101,9 +101,8 @@ body {
   border-top: 50px solid #fa8383;
 }
 .header-list {
-	height: 230px;
+	height: 320px;
 	text-align: center;
-	padding: 10px 10px;
 }
 .header-item {
 	width: 200px;
@@ -130,13 +129,17 @@ body {
 	width: 130px;
 	display: inline-block;
 }
+.header-item-small-font {
+	font-size: 13px;
+}
 
 
 /*large_scene large_ctegory new*/
 .list-table {
 	width: 500px;
 	margin: 10px 0;
-	background-color: gray;
+	border: solid 2px #dddddd;
+	background-color: #fff8e8;
 }
 .large-title {
 	height: 35px;

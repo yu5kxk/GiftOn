@@ -139,18 +139,21 @@
 }
 
 /*ユーザーリスト*/
+.user-index-table{
+	background-color: #fff8e8;
+}
 .user-index-table tr {
 	height: 45px;
-	border-bottom: solid 1px #cccccc;
+	border-bottom: solid 1px #f79e9e;
 }
 .user-table-title {
 	width: 100px;
 	text-align: center;
-	background-color: pink;
+	background-color: #f79e9e;
 }
 .user-table-title-name {
 	width: 200px;
-	background-color: pink;
+	background-color: #f79e9e;
 }
 .user-table-item {
 	width: 100px;
