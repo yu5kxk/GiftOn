@@ -83,54 +83,54 @@
 							<!-- クリップ -->
 							<% if user_signed_in? %>
 								<% if post.cliped_by?(current_user) %>
-									<p class="post-index-icon cliped-icon">
-							   			<%= link_to post_clip_path(post,post.clips), method: :delete do %>
-							   				<%= post.clips.count %>
-				    						<i class="fas fa-paperclip"></i>
-				    					<% end %>
-					   				</p>
-								<% else %>
-									<p class="post-index-icon clip-icon">
-							   			<%= link_to post_clips_path(post), method: :post do %>
+									<%= link_to post_clip_path(post,posts.clips), method: :delete do %>
+										<p class="post-index-icon cliped-icon">
 											<%= post.clips.count %>
-				    						<i class="fas fa-paperclip"></i>
-				    					<% end %>
-									</p>
+						    				<i class="fas fa-paperclip"></i>
+										</p>
+									<% end %>
+								<% else %>
+									<%= link_to post_clips_path(post), method: :post do %>
+										<p class="post-index-icon clip-icon">
+											<%= post.clips.count %>
+						    				<i class="fas fa-paperclip"></i>
+										</p>
+									<% end %>
 								<% end %>
 							<% else %>
 								<!-- ゲストユーザー -->
-								<p class="post-index-icon">
-							   		<%= link_to new_user_session_path do %>
+								<%= link_to new_user_session_path do %>
+									<p class="post-index-icon clip-icon">
 							   			<%= post.clips.count %>
 							   			<i class="fas fa-paperclip"></i>
-							   		<% end %>
-							   	</p>
+								   	</p>
+							   <% end %>
 							<% end %>
 							<!-- ありがとう -->
 							<% if user_signed_in? %>
 								<% if post.thanked_by?(current_user) %>
-									<p class="post-index-icon thanked-icon">
-							   			<%= link_to post_thank_path(post,post.thanks), method: :delete do %>
+									<%= link_to post_thank_path(post,posts.thanks), method: :delete do %>
+										<p class="post-index-icon thanked-icon">
 							   				<%= post.thanks.count %>
-				   							<i class="far fa-grin-squint"></i>
-				   						<% end %>
-				   					</p>
+											<i class="far fa-grin-squint"></i>
+										</p>
+									<% end %>
 								<% else %>
-									<p class="post-index-icon thank-icon">
-							   			<%= link_to post_thanks_path(post), method: :post do %>
+									<%= link_to post_thanks_path(post), method: :post do %>
+										<p class="post-index-icon thank-icon">
 							   				<%= post.thanks.count %>
 							   				<i class="far fa-grin-squint"></i>
-							   			<% end %>
-							   		</p>
+								   		</p>
+								   	<% end %>
 								<% end %>
 							<% else %>
 								<!-- ゲストユーザー -->
-								<p class="post-index-icon">
-							   		<%= link_to new_user_session_path do %>
+								<%= link_to new_user_session_path do %>
+									<p class="post-index-icon thank-icon">
 							   			<%= post.thanks.count %>
 							   			<i class="far fa-grin-squint"></i>
-							   		<% end %>
-							   	</p>
+								   	</p>
+								<% end %>
 							<% end %>
 						</div>
 					</div>
