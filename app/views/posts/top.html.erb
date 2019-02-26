@@ -111,7 +111,7 @@
 									<!-- ありがとう -->
 									<% if user_signed_in? %>
 										<% if post.thanked_by?(current_user) %>
-											<%= link_to post_thank_path(post,posts.thanks), method: :delete do %>
+											<%= link_to post_thank_path(post,post.thanks), method: :delete do %>
 												<p class="post-index-icon thanked-icon">
 									   				<%= post.thanks.count %>
 													<i class="far fa-grin-squint"></i>
