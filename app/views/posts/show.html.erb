@@ -135,7 +135,7 @@
 				<!-- 写真 -->
 				<% @post.post_images.each do |pimage| %>
 					<li>
-						<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
+						<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg' %>
 					</li>
 				<% end %>
 			</ul>

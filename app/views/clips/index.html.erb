@@ -100,7 +100,7 @@
 					<div class="post-index-box3">
 						<!-- 画像 -->
 						<% clip.post.post_images.first(1).each do |pimage| %>
-							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: 'no_image.jpg', class: "post-index-image"  %>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg', class: "post-index-image"  %>
 						<% end %>
 						<div>
 							<!-- クリップ -->
