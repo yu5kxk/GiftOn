@@ -27,7 +27,7 @@ class LargeScenesController < ApplicationController
   def destroy
   	large_scene = LargeScene.find(params[:id])
   	large_scene.destroy
-  	redirect_to
+  	redirect_to new_large_scene_path
   end
 
   private

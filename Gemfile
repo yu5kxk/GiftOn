@@ -77,7 +77,10 @@ gem 'bxslider-rails'
 gem 'rails-i18n'
 gem 'pry-byebug'
 gem 'kaminari','~> 1.1.1'
+
+
 # heroku
 group :production do
   gem 'pg'
 end
+
