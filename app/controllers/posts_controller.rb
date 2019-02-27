@@ -20,10 +20,10 @@ class PostsController < ApplicationController
 
   def top
     @posts = Post.page(params[:page]).reverse_order
-    @large_scenes = LargeScene.all
-    @small_scenes = SmallScene.all
-    @large_categories = LargeCategory.all
-    @small_categories = SmallCategory.all
+    @large_scenes = LargeScene.all.order(:number)
+    @small_scenes = SmallScene.all.order(:number)
+    @large_categories = LargeCategory.all.order(:number)
+    @small_categories = SmallCategory.all.order(:number)
   end
 
   def create
