@@ -3,7 +3,11 @@
 	<div class="post-show-block">
 		<div class="post-show-box1">
 			<!-- 画像 -->
-			<%= attachment_image_tag @post.user, :image, :fill, 300, 300, class: "user-image-large image-float" %>
+			<% if @post.user.image.present? %>
+				<%= attachment_image_tag @post.user, :image, :fill, 300, 300, class: "user-image-large image-float" %>
+			<% else %>
+				<%= image_tag '/images/user_image.png', class: "user-image-large user-no-image image-float" %>
+			<% end %>
 			<div class="post-show-user-name">
 				<%= @post.user.name %>
 			</div>

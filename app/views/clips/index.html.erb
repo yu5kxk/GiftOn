@@ -24,7 +24,11 @@
 		<% @clips.each do |clip| %>
 			<div class="post-index-block">
 				<div class="post-index post-index-box1">
-					<%= attachment_image_tag clip.post.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<% if clip.post.user.image.present? %>
+						<%= attachment_image_tag clip.post.user, :image, :fill, 300, 300, class: "user-image-small" %>
+					<% else %>
+						<%= image_tag '/images/user_image.png', class: "user-image-small user-no-image" %>
+					<% end %>
 					<%= link_to clip.user.name, user_path(clip.post.user_id) %>
 					<div>
 						<p class="post-index-stance">

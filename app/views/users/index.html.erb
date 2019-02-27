@@ -20,7 +20,13 @@
 						退会済み
 					<% end %>
 				</td>
-				<td class="user-table-item"><%= attachment_image_tag user, :image, :fill, 400, 400, class: "user-image-small" %></td>
+				<td class="user-table-item">
+					<% if user.image.present? %>
+						<%= attachment_image_tag user, :image, :fill, 400, 400, class: "user-image-small" %>
+					<% else %>
+						<%= image_tag '/images/user_image.png', class: "user-image-small user-no-image" %>
+					<% end %>
+				</td>
 				<td><%= user.name %></td>
 				<td class="user-table-item"><%= (Date.today.strftime('%Y%m%d').to_i - user.birth.strftime('%Y%m%d').to_i) / 10000 %>歳</td>
 				<td class="user-table-item"><%= user.posts.count %></td>

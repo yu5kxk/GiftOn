@@ -2,9 +2,7 @@
 			<% if @user.image.present? %>
 				<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
 			<% else %>
-				<div class="user-image-large user-no-image">
-					<i class="fas fa-user"></i>
-				</div>
+				<%= image_tag '/images/user_image.png', class: "user-image-large user-no-image" %>
 			<% end %>
 			<p class="mypage-setting">
 				<%= link_to edit_user_path(@user) do %>
