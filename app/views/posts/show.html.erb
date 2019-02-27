@@ -135,14 +135,18 @@
 	</div>
 	<div class="post-show-block">
 		<div class="post-show-box4">
-			<ul class="bxslider">
-				<!-- 写真 -->
-				<% @post.post_images.each do |pimage| %>
-					<li>
-						<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg' %>
-					</li>
-				<% end %>
-			</ul>
+			<% if @post.post_images.present? %>
+				<ul class="bxslider">
+					<!-- 写真 -->
+					<% @post.post_images.each do |pimage| %>
+						<li>
+							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg' %>
+						</li>
+					<% end %>
+				</ul>
+			<% else %>
+				<%= image_tag '/images/no_image.jpg', class: "post-index-image post-show-image" %>
+			<% end %>
 		</div>
 		<div class="post-show-box6">
 			<!-- 評価 -->

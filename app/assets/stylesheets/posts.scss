@@ -109,6 +109,8 @@
 }
 .post-index-image {
 	float: left;
+	width: 300px;
+	height: 300px;
 }
 .post-index-icon {
 	border: solid 1px #cccccc;
@@ -399,6 +401,9 @@
 	border: solid 1px #ffaf6e;
 	border-radius: 5px;
 	padding: 2px 6px;
+}
+.post-show-image {
+	border: solid 1px #dddddd;
 }
 .post-show-box6{
 	width: 410px;

@@ -66,8 +66,12 @@
 				<%= link_to post_path(post.id) do %>
 					<div class="post-index-box3">
 						<!-- 画像 -->
-						<% post.post_images.first(1).each do |pimage| %>
-							<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg', class: "post-index-image"  %>
+						<% if post.post_images.present? %>
+							<% post.post_images.first(1).each do |pimage| %>
+								<%= attachment_image_tag pimage, :image, :fill, 300, 300, fallback: '/images/no_image.jpg', class: "post-index-image"  %>
+							<% end %>
+						<% else %>
+							<%= image_tag '/images/no_image.jpg', class: "post-index-image" %>
 						<% end %>
 						<div>
 							<!-- クリップ -->
