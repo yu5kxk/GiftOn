@@ -2,8 +2,8 @@
 
 <div class="center-block">
 	<div class="list-edit-form">
-		<table>
-			<%= form_for(@small_scene) do |f| %>
+		<%= form_for(@small_scene) do |f| %>
+			<table>
 				<tr>
 					<% f.hidden_field :large_scene_id %>
 					<td class="list-edit-form-number"><%= f.text_field :number, size:'2×10' %></td>
@@ -13,7 +13,7 @@
 					<td></td>
 					<td class="list-edit-form-btn"><%= f.submit '変更内容を保存', class: "save-btn btn-layout" %></td>
 				</tr>
-			<% end %>
-		</table>
+			</table>
+		<% end %>
 	</div>
 </div>

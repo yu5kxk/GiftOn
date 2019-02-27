@@ -15,8 +15,8 @@
         <p class="post-new-title">投稿画像</p>
         <p class="care-comment">※一覧表示時は、１枚目の画像のみ表示されます。<br>
         　魅力が伝わる画像をお選びください<i class="far fa-grin-beam"></i></p>
-        <table>
-          <% @post.post_images.each_with_index do |pimage, i| %>
+        <% @post.post_images.each_with_index do |pimage, i| %>
+          <table>
             <% @post.id = pimage.post_id %>
               <tr>
                 <th><%= "#{i+1}" %></td>
@@ -27,8 +27,8 @@
                   <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete, class: "delete-btn btn-layout" %>
                 </td>
               </tr>
-            <% end %>
-          </table>
+            </table>
+          <% end %>
         </div>
       </div>
     </div>
