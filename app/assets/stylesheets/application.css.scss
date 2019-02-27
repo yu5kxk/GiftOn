@@ -206,6 +206,15 @@ body {
 	height: 40px;
 	border-radius: 100px;
 }
+.user-no-image {
+	border: solid 1px #dddddd;
+}
+.user-no-image i {
+	font-size: 42px;
+	color: #dddddd;
+	padding-top: 18px;
+	padding-left: 21px;
+}
 .price-tax {
 	font-size: 10px;
 }

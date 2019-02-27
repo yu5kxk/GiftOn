@@ -85,7 +85,7 @@
 									<!-- クリップ -->
 									<% if user_signed_in? %>
 										<% if post.cliped_by?(current_user) %>
-											<%= link_to post_clip_path(post,posts.clips), method: :delete do %>
+											<%= link_to post_clip_path(post,post.clips), method: :delete do %>
 												<p class="post-index-icon cliped-icon">
 													<%= post.clips.count %>
 								    				<i class="fas fa-paperclip"></i>

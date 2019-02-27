@@ -1,0 +1,39 @@
+<div class="mypage-box1">
+			<% if @user.image.present? %>
+				<%= attachment_image_tag @user, :image, :fill, 300, 300, class: "user-image-large" %>
+			<% else %>
+				<div class="user-image-large user-no-image">
+					<i class="fas fa-user"></i>
+				</div>
+			<% end %>
+			<p class="mypage-setting">
+				<%= link_to edit_user_path(@user) do %>
+					<p class="setting-btn btn-layout pink-btn">設定</p>
+				<% end %>
+			</p>
+		</div>
+		<div class="mypage-box2">
+			<p class="mypage-user-name"><%= @user.name %></p>
+			<table class="mypage-count">
+				<tr>
+					<td>投稿件数</td>
+					<td>もらったありがとう</td>
+					<td>クリップされた件数</td>
+				</tr>
+				<tr>
+					<td><%= @user.posts.count %></td>
+					<% total_thanks = 0 %>
+					<% total_clips = 0 %>
+					<% @user.posts.each do |userposts| %>
+						<% total_thanks = total_thanks + userposts.thanks.count %>
+						<% total_clips = total_clips + userposts.clips.count %>
+					<% end %>
+					<td><%= total_thanks %></td>
+					<td><%= total_clips %></td>
+				</tr>
+			</table>
+		</div>
+		<div class="mypage-box3">
+			<p><%= @user.introduction %></p>
+		</div>
+	</div>
