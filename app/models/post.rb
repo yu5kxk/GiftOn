@@ -19,7 +19,7 @@ class Post < ApplicationRecord
 
 	enum stance_id: {presented: 1,got: 2}
 	enum gender_id: {male: 1,female: 2}
-    enum age_id: {infant_lower: 1,infant_upper: 2,elementary_school_lower: 3,elementary_school_upper: 4,
+  enum age_id: {infant_lower: 1,infant_upper: 2,elementary_school_lower: 3,elementary_school_upper: 4,
         junior_high_school: 5,high_school: 6,university: 7,twenty: 8,thirty: 9,forty: 10,fifty: 11,
         sixty: 12,seventy: 13,eighty: 14,mote_age: 15}
 	enum prefecture_id: {
