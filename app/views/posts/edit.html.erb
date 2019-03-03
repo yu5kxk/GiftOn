@@ -28,7 +28,7 @@
             </td>
             <td>
               ／　年齢<%= render 'posts/need_new_item' %>
-              <%= f.select :age_id, Post.age_ids_i18n.keys.map {|k| [Post.age_ids_i18n[k], k]} %>
+              <%= f.select :age_id, Post.age_ids.keys %>
             </td>
           </tr>
           <tr class="table-height">

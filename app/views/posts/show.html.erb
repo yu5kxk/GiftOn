@@ -82,7 +82,7 @@
 				<div class="target-box stance-border">
 					<span class="target-box-title stance-color">贈り物を受け取った人</span>
 					<p>
-						<%= @post.age_id_i18n %>
+						<%= @post.age_id %>
 						<span>　　</span>
 						<%= @post.gender_id_i18n %>
 					</p>
@@ -120,15 +120,16 @@
 					<td class="post-show-small-font">住所</td>
 					<td colspan="2"></td>
 				</tr>
-				<tr>
+				<tr class="post-show-address">
 					<td  colspan="3"><%= @post.maker_address %></td>
 				</tr>
 				<tr>
-					<td class="post-show-small-font">サイトURL</td>
+					<th>
+						<%= link_to @post.url_address do %>
+							<p class="post-show-url btn-layout">WEBサイトで詳細をみる</p>
+						<% end %>
+					</th>
 					<td colspan="2"></td>
-				</tr>
-				<tr>
-					<td  colspan="3"><%= @post.url_address %></td>
 				</tr>
 			</table>
 		</div>
@@ -189,13 +190,14 @@
 				<p class="post-show-rating-total"><%= total_rating %>点</p>
 			</div>
 		</div>
+		<div class="post-show-box7">
+			<!-- 口コミ -->
+			<p><%= @post.review %></p>
+		</div>
 	</div>
-	<div class="post-show-box7">
-		<!-- 口コミ -->
-		<p><%= @post.review %></p>
-	</div>
+	
 	<div class="post-show-box8">
-		<p><%= link_to '戻る', :back, class: "back-btn btn-layout" %></p>
+		<p><%= link_to '戻る', posts_path, class: "back-btn btn-layout" %></p>
 		<div class="post-show-edit">
 			<% if @post.user.id = current_user %>
 				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>

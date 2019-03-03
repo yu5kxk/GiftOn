@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       reset_session
       redirect_to posts_top_path, alert: '退会しました。'
     elsif manager_signed_in?
-      redirect_to users_path, notice: '退会処理が完了しました。'
+      redirect_to users_path, alert: '退会処理が完了しました。'
     end
   end
 

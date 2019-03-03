@@ -165,7 +165,7 @@
 /*post show*/
 .post-show-block {
 	width: 450px;
-	height: 650px;
+	height: 100%;
 	float: left;
 }
 .post-show-box1{
@@ -372,6 +372,20 @@
 .post-show-box5 table {
 	margin-left: 10px;
 }
+.post-show-address {
+	height: 60px;
+}
+.post-show-url {
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 5px;
+	color: #61380B;
+  	border: solid 2px #61380B;
+}
+.post-show-url:hover {
+	color: white;
+	background: #61380B;
+}
 .post-show-maker-name {
 	font-size: 18px;
 	width: 300px;
@@ -410,7 +424,6 @@
 	height: 180px;
 	float: left;
 	padding: 10px 10px;
-	margin: 5px 50px;
 	border: solid 2px #ffaf6e;
 	border-radius: 8px;
 }
@@ -454,8 +467,9 @@
 }
 
 .post-show-box7{
-	width: 900px;
+	width: 410px;
 	padding: 20px 10px;
+	margin-top: 20px;
 	float: left;
 	border: solid 2px #ffaf6e;
 	border-radius: 8px;

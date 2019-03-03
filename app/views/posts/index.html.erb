@@ -13,7 +13,7 @@
 				<%= f.label :gender_id_eq, '性別' %>
 				<%= f.select :gender_id_eq, Post.gender_ids_i18n.keys.map {|k| [Post.gender_ids_i18n[k], Post.gender_ids[k]]}.to_h, :include_blank => '指定なし' %>
 				<%= f.label :age_id_eq, '相手の世代' %>
-				<%= f.select :age_id_eq, {"1～3歳" => 1, "4～6歳" => 2, "小学校(1～3年生)"=> 3, "小学校(4～6年生)"=> 4, "中学生"=> 5, "高校生"=> 6, "大学生"=> 7, "20代"=> 8, "30代"=> 9, "40代"=> 10, "50代"=> 11, "60代"=> 12, "70代"=> 13, "80代"=> 14, "それ以上"=> 15}, :include_blank => '指定なし' %>
+				<%= f.select :age_id_eq, Post.age_ids, :include_blank => '指定なし' %>
 				<%= f.label :prefecture_id_eq, '購入できる地域' %>
 				<%= f.select :prefecture_id_eq, Post.prefecture_ids, :include_blank => '指定なし' %>
 				<%= f.label :keeping_quality_eq, '日持ち' %>
@@ -91,7 +91,7 @@
 							<!-- クリップ -->
 							<% if user_signed_in? %>
 								<% if post.cliped_by?(current_user) %>
-									<%= link_to post_clip_path(post,posts.clips), method: :delete do %>
+									<%= link_to post_clip_path(post,post.clips), method: :delete do %>
 										<p class="post-index-icon cliped-icon">
 											<%= post.clips.count %>
 						    				<i class="fas fa-paperclip"></i>

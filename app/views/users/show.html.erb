@@ -4,15 +4,15 @@
 		<%= render 'users/mypage_head' %>
 	<div class="mypage-menuber">
 		<div class="mypage-menu mypage-chose">投稿した口コミ</div>
-		<% if user_signed_in? %>
+		<% if current_user != @user %>
+		<% else %>
 			<div class="mypage-menu mypage-link">
 				<%= link_to post_clips_path(@user.id) do %>
 					<i class="fas fa-paperclip"></i>
 					<span>マイクリップ</span>
-					<span class="myclip-count myclip-count-white"><%= current_user.clips.count %></span>
+					<span class="myclip-count myclip-count-white"><%= @user.clips.count %></span>
 				<% end %>
 			</div>
-		<% else %>
 		<% end %>
 	</div>
 	<div class="mypage-box4">
@@ -36,7 +36,7 @@
 				<%= link_to post_path(post.id) do %>
 					<div class="post-index post-index-box2">
 						<div class="post-index-scene">
-							<%= post.age_id_i18n %>
+							<%= post.age_id %>
 							<%= post.gender_id_i18n %>へ<br>
 							<%= post.small_scene.name %>
 						</div>
@@ -77,7 +77,7 @@
 							<!-- クリップ -->
 							<% if user_signed_in? %>
 								<% if post.cliped_by?(current_user) %>
-									<%= link_to post_clip_path(post,posts.clips), method: :delete do %>
+									<%= link_to post_clip_path(post,post.clips), method: :delete do %>
 										<p class="post-index-icon cliped-icon">
 											<%= post.clips.count %>
 						    				<i class="fas fa-paperclip"></i>

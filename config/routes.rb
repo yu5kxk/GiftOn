@@ -31,8 +31,6 @@ Rails.application.routes.draw do
   resources :large_scenes, only:[:new, :create, :edit, :update, :destroy]
   resources :small_scenes, only:[:create, :edit, :update, :destroy]
 
- 
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

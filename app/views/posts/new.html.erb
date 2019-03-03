@@ -28,7 +28,7 @@
             </td>
             <td>
               ／　年齢<%= render 'posts/need_new_item' %>
-              <%= f.select :age_id, Post.age_ids_i18n.keys.map {|k| [Post.age_ids_i18n[k], k]} %>
+              <%= f.select :age_id, Post.age_ids.keys %>
             </td>
           </tr>
           <tr class="table-height">
@@ -48,7 +48,7 @@
           </tr>
           <tr class="table-height">
             <td class="care-item">日持ち期間</td>
-            <td rowspan="2"><%= f.select :keeping_quality, Post.keeping_qualities_i18n.keys.map {|k| [Post.keeping_qualities_i18n[k], k]} %></td>
+            <td rowspan="2"><%= f.select :keeping_quality, Post.keeping_qualities_i18n.keys.map {|k| [Post.keeping_qualities_i18n[k], k]}, :include_blank => '指定なし' %></td>
           </tr>
           <tr class="table-height-low">
             <td class="care-comment">※食品の場合は、入力お願いします。</td>

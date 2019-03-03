@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_061311) do
+ActiveRecord::Schema.define(version: 2019_02_28_093541) do
 
   create_table "clips", force: :cascade do |t|
     t.integer "user_id"
@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(version: 2019_02_16_061311) do
     t.date "birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "gender_id"
     t.string "image_id"
     t.integer "deleted_user"
     t.text "introduction"
