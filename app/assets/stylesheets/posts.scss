@@ -113,6 +113,8 @@
 	height: 300px;
 }
 .post-index-icon {
+	width: 45px;
+	text-align: center;
 	border: solid 1px #cccccc;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
@@ -197,12 +199,9 @@
 
 /*clip icon*/
 .clip-icon {
-	padding: 5px 11px;
-	border: solid 1px #fc6479;
+	background-color: #FBEFFB;
 }
 .cliped-icon {
-	padding: 5px 11px;
-	border: solid 1px #fc6479;
 	background-color: #fc6479;
 }
 .clip-icon i {
@@ -214,12 +213,9 @@
 
 /*thank icon*/
 .thank-icon {
-	padding: 5px 10px;
-	border: solid 1px #fc6479;
+	background-color: #FBEFFB;
 }
 .thanked-icon {
-	padding: 5px 10px;
-	border: solid 1px #fc6479;
 	background-color: #fc6479;
 }
 .thank-icon i {
@@ -418,6 +414,9 @@
 }
 .post-show-image {
 	border: solid 1px #dddddd;
+}
+.post_image {
+	margin: 0 auto;
 }
 .post-show-box6{
 	width: 410px;
