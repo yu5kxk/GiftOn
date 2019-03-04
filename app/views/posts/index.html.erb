@@ -13,7 +13,7 @@
 				<%= f.label :gender_id_eq, '性別' %>
 				<%= f.select :gender_id_eq, Post.gender_ids_i18n.keys.map {|k| [Post.gender_ids_i18n[k], Post.gender_ids[k]]}.to_h, :include_blank => '指定なし' %>
 				<%= f.label :age_id_eq, '相手の世代' %>
-				<%= f.select :age_id_eq, Post.age_ids, :include_blank => '指定なし' %>
+				<%= f.select :age_id_eq, @ages, :include_blank => '指定なし' %>
 				<%= f.label :prefecture_id_eq, '購入できる地域' %>
 				<%= f.select :prefecture_id_eq, Post.prefecture_ids, :include_blank => '指定なし' %>
 				<%= f.label :keeping_quality_eq, '日持ち' %>
@@ -50,7 +50,7 @@
 				<%= link_to post_path(post.id) do %>
 					<div class="post-index post-index-box2">
 						<div class="post-index-scene">
-							<%= post.age_id_i18n %>
+							<%#= post.age.name %>
 							<%= post.gender_id_i18n %>へ<br>
 							<%= post.small_scene.name %>
 						</div>

@@ -1,0 +1,23 @@
+<div class="page-title">管理者メニュー</div>
+<div class="center-block">
+	<div class="manager-menu">
+		<div>
+			<p class="manager-menu-title">一覧</p>
+			<%= link_to new_large_scene_path do %>
+				<p class="btn-layout pink-btn menu-item">ギフトシーン</p>
+			<% end %>
+
+			<%= link_to new_large_category_path do %>
+				<p class="btn-layout pink-btn menu-item">カテゴリー</p>
+			<% end %>
+
+			<%= link_to new_large_category_path do %>
+				<p class="btn-layout pink-btn menu-item">年齢層</p>
+			<% end %>
+
+			<%= link_to users_path do %>
+				<p class="btn-layout pink-btn menu-item">ユーザー</p>
+			<% end %>
+		</div>
+	</div>
+</div>

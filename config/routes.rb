@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'users/lnquiry'
   get 'posts/top'
+  get 'managers/menu'
   
   resources :posts, only:[:new, :index, :show, :edit, :create, :update, :destroy] do
     resources :post_images, only:[:new, :create, :destroy]
@@ -30,7 +31,8 @@ Rails.application.routes.draw do
 
   resources :large_scenes, only:[:new, :create, :edit, :update, :destroy]
   resources :small_scenes, only:[:create, :edit, :update, :destroy]
-
+  
+  resources :ages, only:[:new, :create, :edit, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

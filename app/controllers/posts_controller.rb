@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @scenes = SmallScene.all
     @categories = SmallCategory.all
+    @ages = Age.all
     @q = Post.ransack(params[:q])
     @search_posts = @q.result.page(params[:page]).reverse_order
   end

@@ -47,35 +47,15 @@
         </div>
       <% end %>
       <% if manager_signed_in? %>
-        <div class="header-list">
-          <p>一覧</p>
-          <%= link_to new_large_scene_path do %>
-            <div class="header-item">
-              <p>
-                <i class="fas fa-gifts"></i>
-                <span class="post-show-small-font">ギフトシーン</span>
-              </p>
-            </div>
-          <% end %>
+        <%= link_to managers_menu_path do %>
+          <div class="header-item">
+            <p>
+              <i class="fas fa-gifts"></i>
+              <span class="post-show-small-font">管理者メニュー</span>
+            </p>
+          </div>
+        <% end %>
 
-          <%= link_to new_large_category_path do %>
-            <div class="header-item">
-              <p>
-                <i class="fas fa-clipboard-list"></i>
-                <span>カテゴリー</span>
-              </p>
-            </div>
-          <% end %>
-
-          <%= link_to users_path do %>
-            <div class="header-item">
-              <p>
-                <i class="fas fa-users"></i>
-                <span>ユーザー</span>
-              </p>
-            </div>
-          <% end %>
-        </div>
 
         <%= link_to destroy_manager_session_path, method: :delete do %>
           <div class="header-item">

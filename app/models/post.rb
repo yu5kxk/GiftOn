@@ -16,7 +16,8 @@ class Post < ApplicationRecord
 	belongs_to :user
 	belongs_to :small_category
   belongs_to :small_scene
-
+  belongs_to :age
+  
 	enum stance_id: {presented: 1,got: 2}
 	enum gender_id: {male: 1,female: 2}
   enum age_id: {"1～3歳":1, "4～6歳":2, "小学校(1～3年生)":3, "小学校(4～6年生)":4,
