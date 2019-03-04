@@ -8,7 +8,7 @@
 	<% if user_signed_in? %>
 		<div class="user-delete-btn">
 			<%= link_to unsubscribe_user_path(@user.id), method: :patch do %>
-				<p class="delete-btn user-delete btn-layout">ユーザーの削除</p>
+				<p class="delete-btn user-delete btn-layout">退会は、こちら</p>
 			<% end %>
 		</div>
 	<% end %>

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def lnquiry
     if user_signed_in?
-      @user = User.find(params[:id])
+      @user = current_user
     else
     end
   end
