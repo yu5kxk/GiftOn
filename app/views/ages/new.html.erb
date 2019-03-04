@@ -1,18 +1,18 @@
 <div class="page-title">年齢層リスト</div>
 
 <div class="center-block">
-	<div>
-		<%= form_for(@age) do |f| %>
-			<%= f.text_field :name, placeholder: '年齢層' %>
-			<%= f.submit '追加', class: "new-btn btn-layout orange-btn" %>
-		<% end %>
-	</div>
 	<div class="age-list">
+		<div class="age-new">
+			<%= form_for(@age) do |f| %>
+				<%= f.text_field :name, placeholder: '年齢層' %>
+				<%= f.submit '追加', class: "new-btn btn-layout orange-btn" %>
+			<% end %>
+		</div>
 		<% @ages.each_with_index do |age,i| %>
 			<table>
 				<tr>
 					<td class="age-number"><%= "#{i+1}" %></td>
-					<td class="age-name"><%#= age.name %></td>
+					<td class="age-name"><%= age.name %></td>
 					<td><%= link_to '編集', edit_age_path(age.id), class: "edit-btn btn-layout" %><%= link_to '削除', age_path(age.id), method: :delete, class: "delete-btn btn-layout" %></td>
 				</tr>
 			</table>
