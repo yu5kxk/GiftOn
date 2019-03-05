@@ -11,10 +11,12 @@
 		</div>
 	</div>
 	<% if user_signed_in? %>
-		<div class="user-delete-btn">
-			<%= link_to unsubscribe_user_path(@user.id), method: :patch do %>
-				<p class="delete-btn user-delete btn-layout">退会は、こちら</p>
-			<% end %>
+		<div class="lnquiry-block">
+			<div class="lnquiry-box1">
+				<%= link_to unsubscribe_user_path(@user.id), method: :patch do %>
+					<p class="delete-btn user-delete btn-layout">退会は、こちら</p>
+				<% end %>
+			</div>
 		</div>
 	<% end %>
 </div>

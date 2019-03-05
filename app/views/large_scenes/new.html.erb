@@ -12,7 +12,14 @@
 				<tr class="large-title">
 					<th class="large-number"><%= large.number %></th>
 					<th><%= large.name %></th>
-					<td class="large-btn"><%= link_to '編集', edit_large_scene_path(large.id), class: "edit-btn btn-layout" %><%= link_to '削除', large_scene_path(large.id), method: :delete, class: "delete-btn btn-layout" %></td>
+					<td class="large-btn">
+						<%= link_to edit_large_scene_path(large.id) do %>
+							<p class="edit-btn btn-layout">編集</p>
+						<% end %>
+						<%= link_to large_scene_path(large.id), method: :delete do %>
+							<p class="delete-btn btn-layout">削除</p>
+						<% end %>
+						</td>
 					<!-- 編集画面は、モーダルかアラート -->
 					<td></td>
 				</tr>
@@ -30,7 +37,14 @@
 						<td></td>
 						<td class="small-number"><%= small.number %></td>
 						<td><%= small.name %></td>
-						<td><%= link_to '編集', edit_small_scene_path(small.id), class: "edit-btn btn-layout" %><%= link_to '削除', small_scene_path(small.id), method: :delete, class: "delete-btn btn-layout" %></td>
+						<td>
+							<%= link_to edit_small_scene_path(small.id) do %>
+								<p class="edit-btn btn-layout">編集</p>
+							<% end %>
+							<%= link_to small_scene_path(small.id), method: :delete do %>
+								<p class="delete-btn btn-layout">削除</p>
+							<% end %>
+						</td>
 					</tr>
 				<% end %>
 			</table>

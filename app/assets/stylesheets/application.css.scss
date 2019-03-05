@@ -186,6 +186,7 @@ body {
 	width: 250px;
 	margin: 0 70px;
 	padding: 10px 15px;
+	background-color: #fff8e8;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-right: solid 1px #fc6479;
@@ -327,20 +328,18 @@ body {
 /*post show/scene ctegory new*/
 .edit-btn {
 	margin: 0 5px;
-	color: #FE2E2E;
-	background-color: #fc9f9f;
-  	border: solid 2px #FE2E2E;
+	color: #ff3f3f;
+  	border: solid 2px #ff3f3f;
 }
 .edit-btn:hover {
 	color: white;
-	background: #FE2E2E;
+	background: #ff3f3f;
 }
 /*post show/scene ctegory new/ user delete*/
 .delete-btn {
 	margin: 0 5px;
 	margin: 0 5px;
 	color: #D358F7;
-	background-color: #e2aef2;
   	border: solid 2px #D358F7;
 }
 .delete-btn:hover {
@@ -374,10 +373,11 @@ body {
 
 .back-btn {
 	margin: 0 5px;
-	color: #fff8e8;
+	color: #61380B;
   	border: solid 2px #fff8e8;
+  	background: #fff8e8;
 }
 .back-btn:hover {
 	color: #61380B;
-	background: #fff8e8;
+	border: solid 2px #61380B;
 }

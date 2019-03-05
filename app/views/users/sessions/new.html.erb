@@ -1,31 +1,43 @@
 <div class="page-title">ログイン</div>
 
 <div class="center-block">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render 'posts/error_messages', model: f.object %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
+  <div class="user-sign-left">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render 'posts/error_messages', model: f.object %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "sign-btn btn-layout" %>
       </div>
     <% end %>
 
-    <div class="actions">
-      <%= f.submit "Log in", class: "sign-btn btn-layout" %>
+    <div class="sign-btn-block">
+      <%= render "users/shared/links" %>
     </div>
-  <% end %>
-
-  <div class="sign-btn-block">
-    <%= render "users/shared/links" %>
+  </div>
+  <div class="user-sign-right">
+    <div class="sign-in-image">
+      <%= image_tag '/images/gifts12.png', class: "gifts-image" %>
+      <div class="sign-in-pr">
+        <p class="pr-title">ログインして</p>　
+        <i class="fas fa-edit"></i>
+        <p class="pr-title">オススメの贈り物を投稿しよう！</P>
+      </div>
+    </div>
   </div>
 </div>

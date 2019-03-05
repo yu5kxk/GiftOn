@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  
+    root 'posts#top'
 
-  root 'posts#top'
 
   devise_for :managers, controllers: {
   	session: 'managers/sessions',

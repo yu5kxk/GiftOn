@@ -190,7 +190,6 @@
 	float: right;
 }
 .post-show-box2{
-	margin-left: 150px;
 	float: left;
 }
 .post-show-clip,.post-show-thank {
@@ -478,7 +477,10 @@
 	float: left;
 }
 .post-show-edit {
-	text-align: right;
+	width: 150px;
+	padding-top: 20px;
+	font-size: 12px;
+	float: left;
 }
 
 /*post new*/

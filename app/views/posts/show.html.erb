@@ -16,9 +16,17 @@
 			</div>
 		</div>
 		<div class="post-show-box2">
-			<% if user_signed_in? %>
-				<!-- クリップ -->
-				<div class="post-show-clip">
+			<div class="post-show-edit">
+				<% if @post.user.id != current_user.id %>
+				<% elsif manager_signed_in?%>
+					<p><%= link_to '投稿内容編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
+				<% else %>
+					<p><%= link_to '投稿内容編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
+				<% end %>
+			</div>
+			<!-- クリップ -->
+			<div class="post-show-clip">
+				<% if user_signed_in? %>
 					<% if @post.cliped_by?(current_user) %>
 						<div class="icon-btn cliped-icon">
 			    			<%= link_to post_clip_path(@post), method: :delete do %>
@@ -32,16 +40,25 @@
 				    		<% end %>
 				    	</div>
 					<% end %>
-					<div class="balloon-left-clip">
-				   		<p>
-				   			<span class="thanks-count-balloon"><%= @post.clips.count %></span>
-				   			<span class="thanks-title"><br>クリップ中</span>
-				   		</p>
-					</div>
+				<% else %>
+					<!-- ゲストユーザー -->
+					<div class="icon-btn clip-icon">
+			    		<%= link_to new_user_session_path do %>
+				    		<i class="fas fa-paperclip"></i>
+				    	<% end %>
+				    </div>
+				<% end %>
+				<div class="balloon-left-clip">
+					<p>
+						<span class="thanks-count-balloon"><%= @post.clips.count %></span>
+						<span class="thanks-title"><br>クリップ中</span>
+					</p>
 				</div>
+			</div>
 
-				<div class="post-show-thank">
-				<!-- ありがとう -->
+			<div class="post-show-thank">
+			<!-- ありがとう -->
+				<% if user_signed_in? %>
 					<% if @post.thanked_by?(current_user) %>
 						<div class="icon-btn thanked-icon">
 				   			<%= link_to post_thank_path(@post), method: :delete do %>
@@ -55,18 +72,23 @@
 				   			<% end %>
 				   		</div>
 					<% end %>
-					<div class="balloon-left-thank">
-				   		<p>
-				   			<span class="thanks-count-balloon"><%= @post.thanks.count %></span>
-				   			<span class="thanks-title"><br>ありがとう</span>
-				   		</p>
-					</div>
+				<% else %>
+					<div class="icon-btn thank-icon">
+				   			<%= link_to new_user_session_path do %>
+				   				<i class="far fa-grin-squint"></i>
+				   			<% end %>
+				   		</div>
+				<% end %>
+				<div class="balloon-left-thank">
+					<p>
+						<span class="thanks-count-balloon"><%= @post.thanks.count %></span>
+						<span class="thanks-title"><br>ありがとう</span>
+					</p>
 				</div>
-				<p  class="post-show-thanks-comment">参考になったら、ありがとうでお礼をしよう！</p>
-			<% else %>
-			<% end %>
-
-
+			</div>
+			<p  class="post-show-thanks-comment">
+				参考になったら、ありがとうでお礼をしよう！
+			</p>
 		</div>
 		<div class="post-show-box3">
 			<!-- 相手の情報 -->
@@ -87,7 +109,6 @@
 						<%= @post.gender_id_i18n %>
 					</p>
 				</div>
-
 		</div>
 		<div class="post-show-box5">
 			<!-- 商品情報・口コミ -->
@@ -198,13 +219,5 @@
 	
 	<div class="post-show-box8">
 		<p><%= link_to '戻る', posts_path, class: "back-btn btn-layout" %></p>
-		<div class="post-show-edit">
-			<% if @post.user.id = current_user %>
-				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
-			<% elsif manager_signed_in?%>
-				<p><%= link_to '編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
-			<% else %>
-			<% end %>
-		</div>
 	</div>
 </div>

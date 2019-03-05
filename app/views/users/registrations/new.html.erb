@@ -3,74 +3,94 @@
 <div class="center-block">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render 'posts/error_messages', model: f.object %>
-    <table>
-      <tr>
-        <th>
-          <%= f.label :name %>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <%= f.text_field :name, autofocus: true %>
-        </td>
-      </tr>
+    <div class="user-sign-left">
+      <table>
+        <tr>
+          <th>
+            <%= f.label :name %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.text_field :name, autofocus: true %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>
-          <%= f.label :birth %>
-          <span class="care-comment">※登録後は、変更出来ません。</span>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <%= f.date_field :birth, autofocus: true %>
-        </td>
-      </tr>
+        <tr>
+          <th>
+            <%= f.label :birth %>
+            <span class="care-comment">※登録後は、変更出来ません。</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.date_field :birth, autofocus: true %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>
-          <%= f.label :email %>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </td>
-      </tr>
+        <tr>
+          <th>
+            <%= f.label :email %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>
-          <%= f.label :password %>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </td>
-      </tr>
+        <tr>
+          <th>
+            <%= f.label :password %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>
-          <%= f.label :password_confirmation %>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </td>
-      </tr>
+        <tr>
+          <th>
+            <%= f.label :password_confirmation %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </td>
+        </tr>
 
-      <tr>
-        <td>
-          <%= f.submit "Sign up", class: "sign-btn btn-layout" %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-  <div class="sign-btn-block">
-    <%= render "users/shared/links" %>
+        <tr>
+          <td>
+            <%= f.submit "Sign up", class: "sign-btn btn-layout" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="sign-btn-block">
+      <%= render "users/shared/links" %>
+    </div>
+  </div>
+  <div class="user-sign-right">
+    <p class="sign-pr-title pr-title">会員登録すると？</p>
+    <div class="sign-pr pr-point">
+      <i class="fas fa-comment-medical"></i>
+      <p class="pr-title">口コミを投稿できる</p>
+    </div>
+    <div class="sign-pr pr-point">
+      <i class="far fa-list-alt"></i>
+      <p class="pr-title">クリップ機能で<br>自分だけの贈り物リスト作成</p>
+    </div>
+    <div class="sign-pr pr-point">
+      <i class="far fa-grin-squint"></i>
+      <p class="pr-title">参考になった口コミに<br>"ありがとう"を伝えられる</p>
+    </div>
+    <div class="">
+      <%= image_tag '/images/gifts.png', class: "sign-pr" %>
+    </div>
   </div>
 </div>
