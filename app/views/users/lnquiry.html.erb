@@ -1,9 +1,14 @@
 <div class="page-title">ヘルプ</div>
 <div class="center-block">
-	<div>
-		<%= link_to 'https://goo.gl/forms/W6otH3WG4kaMA7sG3' do %>
-			<p class="lnquiry-form-btn btn-layout pink-btn">お問い合わせ</p>
-		<% end %>
+	<div class="lnquiry-block">
+		<div class="lnquiry-box1">
+			<%= link_to 'https://goo.gl/forms/W6otH3WG4kaMA7sG3' do %>
+				<p class="lnquiry-form-btn btn-layout pink-btn">お問い合わせ</p>
+			<% end %>
+		</div>
+		<div class="lnquiry-box2">
+			<p>ご意見・ご感想などもお待ちしております。</p>
+		</div>
 	</div>
 	<% if user_signed_in? %>
 		<div class="user-delete-btn">
