@@ -39,8 +39,15 @@
 				<% end %>
 				<td class="user-table-item"><%= total_thanks %></td>
 				<td class="user-table-item"><%= total_clips %></td>
-				<td class="user-table-item"><%= link_to 'マイページ', user_path(user.id), class: "userpage-btn btn-layout orange-btn" %></td>
+				<td class="user-table-item">
+					<%= link_to user_path(user.id) do %>
+						<p class="userpage-btn btn-layout orange-btn">マイページ</p>
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</table>
+	<div class="paginate-block">
+		<%= paginate @users, class: "paginate" %>
+	</div>
 </div>

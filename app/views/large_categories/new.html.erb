@@ -11,8 +11,14 @@
 				<tr class="large-title">
 					<th class="large-number"><%= large.number %></th>
 					<th><%= large.name %></th>
-					<td class="large-btn"><%= link_to '編集', edit_large_category_path(large.id), class: "edit-btn btn-layout" %><%= link_to '削除', large_category_path(large.id), method: :delete, class: "delete-btn btn-layout" %></td>
-					<!-- 編集画面は、モーダルかアラート -->
+					<td class="large-btn">
+						<%= link_to edit_large_category_path(large.id) do  %>
+							<p class="edit-btn btn-layout">編集</p>
+						<% end %>
+						<%= link_to large_category_path(large.id), method: :delete, "data-confirm" => "削除してもよろしいですか？" do %>
+							<p class="delete-btn btn-layout">削除</p>
+						<% end %>
+					</td>
 					<td></td>
 				</tr>
 				<tr class="small-new">
@@ -21,7 +27,6 @@
 					<td class="small-number"><%= f.text_field :number, size:'2×10', placeholder: 'No.' %></td>
 					<td><%= f.text_field :name, placeholder: '小カテゴリー' %><%= f.submit '追加', class: "new-btn btn-layout orange-btn" %></td>
 					<td></td>
-					<!-- 編集画面は、モーダルかアラート -->
 					<% end %>
 				</tr>
 				<% large.small_categories.each do |small| %>
@@ -29,7 +34,14 @@
 						<td></td>
 						<td class="small-number"><%= small.number %></td>
 						<td><%= small.name %></td>
-						<td><%= link_to '編集', edit_small_category_path(small.id), class: "edit-btn btn-layout" %><%= link_to '削除', small_category_path(small.id), method: :delete, class: "delete-btn btn-layout" %></td>
+						<td>
+							<%= link_to edit_small_category_path(small.id) do %>
+								<p class="edit-btn btn-layout">編集</p>
+							<% end %>
+							<%= link_to small_category_path(small.id), method: :delete, "data-confirm" => "削除してもよろしいですか？" do %>
+								<p class="delete-btn btn-layout">削除</p>
+							<% end %>
+						</td>
 					</tr>
 				<% end %>
 			</table>

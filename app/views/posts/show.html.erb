@@ -17,9 +17,9 @@
 		</div>
 		<div class="post-show-box2">
 			<div class="post-show-edit">
-				<% if @post.user.id != current_user.id %>
-				<% elsif manager_signed_in?%>
+				<% if manager_signed_in? %>
 					<p><%= link_to '投稿内容編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
+				<% elsif @post.user != current_user %>
 				<% else %>
 					<p><%= link_to '投稿内容編集', edit_post_path(@post.id), class: "edit-btn btn-layout" %></p>
 				<% end %>
@@ -137,21 +137,19 @@
 					<th  colspan="2" class="post-show-maker-name"><%= @post.maker_name %></th>
 					<td><p class="post-show-prefecture"><%= @post.prefecture_id %></p></td>
 				</tr>
-				<tr>
-					<td class="post-show-small-font">住所</td>
-					<td colspan="2"></td>
-				</tr>
 				<tr class="post-show-address">
 					<td  colspan="3"><%= @post.maker_address %></td>
 				</tr>
-				<tr>
-					<th>
-						<%= link_to @post.url_address do %>
-							<p class="post-show-url btn-layout">WEBサイトで詳細をみる</p>
-						<% end %>
-					</th>
-					<td colspan="2"></td>
-				</tr>
+				<% if @post.url_address != "" %>
+					<tr>
+						<th>
+							<%= link_to @post.url_address do %>
+								<p class="post-show-url btn-layout">WEBサイトで詳細をみる</p>
+							<% end %>
+						</th>
+						<td colspan="2"></td>
+					</tr>
+				<% end %>
 			</table>
 		</div>
 	</div>

@@ -1,4 +1,6 @@
 class AgesController < ApplicationController
+	before_action :authenticate_manager!, only:[:new, :create, :edit, :update, :destroy]
+	
 	def new
 		@age = Age.new
 		@ages = Age.all

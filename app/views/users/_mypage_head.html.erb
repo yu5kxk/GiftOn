@@ -5,7 +5,12 @@
 				<%= image_tag '/images/user_image.png', class: "user-image-large user-no-image" %>
 			<% end %>
 			<p class="mypage-setting">
-				<% if current_user == @user %>
+				<% if manager_signed_in? %>
+					<%= link_to edit_user_path(@user) do %>
+						<p class="setting-btn btn-layout pink-btn">設定</p>
+					<% end %>
+				<% elsif current_user != @user %>
+				<% else %>
 					<%= link_to edit_user_path(@user) do %>
 						<p class="setting-btn btn-layout pink-btn">設定</p>
 					<% end %>

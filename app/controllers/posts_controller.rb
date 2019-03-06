@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # before_action :user_or_manager_signed_in?, only:[:edit, :update, :destroy]
+  before_action :post_user_sugned_in?, only:[:edit, :update, :destroy]
   before_action :authenticate_user!, only:[:new, :create]
 
   def new

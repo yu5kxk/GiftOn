@@ -13,7 +13,14 @@
 				<tr>
 					<td class="age-number"><%= "#{i+1}" %></td>
 					<td class="age-name"><%= age.name %></td>
-					<td><%= link_to '編集', edit_age_path(age.id), class: "edit-btn btn-layout" %><%= link_to '削除', age_path(age.id), method: :delete, class: "delete-btn btn-layout" %></td>
+					<td>
+						<%= link_to edit_age_path(age.id) do %>
+							<p class="edit-btn btn-layout">編集</p>
+						<% end %>
+						<%= link_to age_path(age.id), method: :delete, "data-confirm" => "削除してもよろしいですか？" do %>
+							<p class="delete-btn btn-layout">削除</p>
+						<% end %>
+					</td>
 				</tr>
 			</table>
 		<% end %>

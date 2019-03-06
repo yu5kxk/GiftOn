@@ -1,5 +1,5 @@
 class PostImagesController < ApplicationController
-	before_action :user_or_manager_signed_in?, only:[:new, :create, :edit, :update, :destroy]
+	before_action :post_image_user_sugned_in?, only:[:new, :create, :destroy]
 
 	def new
 		@post = Post.find(params[:post_id])

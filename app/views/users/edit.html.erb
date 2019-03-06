@@ -37,7 +37,7 @@
 	<% end %>
 	<% if manager_signed_in? %>
 		<div class="user-delete-btn">
-			<p><%= link_to 'ユーザーの削除', unsubscribe_user_path(@user.id), method: :patch, class: "delete-btn btn-layout" %></p>
+			<p><%= link_to 'ユーザーの削除', unsubscribe_user_path(@user.id), method: :patch, "data-confirm" => "削除してもよろしいですか？", class: "delete-btn btn-layout" %></p>
 		</div>
 	<% end %>
 </div>

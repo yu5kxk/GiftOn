@@ -24,7 +24,7 @@
                   <%= attachment_image_tag pimage, :image, :fill, 300, 300, class: "post-image-view" %>
                 </td>
                 <td>
-                  <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete, class: "delete-btn btn-layout" %>
+                  <%= link_to "削除", post_post_image_path(@post,pimage.id), method: :delete, "data-confirm" => "削除してもよろしいですか？", class: "delete-btn btn-layout" %>
                 </td>
               </tr>
             </table>

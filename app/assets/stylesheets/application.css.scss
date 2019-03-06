@@ -39,7 +39,6 @@ body {
 /*header*/
 .header-top {
 	height: 70px;
-	background-color: pink;
 }
 .gifton-logo{
 	font-size: 40px;
@@ -130,6 +129,13 @@ body {
 	font-size: 13px;
 }
 
+/*footer*/
+.footer-bottom {
+	width: 100%;
+	height: 40px;
+	background: #f79e9e;
+	float: left;
+}
 
 /*large_scene large_ctegory new*/
 .list-table {
@@ -352,6 +358,7 @@ body {
 
 /*user index*/
 .userpage-btn {
+	margin-top: 8px;
 	font-size: 13px;
 }
 
